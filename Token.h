@@ -5,25 +5,28 @@
 #ifndef COMPILER_TOKEN_H
 #define COMPILER_TOKEN_H
 
+#include <bits/stdc++.h>
+using namespace std;
+
 class Token {
 
-    char* name;
-    char* pattern;
+    string name;
+    string pattern;
     int priority;
 public:
-    Token(char *name);
+    Token(string name);
 
-    Token(char *name, char *pattern, int priority);
+    Token(string name, string pattern, int priority);
 
-    
 
-    char *getName() const;
 
-    void setName(char *name);
+    string getName() const;
 
-    char *getPattern() const;
+    void setName(string name);
 
-    void setPattern(char *pattern);
+    string getPattern() const;
+
+    void setPattern(string pattern);
 
     int getPriority() const;
 

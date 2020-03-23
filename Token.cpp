@@ -4,22 +4,22 @@
 
 #include "Token.h"
 
-Token::Token(char *name) : name(name) {}
+Token::Token(string name) : name(name) {}
 
-Token::Token(char *name, char *pattern, int priority) : name(name), pattern(pattern), priority(priority) {}
-char *Token::getName() const {
+Token::Token(string name, string pattern, int priority) : name(name), pattern(pattern), priority(priority) {}
+string Token::getName() const {
     return name;
 }
 
-void Token::setName(char *name) {
+void Token::setName(string name) {
     Token::name = name;
 }
 
-char *Token::getPattern() const {
+string Token::getPattern() const {
     return pattern;
 }
 
-void Token::setPattern(char *pattern) {
+void Token::setPattern(string pattern) {
     Token::pattern = pattern;
 }
 
