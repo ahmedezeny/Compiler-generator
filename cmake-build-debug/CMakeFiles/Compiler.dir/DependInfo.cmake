@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/zeny/Documents/projects/Compiler/Controler.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/Controler.cpp.o"
   "/home/zeny/Documents/projects/Compiler/NFA.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/NFA.cpp.o"
-  "/home/zeny/Documents/projects/Compiler/NFAState.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/NFAState.cpp.o"
   "/home/zeny/Documents/projects/Compiler/State.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/State.cpp.o"
   "/home/zeny/Documents/projects/Compiler/Token.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/Token.cpp.o"
   "/home/zeny/Documents/projects/Compiler/main.cpp" "/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/Compiler.dir/main.cpp.o"

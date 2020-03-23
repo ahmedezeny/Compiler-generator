@@ -30,3 +30,7 @@ int Token::getPriority() const {
 void Token::setPriority(int priority) {
     Token::priority = priority;
 }
+
+Token::Token() {
+
+}

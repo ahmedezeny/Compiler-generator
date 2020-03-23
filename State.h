@@ -17,7 +17,7 @@ private:
 
 public:
     State();
-    
+
     State(const Token &stateToken);
 
     State(const list<map<char,set<State>>>, bool endState, const Token &stateToken);

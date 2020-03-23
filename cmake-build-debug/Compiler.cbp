@@ -84,16 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/zeny/Documents/projects/Compiler/Controler.cpp">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/home/zeny/Documents/projects/Compiler/Controler.h">
+			<Option target="Compiler"/>
+		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler/NFA.cpp">
 			<Option target="Compiler"/>
 		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler/NFA.h">
-			<Option target="Compiler"/>
-		</Unit>
-		<Unit filename="/home/zeny/Documents/projects/Compiler/NFAState.cpp">
-			<Option target="Compiler"/>
-		</Unit>
-		<Unit filename="/home/zeny/Documents/projects/Compiler/NFAState.h">
 			<Option target="Compiler"/>
 		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler/State.cpp">

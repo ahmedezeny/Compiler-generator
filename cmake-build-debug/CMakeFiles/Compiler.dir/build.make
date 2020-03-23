@@ -96,22 +96,9 @@ CMakeFiles/Compiler.dir/State.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/State.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler/State.cpp -o CMakeFiles/Compiler.dir/State.cpp.s
 
-CMakeFiles/Compiler.dir/NFAState.cpp.o: CMakeFiles/Compiler.dir/flags.make
-CMakeFiles/Compiler.dir/NFAState.cpp.o: ../NFAState.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Compiler.dir/NFAState.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/NFAState.cpp.o -c /home/zeny/Documents/projects/Compiler/NFAState.cpp
-
-CMakeFiles/Compiler.dir/NFAState.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/NFAState.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeny/Documents/projects/Compiler/NFAState.cpp > CMakeFiles/Compiler.dir/NFAState.cpp.i
-
-CMakeFiles/Compiler.dir/NFAState.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/NFAState.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler/NFAState.cpp -o CMakeFiles/Compiler.dir/NFAState.cpp.s
-
 CMakeFiles/Compiler.dir/NFA.cpp.o: CMakeFiles/Compiler.dir/flags.make
 CMakeFiles/Compiler.dir/NFA.cpp.o: ../NFA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compiler.dir/NFA.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Compiler.dir/NFA.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/NFA.cpp.o -c /home/zeny/Documents/projects/Compiler/NFA.cpp
 
 CMakeFiles/Compiler.dir/NFA.cpp.i: cmake_force
@@ -122,13 +109,26 @@ CMakeFiles/Compiler.dir/NFA.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/NFA.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler/NFA.cpp -o CMakeFiles/Compiler.dir/NFA.cpp.s
 
+CMakeFiles/Compiler.dir/Controler.cpp.o: CMakeFiles/Compiler.dir/flags.make
+CMakeFiles/Compiler.dir/Controler.cpp.o: ../Controler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Compiler.dir/Controler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/Controler.cpp.o -c /home/zeny/Documents/projects/Compiler/Controler.cpp
+
+CMakeFiles/Compiler.dir/Controler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/Controler.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeny/Documents/projects/Compiler/Controler.cpp > CMakeFiles/Compiler.dir/Controler.cpp.i
+
+CMakeFiles/Compiler.dir/Controler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/Controler.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler/Controler.cpp -o CMakeFiles/Compiler.dir/Controler.cpp.s
+
 # Object files for target Compiler
 Compiler_OBJECTS = \
 "CMakeFiles/Compiler.dir/main.cpp.o" \
 "CMakeFiles/Compiler.dir/Token.cpp.o" \
 "CMakeFiles/Compiler.dir/State.cpp.o" \
-"CMakeFiles/Compiler.dir/NFAState.cpp.o" \
-"CMakeFiles/Compiler.dir/NFA.cpp.o"
+"CMakeFiles/Compiler.dir/NFA.cpp.o" \
+"CMakeFiles/Compiler.dir/Controler.cpp.o"
 
 # External object files for target Compiler
 Compiler_EXTERNAL_OBJECTS =
@@ -136,8 +136,8 @@ Compiler_EXTERNAL_OBJECTS =
 Compiler: CMakeFiles/Compiler.dir/main.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Token.cpp.o
 Compiler: CMakeFiles/Compiler.dir/State.cpp.o
-Compiler: CMakeFiles/Compiler.dir/NFAState.cpp.o
 Compiler: CMakeFiles/Compiler.dir/NFA.cpp.o
+Compiler: CMakeFiles/Compiler.dir/Controler.cpp.o
 Compiler: CMakeFiles/Compiler.dir/build.make
 Compiler: CMakeFiles/Compiler.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Compiler"

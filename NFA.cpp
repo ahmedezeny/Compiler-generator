@@ -46,3 +46,23 @@ const Token &NFA::getToken() const {
 void NFA::setToken(const Token &token) {
     NFA::token = token;
 }
+
+NFA NFA::ast(NFA a1, NFA a2) {
+    //todo
+    return NFA(0, Token());
+}
+
+NFA NFA::plus(NFA a1, NFA a2) {
+    //todo
+    return NFA(0, Token());
+}
+
+NFA NFA::concat(NFA a1, NFA a2) {
+    //todo
+    return NFA(0, Token());
+}
+
+NFA NFA::oring(NFA a1, NFA a2) {
+    //todo
+    return NFA(0, Token());
+}

@@ -123,6 +123,33 @@ Compiler/fast:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/build
 .PHONY : Compiler/fast
 
+Controler.o: Controler.cpp.o
+
+.PHONY : Controler.o
+
+# target to build an object file
+Controler.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.o
+.PHONY : Controler.cpp.o
+
+Controler.i: Controler.cpp.i
+
+.PHONY : Controler.i
+
+# target to preprocess a source file
+Controler.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.i
+.PHONY : Controler.cpp.i
+
+Controler.s: Controler.cpp.s
+
+.PHONY : Controler.s
+
+# target to generate assembly for a file
+Controler.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.s
+.PHONY : Controler.cpp.s
+
 NFA.o: NFA.cpp.o
 
 .PHONY : NFA.o
@@ -149,33 +176,6 @@ NFA.s: NFA.cpp.s
 NFA.cpp.s:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/NFA.cpp.s
 .PHONY : NFA.cpp.s
-
-NFAState.o: NFAState.cpp.o
-
-.PHONY : NFAState.o
-
-# target to build an object file
-NFAState.cpp.o:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/NFAState.cpp.o
-.PHONY : NFAState.cpp.o
-
-NFAState.i: NFAState.cpp.i
-
-.PHONY : NFAState.i
-
-# target to preprocess a source file
-NFAState.cpp.i:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/NFAState.cpp.i
-.PHONY : NFAState.cpp.i
-
-NFAState.s: NFAState.cpp.s
-
-.PHONY : NFAState.s
-
-# target to generate assembly for a file
-NFAState.cpp.s:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/NFAState.cpp.s
-.PHONY : NFAState.cpp.s
 
 State.o: State.cpp.o
 
@@ -267,12 +267,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Compiler"
 	@echo "... edit_cache"
+	@echo "... Controler.o"
+	@echo "... Controler.i"
+	@echo "... Controler.s"
 	@echo "... NFA.o"
 	@echo "... NFA.i"
 	@echo "... NFA.s"
-	@echo "... NFAState.o"
-	@echo "... NFAState.i"
-	@echo "... NFAState.s"
 	@echo "... State.o"
 	@echo "... State.i"
 	@echo "... State.s"

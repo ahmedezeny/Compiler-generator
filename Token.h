@@ -14,11 +14,11 @@ class Token {
     string pattern;
     int priority;
 public:
+    Token();
+
     Token(string name);
 
     Token(string name, string pattern, int priority);
-
-
 
     string getName() const;
 
@@ -31,6 +31,7 @@ public:
     int getPriority() const;
 
     void setPriority(int priority);
+
 
 
 };
