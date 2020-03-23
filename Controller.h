@@ -16,6 +16,7 @@ class Controller {
         Controller();
         Token readToken(string rowToken,int priority);
         Token preProcess(vector<Token> tokens, int tokenNum);
+        //DFA NfaToDfa (NFA A); //after creating DFA Class
 
 };
 
