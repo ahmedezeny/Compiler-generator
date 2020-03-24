@@ -86,3 +86,41 @@
 
 1585086911 source:/home/mostafa/myDisk/compilerP/Compiler-generator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
+1585091024 source:/home/ziad/compilers/Compiler-generator/main.cpp
+	<iostream>
+	"include/Token.h"
+	"include/State.h"
+	<memory>
+
+1585091024 /home/ziad/compilers/Compiler-generator/include/Token.h
+	<bits/stdc++.h>
+
+1585091024 /home/ziad/compilers/Compiler-generator/include/State.h
+	<bits/stdc++.h>
+	"Token.h"
+	<memory>
+
+1585091024 source:/home/ziad/compilers/Compiler-generator/src/Controller.cpp
+	"Controller.h"
+
+1585091024 source:/home/ziad/compilers/Compiler-generator/src/DFA.cpp
+	"../include/DFA.h"
+
+1585091024 /home/ziad/compilers/Compiler-generator/include/DFA.h
+	"State.h"
+
+1585091024 source:/home/ziad/compilers/Compiler-generator/src/NFA.cpp
+	"../include/NFA.h"
+
+1585091024 /home/ziad/compilers/Compiler-generator/include/NFA.h
+	"State.h"
+	"Token.h"
+
+1585091024 source:/home/ziad/compilers/Compiler-generator/src/State.cpp
+	"../include/State.h"
+	"../include/Token.h"
+	<memory>
+
+1585091024 source:/home/ziad/compilers/Compiler-generator/src/Token.cpp
+	"../include/Token.h"
+
