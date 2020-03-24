@@ -1,6 +1,6 @@
 #include "../include/State.h"
 #include "../include/Token.h"
-
+#include <memory>
 State::State()
 {
     //ctor
@@ -11,9 +11,9 @@ State::~State()
     //dtor
 }
 
-State::State( Token stateToken) : stateToken(stateToken)
+State::State( shared_ptr<Token>  stateToken) : stateToken(stateToken)
 {
-    cout << stateToken.getName()  << "gg\n";
+    //cout << State::stateToken->getName() << "gg\n";
     endState = false ;
 }
 
@@ -26,7 +26,7 @@ bool State::isEndState ()
 
 void State::setTransion ( char input, State &e)
 {
-    cout << e.getToken().getName() << " ff" << endl ;
+    //cout << e.getToken()->getName() << " ff" << endl ;
     trans[input].insert(e) ;
 }
 
@@ -48,12 +48,12 @@ void State::setEndState ( bool end )
     endState = end ;
 }
 
-void State::setToken (Token t)
+void State::setToken ( shared_ptr<Token> t)
 {
     stateToken = t ;
 }
 
-Token State::getToken()
+shared_ptr<Token> State::getToken()
 {
 
     return stateToken ;
@@ -64,7 +64,7 @@ bool operator< (const State &left, const State &right)
     State l = left ;
     State r = right ;
 
-    return l.getToken().getName() < r.getToken().getName();
+    return l.getToken()->getName() < r.getToken()->getName();
 }
 
 /*bool operator< ( State &left,  State &right)

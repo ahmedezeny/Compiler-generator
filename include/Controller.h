@@ -18,6 +18,7 @@ class Controller {
         DFA D;
     public:
         Controller();
+        virtual ~Controller();
         Token readToken(string rowToken,int priority);
         Token preProcess(vector<Token> tokens, int tokenNum);
         NFA oringAll(vector<NFA> A);
