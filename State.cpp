@@ -41,6 +41,6 @@ void State::setToken (Token t) {
      stateToken = t ; 
 } 
 
-Token State::getToken (){
+Token State::getToken(){
   return stateToken ; 
 } 
