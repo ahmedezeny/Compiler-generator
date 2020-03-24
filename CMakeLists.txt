@@ -1,6 +1,19 @@
 cmake_minimum_required(VERSION 3.15)
-project(Compiler)
+project(compiler2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Compiler main.cpp Token.cpp Token.h State.cpp State.h NFA.cpp NFA.h Controller.cpp Controller.h DFA.h test.cpp)
+include_directories(include)
+
+add_executable(compiler2
+        include/Controller.h
+        include/DFA.h
+        include/NFA.h
+        include/State.h
+        include/Token.h
+        src/Controller.cpp
+        src/DFA.cpp
+        src/NFA.cpp
+        src/State.cpp
+        src/Token.cpp
+        main.cpp)

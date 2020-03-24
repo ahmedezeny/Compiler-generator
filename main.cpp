@@ -1,37 +1,40 @@
-#include <bits/stdc++.h>
-#include "State.h"
-#include "Token.h"
-#include "NFA.h"
-#include "DFA.h"
+#include <iostream>
+#include "include/Token.h"
+#include "include/State.h"
 
 using namespace std;
 
 int main() {
+    cout << "Hello world!" << endl;
 
-    cout << "Hello, World!" << std::endl;
-    Token t ; 
-    t.setName("ahmed") ; 
-    t.setPattern("a-z") ; 
-    t.setPriority(5) ; 
-    Token t2 ; 
-    t.setName("aaaaaaaa") ; 
-    t.setPattern("a-z") ; 
-    t.setPriority(5) ; 
+    Token t;
+    //cout << t.getName() << endl;
+    t.setName("ahmed");
+    t.setPattern("a-z");
+    t.setPriority(5);
+    //cout << t.getName() ;
 
-    State s(t);
-    State s2(t2) ;
-     
-    s.setTransion('a' , s2) ; 
+    Token t2;
+    t2.setName("aaaaaaaa");
+    t2.setPattern("a-z");
+    t2.setPriority(5);
 
-    s2.getToken().setName("aa") ; 
-     
-    set<State>::iterator it1 ; 
 
-    for (it1 = s.getTransion('a').begin(); it1 != s.getTransion('a').end();  ++it1){ 
-         Token kk =  *it1->getToken().getName() ;  
+    State s1(t);
+    State s2(t2);
+
+    s1.setTransion('a', s2);
+    s2.getToken().setName("aa");
+
+
+    set<State>::iterator it1;
+
+    set<State> ss = s1.getTransion('a');
+    for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
+        State kk = *it1;
+        cout << kk.getToken().getName() << endl;
     }
-     
-    
+
 
     return 0;
 }

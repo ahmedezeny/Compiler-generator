@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1585080645 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/main.cpp
+	<iostream>
+	<Token.h>
+	<State.h>
+
+1585072477 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/Token.cpp
+	"Token.h"
+
+1585070067 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/Token.h
+	<bits/stdc++.h>
+
+1585080784 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/State.cpp
+	"State.h"
+	"Token.h"
+
+1585080743 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/State.h
+	<bits/stdc++.h>
+	"Token.h"
+
+1585078438 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/NFA.cpp
+	"NFA.h"
+
+1585078396 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/NFA.h
+	"State.h"
+	"Token.h"
+
+1585079043 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/Controller.cpp
+	"Controller.h"
+
+1585079019 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/Controller.h
+	"NFA.h"
+	"Token.h"
+	"DFA.h"
+
+1585079156 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/DFA.h
+	"State.h"
+
+1585078993 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/DFA.cpp
+	"DFA.h"
+
+1585081056 source:c:\users\ahmed\desktop\compiler2\main.cpp
+	<iostream>
+	<Token.h>
+	<State.h>
+
