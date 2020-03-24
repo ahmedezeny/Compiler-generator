@@ -90,9 +90,6 @@
 		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/Controller.h">
 			<Option target="Compiler"/>
 		</Unit>
-		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/DFA.cpp">
-			<Option target="Compiler"/>
-		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/DFA.h">
 			<Option target="Compiler"/>
 		</Unit>
@@ -115,6 +112,9 @@
 			<Option target="Compiler"/>
 		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/main.cpp">
+			<Option target="Compiler"/>
+		</Unit>
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/test.cpp">
 			<Option target="Compiler"/>
 		</Unit>
 		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/CMakeLists.txt">

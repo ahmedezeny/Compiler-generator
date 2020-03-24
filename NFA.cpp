@@ -8,7 +8,7 @@
 
 NFA::NFA(int number,Token token) : number(number),token(token) {}
 
-int NFA::getNumber() const {
+int NFA::getNumber()  {
     return number;
 }
 
@@ -16,35 +16,35 @@ void NFA::setNumber(int number) {
     NFA::number = number;
 }
 
-const State &NFA::getStartState() const {
+State &NFA::getStartState() {
     return startState;
 }
 
-void NFA::setStartState(const State &startState) {
+void NFA::setStartState( State &startState) {
     NFA::startState = startState;
 }
 
-const State &NFA::getEndState() const {
+State &NFA::getEndState() {
     return endState;
 }
 
-void NFA::setEndState(const State &endState) {
+void NFA::setEndState( State &endState) {
     NFA::endState = endState;
 }
 
-const list<State> &NFA::getStates() const {
+list<State> &NFA::getStates() {
     return states;
 }
 
-void NFA::setStates(const list<State> &states) {
+void NFA::setStates( list<State> &states) {
     NFA::states = states;
 }
 
-const Token &NFA::getToken() const {
+Token &NFA::getToken() {
     return token;
 }
 
-void NFA::setToken(const Token &token) {
+void NFA::setToken( Token &token) {
     NFA::token = token;
 }
 

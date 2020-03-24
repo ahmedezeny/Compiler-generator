@@ -27,27 +27,29 @@ class NFA {
         vector <string> parcingPattern () ;
 
     public:
+        NFA();
+
         NFA(int number,Token token);
 
-        int getNumber() const;
+        int getNumber() ;
 
         void setNumber(int number);
 
-        const State &getStartState() const;
+        State &getStartState() ;
 
-        void setStartState(const State &startState);
+        void setStartState( State &startState);
 
-        const State &getEndState() const;
+        State &getEndState() ;
 
-        void setEndState(const State &endState);
+        void setEndState(State &endState);
 
-        const list<State> &getStates() const;
+        list<State> &getStates();
 
-        void setStates(const list<State> &states);
+        void setStates(list<State> &states);
 
-        const Token &getToken() const;
+        Token &getToken();
 
-        void setToken(const Token &token);
+        void setToken(Token &token);
 
 };
 

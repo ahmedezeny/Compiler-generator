@@ -11,7 +11,8 @@
 
 class Controller {
     private:
-        vector<Token> tokens;
+
+    vector<Token> tokens;
         vector<NFA> A;
         NFA N;
         DFA D;

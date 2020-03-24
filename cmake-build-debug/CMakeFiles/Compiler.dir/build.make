@@ -122,18 +122,18 @@ CMakeFiles/Compiler.dir/Controller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/Controller.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler-generator/Controller.cpp -o CMakeFiles/Compiler.dir/Controller.cpp.s
 
-CMakeFiles/Compiler.dir/DFA.cpp.o: CMakeFiles/Compiler.dir/flags.make
-CMakeFiles/Compiler.dir/DFA.cpp.o: ../DFA.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compiler.dir/DFA.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/DFA.cpp.o -c /home/zeny/Documents/projects/Compiler-generator/DFA.cpp
+CMakeFiles/Compiler.dir/test.cpp.o: CMakeFiles/Compiler.dir/flags.make
+CMakeFiles/Compiler.dir/test.cpp.o: ../test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Compiler.dir/test.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Compiler.dir/test.cpp.o -c /home/zeny/Documents/projects/Compiler-generator/test.cpp
 
-CMakeFiles/Compiler.dir/DFA.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/DFA.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeny/Documents/projects/Compiler-generator/DFA.cpp > CMakeFiles/Compiler.dir/DFA.cpp.i
+CMakeFiles/Compiler.dir/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Compiler.dir/test.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeny/Documents/projects/Compiler-generator/test.cpp > CMakeFiles/Compiler.dir/test.cpp.i
 
-CMakeFiles/Compiler.dir/DFA.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/DFA.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler-generator/DFA.cpp -o CMakeFiles/Compiler.dir/DFA.cpp.s
+CMakeFiles/Compiler.dir/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Compiler.dir/test.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeny/Documents/projects/Compiler-generator/test.cpp -o CMakeFiles/Compiler.dir/test.cpp.s
 
 # Object files for target Compiler
 Compiler_OBJECTS = \
@@ -142,7 +142,7 @@ Compiler_OBJECTS = \
 "CMakeFiles/Compiler.dir/State.cpp.o" \
 "CMakeFiles/Compiler.dir/NFA.cpp.o" \
 "CMakeFiles/Compiler.dir/Controller.cpp.o" \
-"CMakeFiles/Compiler.dir/DFA.cpp.o"
+"CMakeFiles/Compiler.dir/test.cpp.o"
 
 # External object files for target Compiler
 Compiler_EXTERNAL_OBJECTS =
@@ -152,7 +152,7 @@ Compiler: CMakeFiles/Compiler.dir/Token.cpp.o
 Compiler: CMakeFiles/Compiler.dir/State.cpp.o
 Compiler: CMakeFiles/Compiler.dir/NFA.cpp.o
 Compiler: CMakeFiles/Compiler.dir/Controller.cpp.o
-Compiler: CMakeFiles/Compiler.dir/DFA.cpp.o
+Compiler: CMakeFiles/Compiler.dir/test.cpp.o
 Compiler: CMakeFiles/Compiler.dir/build.make
 Compiler: CMakeFiles/Compiler.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Compiler"

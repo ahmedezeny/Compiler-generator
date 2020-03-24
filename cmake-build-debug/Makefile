@@ -150,33 +150,6 @@ Controller.cpp.s:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controller.cpp.s
 .PHONY : Controller.cpp.s
 
-DFA.o: DFA.cpp.o
-
-.PHONY : DFA.o
-
-# target to build an object file
-DFA.cpp.o:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.o
-.PHONY : DFA.cpp.o
-
-DFA.i: DFA.cpp.i
-
-.PHONY : DFA.i
-
-# target to preprocess a source file
-DFA.cpp.i:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.i
-.PHONY : DFA.cpp.i
-
-DFA.s: DFA.cpp.s
-
-.PHONY : DFA.s
-
-# target to generate assembly for a file
-DFA.cpp.s:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.s
-.PHONY : DFA.cpp.s
-
 NFA.o: NFA.cpp.o
 
 .PHONY : NFA.o
@@ -285,6 +258,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test.o: test.cpp.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/test.cpp.o
+.PHONY : test.cpp.o
+
+test.i: test.cpp.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/test.cpp.s
+.PHONY : test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -297,9 +297,6 @@ help:
 	@echo "... Controller.o"
 	@echo "... Controller.i"
 	@echo "... Controller.s"
-	@echo "... DFA.o"
-	@echo "... DFA.i"
-	@echo "... DFA.s"
 	@echo "... NFA.o"
 	@echo "... NFA.i"
 	@echo "... NFA.s"
@@ -312,6 +309,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

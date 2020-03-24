@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
 #include "State.h"
+#include "Token.h"
+#include "NFA.h"
+#include "DFA.h"
 
 using namespace std;
 

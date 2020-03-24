@@ -3,8 +3,7 @@
 //
 
 #include "Controller.h"
-
-Controller::Controller() {
+Controller::Controller(){
 
 }
 
@@ -25,5 +24,14 @@ DFA Controller::minDfa(DFA A) {
 }
 
 NFA Controller::oringAll(vector<NFA> A) {
-    return NFA(0, Token());
+    NFA *nfa;
+    State *newStartState;
+    vector<NFA>::iterator it;
+    for(it=A.begin();it!=A.end();it++){
+        newStartState->setTransion('\0',it->getStartState());
+        it->setStartState(*newStartState);
+    }
+    return *nfa;
 }
+
+

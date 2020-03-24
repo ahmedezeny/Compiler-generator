@@ -12,28 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd22d9fb-9353-4117-9f68-7c607cde870b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DFA.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DFA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controller.h" beforeDir="false" afterPath="$PROJECT_DIR$/Controller.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFA.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NFA.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFA.h" beforeDir="false" afterPath="$PROJECT_DIR$/NFA.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Compiler.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Compiler.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Compiler.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RunManager">
@@ -78,25 +71,60 @@
       <option name="presentableId" value="Default" />
       <updated>1584971775020</updated>
       <workItem from="1584971776464" duration="6455000" />
-      <workItem from="1585067447322" duration="1734000" />
+      <workItem from="1585067447322" duration="8387000" />
     </task>
+    <task id="LOCAL-00001" summary="Adding DFA and some controller functions">
+      <created>1585072044781</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585072044781</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding DFA and some controller functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding DFA and some controller functions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="734" y="274" width="458" height="590" key="#com.intellij.ide.util.MemberChooser" timestamp="1585005024532">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="734" y="274" width="458" height="590" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1585005024532" />
+    <state x="528" y="129" width="853" height="859" key="CommitChangelistDialog2" timestamp="1585072044087">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state x="528" y="129" width="853" height="859" key="CommitChangelistDialog2/0.32.1920.1048@0.32.1920.1048" timestamp="1585072044087" />
+    <state x="743" y="313" width="424" height="491" key="FileChooserDialogImpl" timestamp="1585072493444">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state x="743" y="313" width="424" height="491" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1585072493444" />
     <state x="431" y="284" width="992" height="737" key="SettingsEditor" timestamp="1584972646321">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="431" y="284" width="992" height="737" key="SettingsEditor/0.32.1920.1048@0.32.1920.1048" timestamp="1584972646321" />
-    <state x="704" y="199" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1585005491355">
+    <state x="555" y="291" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1585072354784">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="704" y="199" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1585005491355" />
+    <state x="555" y="291" width="800" height="535" key="Vcs.Push.Dialog.v2/0.32.1920.1048@0.32.1920.1048" timestamp="1585072354784" />
+    <state x="704" y="199" width="501" height="720" key="refactoring.ChangeSignatureDialog" timestamp="1585075412707">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state x="704" y="199" width="501" height="720" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1585075412707" />
   </component>
 </project>
