@@ -24,9 +24,15 @@ public:
 
     bool isEndState () ;
 
+    void setEndState ( bool end ) ; 
+
     void setTransion ( char input , State e);
 
     set<State> getTransion ( char input) ; 
+
+    void setToken (Token t) ; 
+
+    Token getToken (); 
 
 };
 

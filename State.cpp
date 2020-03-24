@@ -32,3 +32,15 @@ set<State> State::getTransion(char input ) {
 
      return trans[input]; 
 }
+
+void State::setEndState ( bool end ){
+        endState = end ; 
+}
+
+void State::setToken (Token t) {
+     stateToken = t ; 
+} 
+
+Token State::getToken (){
+  return stateToken ; 
+} 
