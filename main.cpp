@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-    
+
     cout << "Hello, World!" << std::endl;
     Token t ; 
     t.setName("ahmed") ; 
@@ -25,8 +25,7 @@ int main() {
     set<State>::iterator it1 ; 
 
     for (it1 = s.getTransion('a').begin(); it1 != s.getTransion('a').end();  ++it1){ 
-         Token kk =  *it1->getToken() ;  
-         
+         Token kk =  *it1->getToken().getName() ;  
     }
      
     

@@ -75,13 +75,16 @@ NFA NFA::oring(NFA a1, NFA a2) {
      string ns = "" ; 
      for (int i = 0 ; i < s.size() ; i++) {
         if (s[i] == '|'){
-
+             arg.push_back(ns);
+             ns = "" ; 
         } else if (s[i] == '(') {
 
+        }else if (s[i] = ' ' ){
+            continue ; 
         }
 
         ns += s[i] ; 
      }
 
-     return ;
+     return arg;
  }

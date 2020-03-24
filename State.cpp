@@ -5,11 +5,11 @@
 #include "State.h"
 #include "Token.h"
 
-State::State(const Token &stateToken) : stateToken(stateToken) {
+State::State( Token &stateToken) : stateToken(stateToken) {
    endState = false ; 
 }
 
-State::State(const unordered_map<char,set<State>> , bool endState, const Token &stateToken):
+State::State( unordered_map<char,set<State>> , bool endState,  Token &stateToken):
 
 trans (trans), endState(endState), stateToken(stateToken) {}
 

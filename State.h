@@ -18,9 +18,9 @@ private:
 public:
     State();
 
-    State(const Token &stateToken);
+    State(Token &stateToken);
 
-    State(const unordered_map<char,set<State>> , bool endState, const Token &stateToken);
+    State( unordered_map<char,set<State>> , bool endState,  Token &stateToken);
 
     bool isEndState () ;
 
