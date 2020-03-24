@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/Compiler.dir/main.cpp.o CMakeFiles/Compiler.dir/Token.cpp.o CMakeFiles/Compiler.dir/State.cpp.o CMakeFiles/Compiler.dir/NFA.cpp.o CMakeFiles/Compiler.dir/Controler.cpp.o  -o Compiler 
+/usr/bin/c++  -g   CMakeFiles/Compiler.dir/main.cpp.o CMakeFiles/Compiler.dir/Token.cpp.o CMakeFiles/Compiler.dir/State.cpp.o CMakeFiles/Compiler.dir/NFA.cpp.o CMakeFiles/Compiler.dir/Controller.cpp.o CMakeFiles/Compiler.dir/DFA.cpp.o  -o Compiler 

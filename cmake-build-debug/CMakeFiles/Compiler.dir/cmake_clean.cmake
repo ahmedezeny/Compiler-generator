@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Compiler.dir/Controler.cpp.o"
+  "CMakeFiles/Compiler.dir/Controller.cpp.o"
+  "CMakeFiles/Compiler.dir/DFA.cpp.o"
   "CMakeFiles/Compiler.dir/NFA.cpp.o"
   "CMakeFiles/Compiler.dir/State.cpp.o"
   "CMakeFiles/Compiler.dir/Token.cpp.o"

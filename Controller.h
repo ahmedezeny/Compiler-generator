@@ -7,16 +7,21 @@
 
 #include "NFA.h"
 #include "Token.h"
+#include "DFA.h"
 
 class Controller {
     private:
         vector<Token> tokens;
         vector<NFA> A;
+        NFA N;
+        DFA D;
     public:
         Controller();
         Token readToken(string rowToken,int priority);
         Token preProcess(vector<Token> tokens, int tokenNum);
-        //DFA NfaToDfa (NFA A); //after creating DFA Class
+        NFA oringAll(vector<NFA> A);
+        DFA minDfa (DFA A);
+        DFA nfaToDfa (NFA A);
 
 };
 

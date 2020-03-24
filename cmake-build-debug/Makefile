@@ -48,10 +48,10 @@ RM = /home/zeny/Documents/programs/clion-2019.3.5/bin/cmake/linux/bin/cmake -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/zeny/Documents/projects/Compiler
+CMAKE_SOURCE_DIR = /home/zeny/Documents/projects/Compiler-generator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/zeny/Documents/projects/Compiler/cmake-build-debug
+CMAKE_BINARY_DIR = /home/zeny/Documents/projects/Compiler-generator/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles /home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles /home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zeny/Documents/projects/Compiler/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,32 +123,59 @@ Compiler/fast:
 	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/build
 .PHONY : Compiler/fast
 
-Controler.o: Controler.cpp.o
+Controller.o: Controller.cpp.o
 
-.PHONY : Controler.o
+.PHONY : Controller.o
 
 # target to build an object file
-Controler.cpp.o:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.o
-.PHONY : Controler.cpp.o
+Controller.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controller.cpp.o
+.PHONY : Controller.cpp.o
 
-Controler.i: Controler.cpp.i
+Controller.i: Controller.cpp.i
 
-.PHONY : Controler.i
+.PHONY : Controller.i
 
 # target to preprocess a source file
-Controler.cpp.i:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.i
-.PHONY : Controler.cpp.i
+Controller.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controller.cpp.i
+.PHONY : Controller.cpp.i
 
-Controler.s: Controler.cpp.s
+Controller.s: Controller.cpp.s
 
-.PHONY : Controler.s
+.PHONY : Controller.s
 
 # target to generate assembly for a file
-Controler.cpp.s:
-	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controler.cpp.s
-.PHONY : Controler.cpp.s
+Controller.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/Controller.cpp.s
+.PHONY : Controller.cpp.s
+
+DFA.o: DFA.cpp.o
+
+.PHONY : DFA.o
+
+# target to build an object file
+DFA.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.o
+.PHONY : DFA.cpp.o
+
+DFA.i: DFA.cpp.i
+
+.PHONY : DFA.i
+
+# target to preprocess a source file
+DFA.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.i
+.PHONY : DFA.cpp.i
+
+DFA.s: DFA.cpp.s
+
+.PHONY : DFA.s
+
+# target to generate assembly for a file
+DFA.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler.dir/build.make CMakeFiles/Compiler.dir/DFA.cpp.s
+.PHONY : DFA.cpp.s
 
 NFA.o: NFA.cpp.o
 
@@ -267,9 +294,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Compiler"
 	@echo "... edit_cache"
-	@echo "... Controler.o"
-	@echo "... Controler.i"
-	@echo "... Controler.s"
+	@echo "... Controller.o"
+	@echo "... Controller.i"
+	@echo "... Controller.s"
+	@echo "... DFA.o"
+	@echo "... DFA.i"
+	@echo "... DFA.s"
 	@echo "... NFA.o"
 	@echo "... NFA.i"
 	@echo "... NFA.s"
