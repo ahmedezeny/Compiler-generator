@@ -11,7 +11,7 @@ using namespace std;
 
 class State {
 private:
-    list<map<char,set<State>>> trans;
+    unordered_map <char,set<State>> trans;
     bool endState;
     Token stateToken;
 
@@ -20,8 +20,13 @@ public:
 
     State(const Token &stateToken);
 
-    State(const list<map<char,set<State>>>, bool endState, const Token &stateToken);
+    State(const unordered_map<char,set<State>> , bool endState, const Token &stateToken);
 
+    bool isEndState () ;
+
+    void setTransion ( char input , State e);
+
+    set<State> getTransion ( char input) ; 
 
 };
 

@@ -5,6 +5,8 @@
 #ifndef COMPILER_NFA_H
 #define COMPILER_NFA_H
 #include <bits/stdc++.h>
+#include <vector> 
+#include <string> 
 #include "State.h"
 #include "Token.h"
 using namespace std;
@@ -22,6 +24,7 @@ class NFA {
         NFA plus(NFA a1,NFA a2);
         NFA concat(NFA a1,NFA a2);
         NFA oring(NFA a1,NFA a2);
+        vector <string> parcingPattern () ;
 
     public:
         NFA(int number,Token token);

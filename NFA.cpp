@@ -5,6 +5,7 @@
 #include "NFA.h"
 #include "State.h"
 #include "Token.h"
+
 NFA::NFA(int number,Token token) : number(number),token(token) {}
 
 int NFA::getNumber() const {
@@ -66,3 +67,21 @@ NFA NFA::oring(NFA a1, NFA a2) {
     //todo
     return NFA(0, Token());
 }
+
+ vector <string> NFA::parcingPattern () {
+
+     vector <string > arg ;
+     string s =  token.getName() ;
+     string ns = "" ; 
+     for (int i = 0 ; i < s.size() ; i++) {
+        if (s[i] == '|'){
+
+        } else if (s[i] == '(') {
+
+        }
+
+        ns += s[i] ; 
+     }
+
+     return ;
+ }
