@@ -66,16 +66,6 @@ void NFA::setStates( list<shared_ptr<State>> states)
     NFA::states = states;
 }
 
-shared_ptr<Token> NFA::getToken()
-{
-    return token;
-}
-
-void NFA::setToken( shared_ptr<Token> token)
-{
-    NFA::token = token;
-}
-
 NFA NFA::ast(NFA a1,shared_ptr<Token> token)
 {
     shared_ptr<Token> t1 (token) ;

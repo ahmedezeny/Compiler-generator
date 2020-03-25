@@ -2,7 +2,7 @@
 // Created by zeny on 3/25/20.
 //
 
-#include "DFAState.h"
+#include "../include/DFAState.h"
 
 DFAState::DFAState() {
 

@@ -27,7 +27,7 @@ public:
 
     virtual ~Controller();
 
-    shared_ptr<Token> readToken(string rowToken, int priority);
+    shared_ptr<Token> readToken(string path);
 
     shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
 

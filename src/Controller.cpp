@@ -2,20 +2,33 @@
 // Created by zeny on 3/24/20.
 //
 
-#include "Controller.h"
+#include "../include/Controller.h"
+#include <fstream>
+#include <sstream>
+#include <string>
 
-Controller::Controller() {
 
-}
+shared_ptr<Token> Controller::readToken(string path) {
 
-shared_ptr<Token> Controller::readToken(string rowToken, int priority) {
+    std::ifstream infile(path);
+
+    std::string line;
+    while (std::getline(infile, line))
+    {
+        std::istringstream iss(line);
+        int a, b;
+        if (!(iss >> a >> b)) { break; } // error
+
+    // process pair (a,b)
+    }
+
     return shared_ptr<Token>();
 }
 
 shared_ptr<Token> Controller::preProcess(vector<shared_ptr<Token>> tokens, int tokenNum) {
     return shared_ptr<Token>();
 }
-
+/*
 DFA Controller::nfaToDfa(NFA A) {
     list<shared_ptr<State>> states = A.getStates();
     unordered_map<set<shared_ptr<State>>, bool> DStates;
@@ -77,4 +90,4 @@ bool Controller::checkD(set<shared_ptr<State>> set) {
     return false;
 }
 
-
+*/
