@@ -67,6 +67,10 @@ bool operator< (const State &left, const State &right)
     return l.getToken().getName() < r.getToken().getName();
 }
 
+unordered_map<char, set<State>> State::getTrans() {
+    return unordered_map<char, set<State>>();
+}
+
 /*bool operator< ( State &left,  State &right)
 {
     return left.getToken().getName() < right.getToken().getName();

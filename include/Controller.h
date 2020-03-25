@@ -11,18 +11,27 @@
 
 class Controller {
     private:
-
-    vector<Token> tokens;
+        vector<Token> tokens;
         vector<NFA> A;
         NFA N;
         DFA D;
+        set<struct State> epsClosure(State s, char input);
+        set<State> epsClosure(set<State> s, char input);
+        State getUnMarked(unordered_map<set<State>, bool> &DStates);
     public:
         Controller();
-        Token readToken(string rowToken,int priority);
+
+        Token readToken(string rowToken, int priority);
+
         Token preProcess(vector<Token> tokens, int tokenNum);
+
         NFA oringAll(vector<NFA> A);
-        DFA minDfa (DFA A);
-        DFA nfaToDfa (NFA A);
+
+        DFA minDfa(DFA A);
+
+        DFA nfaToDfa(NFA A);
+
+
 
 };
 

@@ -4,32 +4,33 @@
 #include "State.h"
 #include "Token.h"
 
-class NFA
-{
+class NFA {
     public:
         NFA();
-        virtual ~NFA();
-        NFA(int number,Token token);
 
-        int getNumber() ;
+        virtual ~NFA();
+
+        NFA(int number, Token token);
+
+        int getNumber();
 
         void setNumber(int number);
 
-        State &getStartState() ;
+        State &getStartState();
 
-        void setStartState( State &startState);
+        void setStartState(State &startState);
 
         State &getEndState();
 
-        void setEndState( State &endState);
+        void setEndState(State &endState);
 
-        list<State> &getStates() ;
+        list<State> &getStates();
 
-        void setStates( list<State> &states);
+        void setStates(list<State> &states);
 
-        Token &getToken() ;
+        Token &getToken();
 
-        void setToken( Token &token);
+        void setToken(Token &token);
 
 
     protected:
@@ -38,14 +39,18 @@ class NFA
         int number; // we may remove that
         State startState;
         State endState;
-        list <State> states;
+        list<State> states;
         Token token;
+        bool marked = false;
+        NFA ast(NFA a1, Token t);
 
-        NFA ast(NFA a1 , Token t);
         NFA plusNFA(NFA a1, Token t);
-        NFA concat(NFA a1,NFA a2 , Token t );
-        NFA oring(NFA a1,NFA a2 , Token t);
-        vector <string> parcingPattern () ;
+
+        NFA concat(NFA a1, NFA a2, Token t);
+
+        NFA oring(NFA a1, NFA a2, Token t);
+
+        vector<string> parcingPattern();
 
 };
 

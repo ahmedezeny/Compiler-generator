@@ -4,12 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Ahmed/Desktop/compiler2/main.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/main.cpp.obj"
-  "C:/Users/Ahmed/Desktop/compiler2/src/Controller.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/src/Controller.cpp.obj"
-  "C:/Users/Ahmed/Desktop/compiler2/src/DFA.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/src/DFA.cpp.obj"
-  "C:/Users/Ahmed/Desktop/compiler2/src/NFA.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/src/NFA.cpp.obj"
-  "C:/Users/Ahmed/Desktop/compiler2/src/State.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/src/State.cpp.obj"
-  "C:/Users/Ahmed/Desktop/compiler2/src/Token.cpp" "C:/Users/Ahmed/Desktop/compiler2/cmake-build-debug/CMakeFiles/compiler2.dir/src/Token.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/main.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/main.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/Controller.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/Controller.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/DFA.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/DFA.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/DFAState.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/DFAState.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/NFA.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/NFA.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/State.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/State.cpp.obj"
+  "C:/Users/Ahmed/Desktop/Compiler-generator/src/Token.cpp" "C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir/src/Token.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

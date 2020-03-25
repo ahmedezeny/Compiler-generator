@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/compiler2.dir/main.cpp.obj"
   "CMakeFiles/compiler2.dir/src/Controller.cpp.obj"
   "CMakeFiles/compiler2.dir/src/DFA.cpp.obj"
+  "CMakeFiles/compiler2.dir/src/DFAState.cpp.obj"
   "CMakeFiles/compiler2.dir/src/NFA.cpp.obj"
   "CMakeFiles/compiler2.dir/src/State.cpp.obj"
   "CMakeFiles/compiler2.dir/src/Token.cpp.obj"

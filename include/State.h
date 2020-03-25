@@ -17,7 +17,11 @@ class State
         void setEndState ( bool end ) ;
         void setTransion ( char input , State &e);
         set<State> getTransion ( char input) ;
-        void setToken (Token t) ;
+        unordered_map<char, set<State>> getTrans();
+
+
+
+    void setToken (Token t) ;
         Token getToken ();
         friend bool operator< (const State &left, const State &right);
 

@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Ahmed\Desktop\compiler2
+CMAKE_SOURCE_DIR = C:\Users\Ahmed\Desktop\Compiler-generator
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Ahmed\Desktop\compiler2\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\Ahmed\Desktop\Compiler-generator\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,9 +79,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ahmed\Desktop\compiler2\cmake-build-debug\CMakeFiles C:\Users\Ahmed\Desktop\compiler2\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ahmed\Desktop\Compiler-generator\cmake-build-debug\CMakeFiles C:\Users\Ahmed\Desktop\Compiler-generator\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ahmed\Desktop\compiler2\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Ahmed\Desktop\Compiler-generator\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -203,6 +203,33 @@ src/DFA.cpp.s:
 	$(MAKE) -f CMakeFiles\compiler2.dir\build.make CMakeFiles/compiler2.dir/src/DFA.cpp.s
 .PHONY : src/DFA.cpp.s
 
+src/DFAState.obj: src/DFAState.cpp.obj
+
+.PHONY : src/DFAState.obj
+
+# target to build an object file
+src/DFAState.cpp.obj:
+	$(MAKE) -f CMakeFiles\compiler2.dir\build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.obj
+.PHONY : src/DFAState.cpp.obj
+
+src/DFAState.i: src/DFAState.cpp.i
+
+.PHONY : src/DFAState.i
+
+# target to preprocess a source file
+src/DFAState.cpp.i:
+	$(MAKE) -f CMakeFiles\compiler2.dir\build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.i
+.PHONY : src/DFAState.cpp.i
+
+src/DFAState.s: src/DFAState.cpp.s
+
+.PHONY : src/DFAState.s
+
+# target to generate assembly for a file
+src/DFAState.cpp.s:
+	$(MAKE) -f CMakeFiles\compiler2.dir\build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.s
+.PHONY : src/DFAState.cpp.s
+
 src/NFA.obj: src/NFA.cpp.obj
 
 .PHONY : src/NFA.obj
@@ -302,6 +329,9 @@ help:
 	@echo ... src/DFA.obj
 	@echo ... src/DFA.i
 	@echo ... src/DFA.s
+	@echo ... src/DFAState.obj
+	@echo ... src/DFAState.i
+	@echo ... src/DFAState.s
 	@echo ... src/NFA.obj
 	@echo ... src/NFA.i
 	@echo ... src/NFA.s
