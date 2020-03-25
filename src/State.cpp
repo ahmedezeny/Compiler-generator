@@ -1,74 +1,83 @@
 #include "../include/State.h"
 #include "../include/Token.h"
+#include <memory>
 
-State::State()
-{
+State::State() {
     //ctor
 }
 
-State::~State()
-{
+State::~State() {
     //dtor
 }
 
-State::State( Token stateToken) : stateToken(stateToken)
-{
-    cout << stateToken.getName()  << "gg\n";
-    endState = false ;
+State::State(shared_ptr<Token> stateToken) : stateToken(stateToken) {
+    //cout << State::stateToken->getName() << "gg\n";
+    endState = false;
 }
 
 
-bool State::isEndState ()
-{
-    return endState ;
+bool State::isEndState() {
+    return endState;
 }
 
 
-void State::setTransion ( char input, State &e)
-{
-    cout << e.getToken().getName() << " ff" << endl ;
-    trans[input].insert(e) ;
+void State::setTransion(char input, shared_ptr<State> e) {
+    if (trans[input].find(e) == trans[input].end()) {
+        trans[input].insert(e);
+    } else {
+        cout << "error" << endl;
+    }
 }
 
 
-set<State> State::getTransion(char input )
-{
+set<shared_ptr<State>> State::getTransion(char input) {
 
-    if (trans.find(input) == trans.end())
-    {
-        set<State> s ;
-        return s ;
+    if (trans.find(input) == trans.end()) {
+        set<shared_ptr<State>> s;
+        return s;
     }
 
     return trans[input];
 }
 
-void State::setEndState ( bool end )
-{
-    endState = end ;
+void State::setEndState(bool end) {
+    endState = end;
 }
 
-void State::setToken (Token t)
-{
-    stateToken = t ;
+void State::setToken(shared_ptr<Token> t) {
+    stateToken = t;
 }
 
-Token State::getToken()
-{
+shared_ptr<Token> State::getToken() {
 
-    return stateToken ;
+    return stateToken;
 }
 
+
+bool operator<(const State &left, const State &right) {
+    State l = left;
+    State r = right;
+
+    return l.getToken()->getName() < r.getToken()->getName();
+}
+
+
+/*
 bool operator< (const State &left, const State &right)
 {
-    State l = left ;
-    State r = right ;
 
-    return l.getToken().getName() < r.getToken().getName();
+    return reinterpret_cast<const char*>( std::addressof(left) ) < reinterpret_cast<const char*>( std::addressof(right) ) ;
 }
 
-unordered_map<char, set<State>> State::getTrans() {
-    return unordered_map<char, set<State>>();
+bool operator== (const State &left, const State &right)
+{
+
+    return reinterpret_cast<const char*>( std::addressof(left) ) == reinterpret_cast<const char*>( std::addressof(right) );
+}
+*/
+
+unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
+    return trans;
 }
 
 /*bool operator< ( State &left,  State &right)

@@ -10,29 +10,35 @@
 #include "DFA.h"
 
 class Controller {
-    private:
-        vector<Token> tokens;
-        vector<NFA> A;
-        NFA N;
-        DFA D;
-        set<struct State> epsClosure(State s, char input);
-        set<State> epsClosure(set<State> s, char input);
-        State getUnMarked(unordered_map<set<State>, bool> &DStates);
-    public:
-        Controller();
+private:
+    vector<shared_ptr<Token>> tokens;
+    vector<NFA> A;
+    NFA N;
+    DFA D;
 
-        Token readToken(string rowToken, int priority);
+    set<struct shared_ptr<State>> epsClosure(shared_ptr<State> s, char input);
 
-        Token preProcess(vector<Token> tokens, int tokenNum);
+    set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> s, char input);
 
-        NFA oringAll(vector<NFA> A);
+    shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
 
-        DFA minDfa(DFA A);
+public:
+    Controller();
 
-        DFA nfaToDfa(NFA A);
+    virtual ~Controller();
+
+    shared_ptr<Token> readToken(string rowToken, int priority);
+
+    shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
+
+    NFA oringAll(vector<NFA> A);
+
+    DFA minDfa(DFA A);
+
+    DFA nfaToDfa(NFA A);
 
 
-
+    bool checkD(set<shared_ptr<State>> set);
 };
 
 

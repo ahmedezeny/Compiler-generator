@@ -3,37 +3,48 @@
 
 #include <bits/stdc++.h>
 #include "Token.h"
+#include <memory>
 
 using namespace std;
 
 
-class State
-{
-    public:
-        State();
-        virtual ~State();
-        State(Token stateToken);
-        bool isEndState () ;
-        void setEndState ( bool end ) ;
-        void setTransion ( char input , State &e);
-        set<State> getTransion ( char input) ;
-        unordered_map<char, set<State>> getTrans();
+class State {
+public:
+    State();
 
+    virtual ~State();
 
+    State(shared_ptr<Token> stateToken);
 
-    void setToken (Token t) ;
-        Token getToken ();
-        friend bool operator< (const State &left, const State &right);
+    bool isEndState();
 
-    protected:
+    void setEndState(bool end);
 
-    private:
-        unordered_map <char,set<State>> trans;
-        bool endState;
-        Token stateToken;
+    void setTransion(char input, shared_ptr<State> e);
+
+    set<shared_ptr<State>> getTransion(char input);
+
+    unordered_map<char, set<shared_ptr<State>>> getTrans();
+
+    void setToken(shared_ptr<Token> t);
+
+    shared_ptr<Token> getToken();
+
+    friend bool operator<(const State &left, const State &right);
+
+    friend bool operator==(const State &left, const State &right);
+
+protected:
+
+private:
+    unordered_map<char, set<shared_ptr<State>>> trans;
+    bool endState;
+    shared_ptr<Token> stateToken;
 
 };
 
-std::ostream& operator<(std::ostream& output, const State& H);
+ostream &operator<(ostream &output, const State &H);
+
+ostream &operator==(ostream &output, const State &H);
 
 #endif // STATE_H

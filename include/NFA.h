@@ -3,54 +3,65 @@
 
 #include "State.h"
 #include "Token.h"
+#include <memory>
 
 class NFA {
-    public:
-        NFA();
+public:
+    NFA();
 
-        virtual ~NFA();
+    virtual ~NFA();
 
-        NFA(int number, Token token);
+    NFA(int number, shared_ptr<Token> token);
 
-        int getNumber();
+    int getNumber();
 
-        void setNumber(int number);
+    void setNumber(int number);
 
-        State &getStartState();
+    shared_ptr<State> getStartState();
 
-        void setStartState(State &startState);
+    void setStartState(shared_ptr<State> startState);
 
-        State &getEndState();
+    shared_ptr<State> getEndState();
 
-        void setEndState(State &endState);
+    void setEndState(shared_ptr<State> endState);
 
-        list<State> &getStates();
+    list<shared_ptr<State>> getStates();
 
-        void setStates(list<State> &states);
+    void setStates(list<shared_ptr<State>> states);
 
-        Token &getToken();
+    shared_ptr<Token> getToken();
 
-        void setToken(Token &token);
+    void setToken(shared_ptr<Token> token);
 
 
-    protected:
+protected:
 
-    private:
-        int number; // we may remove that
-        State startState;
-        State endState;
-        list<State> states;
-        Token token;
-        bool marked = false;
-        NFA ast(NFA a1, Token t);
+private:
+    int number; // we may remove that
+    int countOfStates;
+    shared_ptr<State> startState;
+    shared_ptr<State> endState;
+    list<shared_ptr<State>> states;
+    shared_ptr<Token> token;
+    bool marked = false;
 
-        NFA plusNFA(NFA a1, Token t);
+    NFA ast(NFA a1, shared_ptr<Token> t);
 
-        NFA concat(NFA a1, NFA a2, Token t);
+    NFA plusNFA(NFA a1, shared_ptr<Token> t);
 
-        NFA oring(NFA a1, NFA a2, Token t);
+    NFA concat(NFA a1, NFA a2, shared_ptr<Token> t);
 
-        vector<string> parcingPattern();
+    NFA oring(NFA a1, NFA a2, shared_ptr<Token> t);
+
+    NFA setOP(string str, shared_ptr<Token> token);
+
+    NFA basicOp(string str, shared_ptr<Token> token);
+
+    NFA intervalOP(string str, shared_ptr<Token> token);
+
+    NFA charOP(char c, shared_ptr<Token> token);
+
+    vector<string> parcingPattern();
 
 };
 
