@@ -7,43 +7,55 @@ using namespace std;
 
 int main() {
     cout << "Hello world!" << endl;
+    //shared_ptr<State>
 
 
+    Token tf ;
+    tf.setName("ahemd") ;
 
-    shared_ptr<Token> tt (new Token("ahemd") ) ;
-    cout << tt->getName() << endl ;
+   // shared_ptr<Token> tt = make_shared<Token>(tf);
+    shared_ptr<Token> tt ( make_shared<Token>(tf) );
+    State s(tt) ;
+    State ss = s ;
+    cout << s.getToken()->getName() << endl ;
+    cout << ss.getToken()->getName() << endl ;
+    s.getToken()->setName("asf") ;
+    cout << s.getToken()->getName() << endl ;
+    cout << ss.getToken()->getName() << endl ;
+  //  cout << tt->getName() << endl ;
     tt->setName("ss") ;
 
-     cout << tt->getName() << endl  ;
-
-    Token t;
-    //cout << t.getName() << endl;
-    t.setName("ahmed");
-    t.setPattern("a-z");
-    t.setPriority(5);
-    //cout << t.getName() ;
-
-    Token t2;
-    t2.setName("aaaaaaaa");
-    t2.setPattern("a-z");
-    t2.setPriority(5);
+    cout << s.getToken()->getName() << endl ;
+    cout << ss.getToken()->getName() << endl ;
+   // cout << tt->getName() << endl  ;
 
 
-    State s1(tt);
-    State s2(tt);
+    //Token *t2 = tf ;
 
-    s1.setTransion('a', s2);
-    //s2.getToken()->setName("aa");
+   // Token *t3 = tt.get() ;
+/*
+    shared_ptr<State> s1(new State(tt));
+    shared_ptr<State> s2(new State(tt));
+
+    s1->setTransion('a', s2);
+    s1->setTransion('a', s2);
+    s1->setTransion('a', s2);
+    s2->getToken()->setName("aa");
     tt->setName("aa") ;
 
-    set<State>::iterator it1;
+    //cout << tf.getName() << endl ;
+    //cout << t2->getName() << endl;
 
-    set<State> ss = s1.getTransion('a');
+    set<shared_ptr<State>>::iterator it1;
+
+    set<shared_ptr<State>> ss = s1->getTransion('a');
+
     for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
-        State kk = *it1;
-        cout << kk.getToken()->getName() << endl;
+        shared_ptr<State> kk = *it1;
+        cout << kk->getToken()->getName() << endl;
     }
 
+*/
 
     return 0;
 }

@@ -24,19 +24,22 @@ bool State::isEndState ()
 }
 
 
-void State::setTransion ( char input, State &e)
+void State::setTransion ( char input, shared_ptr<State> e)
 {
-    //cout << e.getToken()->getName() << " ff" << endl ;
-    trans[input].insert(e) ;
+    if (trans[input].find(e) == trans[input].end() ){
+     trans[input].insert(e) ;
+    }else {
+     cout << "error" << endl  ;
+   }
 }
 
 
-set<State> State::getTransion(char input )
+set<shared_ptr<State>> State::getTransion(char input )
 {
 
     if (trans.find(input) == trans.end())
     {
-        set<State> s ;
+        set<shared_ptr<State>> s ;
         return s ;
     }
 
@@ -59,6 +62,8 @@ shared_ptr<Token> State::getToken()
     return stateToken ;
 }
 
+
+
 bool operator< (const State &left, const State &right)
 {
     State l = left ;
@@ -66,6 +71,23 @@ bool operator< (const State &left, const State &right)
 
     return l.getToken()->getName() < r.getToken()->getName();
 }
+
+
+
+
+/*
+bool operator< (const State &left, const State &right)
+{
+
+    return reinterpret_cast<const char*>( std::addressof(left) ) < reinterpret_cast<const char*>( std::addressof(right) ) ;
+}
+
+bool operator== (const State &left, const State &right)
+{
+
+    return reinterpret_cast<const char*>( std::addressof(left) ) == reinterpret_cast<const char*>( std::addressof(right) );
+}
+*/
 
 /*bool operator< ( State &left,  State &right)
 {
