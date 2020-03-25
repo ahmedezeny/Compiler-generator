@@ -32,12 +32,11 @@ class NFA
 
         void setToken( shared_ptr<Token> token);
 
-
+          NFA intervalOP(string str,shared_ptr<Token>  token);
     protected:
 
     private:
         int number; // we may remove that
-        int countOfStates ;
         shared_ptr<State> startState;
         shared_ptr<State> endState;
         list <shared_ptr<State>> states;
@@ -49,7 +48,7 @@ class NFA
         NFA oring(NFA a1,NFA a2 , shared_ptr<Token> t);
         NFA setOP(string str,shared_ptr<Token>  token) ;
         NFA basicOp(string str,shared_ptr<Token> token) ;
-        NFA intervalOP(string str,shared_ptr<Token>  token);
+
         NFA charOP(char c,shared_ptr<Token>  token);
         vector <string> parcingPattern () ;
 

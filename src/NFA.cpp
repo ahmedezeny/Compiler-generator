@@ -6,7 +6,6 @@ using namespace std;
 
 NFA::NFA()
 {
-    countOfStates = 0  ;
     //ctor
 }
 
@@ -18,7 +17,13 @@ NFA::~NFA()
 
 
 NFA::NFA(int number,shared_ptr<Token> token) : number(number),token(token) {
-    countOfStates = 0  ;
+
+  /*  string s = token->getPattern() ;
+    NFA a =  intervalOP (s , token) ;
+    cout << a.getStartState()->getToken()->getName() << endl ;
+    cout << a.getStartState()->getToken()->getName() << endl ;
+*/
+
 }
 
 int NFA::getNumber()
@@ -73,11 +78,9 @@ void NFA::setToken( shared_ptr<Token> token)
 
 NFA NFA::ast(NFA a1,shared_ptr<Token> token)
 {
-    shared_ptr<Token> t1 ( new Token(token->getName() + to_string(countOfStates) , token->getPattern() , token->getPriority() )) ;
-    countOfStates++ ;
-    string s = token->getName() + to_string(countOfStates) ;
-    shared_ptr<Token> t2 ( new Token(s , token->getPattern() , token->getPriority()) );
-    countOfStates++ ;
+    shared_ptr<Token> t1 (token) ;
+    shared_ptr<Token> t2 (token);
+
 
 
     NFA nfa = NFA(0,token);
@@ -106,11 +109,8 @@ NFA NFA::plusNFA(NFA a1,shared_ptr<Token> token)
 NFA NFA::concat(NFA a1, NFA a2,shared_ptr<Token> token)
 {
 
-    shared_ptr<Token> t1 ( new Token(token->getName() + to_string(countOfStates) , token->getPattern() , token->getPriority() )) ;
-    countOfStates++ ;
-    string s = token->getName() + to_string(countOfStates) ;
-    shared_ptr<Token> t2 ( new Token(s , token->getPattern() , token->getPriority()) );
-    countOfStates++ ;
+    shared_ptr<Token> t1 (token) ;
+    shared_ptr<Token> t2 (token);
 
     shared_ptr<State> strt (new State(t1));
     shared_ptr<State> endSS (new State(t2));
@@ -134,19 +134,13 @@ NFA NFA::concat(NFA a1, NFA a2,shared_ptr<Token> token)
 
 NFA NFA::oring(NFA a1, NFA a2,shared_ptr<Token> token)
 {
-    NFA nfa =NFA(0,token);
+     NFA nfa =NFA(0,token);
 
+     shared_ptr<Token> t1 (token) ;
+     shared_ptr<Token> t2 (token);
 
-
-    shared_ptr<Token> t1 ( new Token(token->getName() + to_string(countOfStates) , token->getPattern() , token->getPriority() )) ;
-    countOfStates++ ;
-    string s = token->getName() + to_string(countOfStates) ;
-    shared_ptr<Token> t2 ( new Token(s , token->getPattern() , token->getPriority()) );
-    countOfStates++ ;
-
-
-    shared_ptr<State> strt (new State(t1));
-    shared_ptr<State> endSS (new State(t2));
+     shared_ptr<State> strt (new State(t1));
+     shared_ptr<State> endSS (new State(t2));
 
 
     strt->setTransion(0,a1.getStartState());
@@ -170,16 +164,35 @@ vector <string> NFA::parcingPattern ()
 {
 
     vector <string > arg ;
-    string s =  token->getName() ;
+    string s =  token->getPattern() ;
     string ns = "" ;
     for (int i = 0 ; i < s.size() ; i++)
     {
-        if (s[i] == '|')
-        {
+        if (s[i] = ' '){
 
-        }
-        else if (s[i] == '(')
-        {
+           if (ns != ""){
+             arg.push_back(ns) ;
+           }
+
+           ns = "" ;
+
+        } else if (s[i] == '|') {
+
+          arg.push_back(ns) ;
+          arg.push_back("|") ;
+          ns = "" ;
+
+        } else if (  s[i] == '.'){
+
+          arg.push_back(ns) ;
+          arg.push_back(".") ;
+          ns = "" ;
+
+        } else if (s[i] == '(') {
+
+
+        } else if ( s[i] == '+' && s[i-1] == '/'){
+
 
         }
 
@@ -191,9 +204,7 @@ vector <string> NFA::parcingPattern ()
 NFA NFA::basicOp(string str,shared_ptr<Token> token)
 {
     char c =str.at(0);
-    if(c=='{')
-    {
-
+    if(c=='{') {
         return setOP(  str.substr(1,str.length()-2)  ,token);
     }
     else if(c=='[')
