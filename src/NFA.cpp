@@ -147,10 +147,10 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
 {
     std::set<shared_ptr<Token>>::iterator it;
     for (it = tokens.begin(); it != tokens.end(); ++it)
-   {
-     shared_ptr<Token> token = *it;
-     prevNFA[token->getName]=parcingOne(token->getPattern,token);
-   }
+    {
+        shared_ptr<Token> token = *it;
+        prevNFA[token->getName] = parcingOne(token->getPattern, token);
+    }
     //parse all
 }
 NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
@@ -158,22 +158,16 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
     // map prevNFA
     NFA nfa(0, token);
     shared_ptr<State> strt(new State(token));
-    
+    shared_ptr<State> endss(new State(token));
+    endss->setEndState(true);
     nfa.setStartState(strt);
+    nfa.setEndState(endss);
     int i = 0;
     char c;
     int check = 0;
     std::string temp("");
-    //| or symboll
-    NFA nfaOrg(0, token);
-    shared_ptr<State> strtOrg(new State(token));
-    nfaOrg.setStartState(strtOrg);
-
-
-
     while (i < str.length)
     {
-        check = 1;
         c = str.at(i);
         if (c == '(')
         {
@@ -208,27 +202,32 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             }
             if (s.length > 0)
             {
-                nfa = concat(nfa, parcingOne(s, token), token);
+                if (i < str.length && i == '*')
+                {
+                    nfa = concat(nfa, ast(parcingOne(s, token), token), token);
+                }
+                else if (i < str.length && i == '+')
+                {
+                    nfa = concat(nfa, plusNFA(parcingOne(s, token), token), token);
+                }
+                else
+                {
+                    i--;
+                    nfa = concat(nfa, parcingOne(s, token), token);
+                }
             }
         }
         else if (c == '|')
         {
-            check = 2;
-            std::map<std::string, NFA>::iterator it;
-            it = prevNFA.find(temp);
-            if (it != prevNFA.end)
+            if (i + 1 < str.length)
             {
-                nfaOrg= oring(nfaOrg, it->second, token);
+                nfa = oring(concat(nfa, charOP(temp, token), token), parcingOne(str.substr(i + 1, str.length - 1), token), token);
+                temp = string("");
             }
             else
             {
-                nfaOrg = oring(nfaOrg, parcingOne(temp, token), token);
+                //error
             }
-            temp = string("");
-            NFA nfaOrg(0, token);
-            shared_ptr<State> strtOrg(new State(token));
-            nfaOrg.setStartState(strtOrg);
-            i++;
         }
         else if (i > 0 && str.at(i - 1) != 92 && c == '*')
         {
@@ -253,6 +252,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                     nfa = ast(parcingOne(ss, token), token);
                 }
             }
+            temp = string("");
         }
         else if (i > 0 && str.at(i - 1) != 92 && c == '+')
         {
@@ -277,32 +277,45 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                     nfa = plusNFA(parcingOne(ss, token), token);
                 }
             }
+            temp = string("");
         }
-        else if (i > 0 &&i+1<str.length&&str.at(i - 1) != 92 && c!='-')
+        else if (i > 0 && i + 1 < str.length && str.at(i - 1) != 92 && c != '-')
         {
-            char b =str.at(i-1);
-            char e =str.at(i+1);
-            if((b>='A'&&b<='Z'&&e>='A'&&e<='Z')
-            ||(b>='a'&&b<='z'&&e>='a'&&e<='z')
-            ||(b>='0'&&b<='9'&&e>='0'&&e<='9'))
+            char b = str.at(i - 1);
+            char e = str.at(i + 1);
+            if ((b >= 'A' && b <= 'Z' && e >= 'A' && e <= 'Z') || (b >= 'a' && b <= 'z' && e >= 'a' && e <= 'z') || (b >= '0' && b <= '9' && e >= '0' && e <= '9'))
             {
-            if(check!=2)
+
+                nfa = concat(nfa, intervalOP(b, c, token), token);
+            }
+        }
+        else if (c == ' ')
+        {
+            if (i > 0 && (str.at(i - 1) == '+' || str.at(i - 1) == '*'))
             {
-                nfa =concat(nfa,intervalOP(b,c,token),token);
             }
             else
             {
-                nfaOrg=oring(nfaOrg,intervalOP(b,c,token),token);
-            }      
+                std::map<std::string, NFA>::iterator it;
+                it = prevNFA.find(temp);
+                if (it != prevNFA.end)
+                {
+                    nfa = concat(nfa, it->second, token);
+                }
+                else
+                {
+                    nfa = concat(nfa, parcingOne(temp, token), token);
+                }
             }
-            
+            temp = string("");
         }
-        else if(c!=' ')
+        else
         {
             temp.push_back(c);
         }
         i++;
     }
+
     if (temp.length > 0)
     {
         std::map<std::string, NFA>::iterator it;
@@ -315,16 +328,11 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         {
             nfa = concat(nfa, parcingOne(temp, token), token);
         }
-        if(check==2)
-        {
-            nfa = oring(nfaOrg,nfa,token);
-        }
     }
     return nfa;
 }
 
-
-NFA NFA::intervalOP(char b,char e, shared_ptr<Token> token)
+NFA NFA::intervalOP(char b, char e, shared_ptr<Token> token)
 {
     shared_ptr<State> strt(new State(token));
     NFA nfa(0, token);
