@@ -10,6 +10,41 @@ int main() {
     cout << "Hello world!" << endl;
     //shared_ptr<State>
 
+
+
+    shared_ptr<Token> token (new Token("ahmed"));
+    token->setPattern("a-z") ;
+    token->setPriority(10) ;
+    NFA f ;
+    string s = token->getPattern() ;
+    NFA a =  f.intervalOP('a' , 'z' , token) ;
+    NFA b = f.intervalOP('0' , '9' , token) ;
+
+
+    shared_ptr<State> AstartS , AendState ;
+    AendState = a.getEndState() ;
+    AstartS = a.getStartState() ;
+
+
+    shared_ptr<State> BstartS , BendState ;
+    BendState = a.getEndState() ;
+    BstartS = a.getStartState() ;
+
+
+    set<shared_ptr<State>> ss2 = startS->getTransion('g');
+    cout << ss2.size()  ;
+
+    set<shared_ptr<State>>::iterator it1;
+    it1 = ss2.begin() ;
+    if (*it1 == endState) cout << "yes" << endl ;
+    cout << (*it1)->getToken()->getName() ;
+   // it1 = startS->getTransion('f') ;
+
+    //cout << a.getStartState()->getToken()->getName() ;
+   // shared_ptr<State> kk = *it1;
+
+
+
 /*
     Token tf ;
     tf.setName("ahemd") ;
@@ -57,7 +92,7 @@ int main() {
     }
 
 */
-    shared_ptr<Token> token (new Token("ahmed"));
+  /*  shared_ptr<Token> token (new Token("ahmed"));
 
     Token j = *token ;
     cout << j.getName() ;
@@ -66,7 +101,15 @@ int main() {
     to->setName("Aaaaaaaaaa") ;
 
     cout << to->getName()  << endl;
-    cout << token->getName() << endl;
+    cout << token->getName() << endl;*/
+
+/*
+shared_ptr<Token> token (new Token("ahmed"));
+     token->setPattern("a-z]") ;
+    token->setPriority(10) ;
+    NFA f ;
+    string s = token->getPattern() ;
+    NFA a =  f.intervalOP (s , token) ;*/
 /*
     token->setPattern("a-z]") ;
     token->setPriority(10) ;
