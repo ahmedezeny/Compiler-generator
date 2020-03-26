@@ -39,16 +39,17 @@ public:
         shared_ptr<State> endState;
         list <shared_ptr<State>> states;
         shared_ptr<Token> token;
+        std::map<std::string ,NFA>  prevNFA;
 
         NFA ast(NFA a1 , shared_ptr<Token> t);
         NFA plusNFA(NFA a1, shared_ptr<Token> t);
         NFA concat(NFA a1,NFA a2 , shared_ptr<Token> t );
         NFA oring(NFA a1,NFA a2 , shared_ptr<Token> t);
-        NFA setOP(string str,shared_ptr<Token>  token) ;
-        NFA basicOp(string str,shared_ptr<Token> token) ;
-
-        NFA charOP(char c,shared_ptr<Token>  token);
-        vector <string> parcingPattern () ;
+        NFA charOP(std::string str,shared_ptr<Token>  token);
+        NFA intervalOP(char b,char e, shared_ptr<Token> token);
+ 
+        NFA parcingPattern (std::set<shared_ptr<Token>> tokens) ;
+        NFA parcingOne (std::string str,shared_ptr<Token> token) ;
 
 };
 
