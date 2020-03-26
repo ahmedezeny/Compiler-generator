@@ -30,6 +30,9 @@ public:
 
     shared_ptr<Token> getToken();
 
+
+    unordered_map<char, set<shared_ptr<State>>> getAllT() ;
+
     friend bool operator<(const State &left, const State &right);
 
     friend bool operator==(const State &left, const State &right);

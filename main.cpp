@@ -6,6 +6,46 @@
 
 using namespace std;
 
+
+
+set <shared_ptr<State>> done ;
+
+void Dfs (shared_ptr <State>  s){
+
+    cout << "new state : "  << s->getToken()->getName() << "  " << s->isEndState() << endl ;
+    unordered_map<char, set<shared_ptr<State>>> umap = s->getAllT() ;
+    unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
+   // cout << "\nAll Elements : \n";
+    for (itr = umap.begin(); itr != umap.end(); itr++)
+    {
+
+       cout << ">>  input  " << itr->first << endl ;
+       set<shared_ptr<State>> ss = itr->second ;
+       set<shared_ptr<State>>::iterator it1;
+        for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
+            shared_ptr<State> kk = *it1;
+            cout << kk->getToken()->getName() << " "  << kk->isEndState() << endl ;
+        }
+    }
+
+    for (itr = umap.begin(); itr != umap.end(); itr++)
+    {
+
+       set<shared_ptr<State>> ss = itr->second ;
+       set<shared_ptr<State>>::iterator it1;
+        for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
+            shared_ptr<State> kk = *it1;
+            if (done.find(kk) != done.end()) continue ;
+            done.insert(kk) ;
+            Dfs(kk);
+        }
+
+
+    }
+
+}
+
+
 int main() {
     cout << "Hello world!" << endl;
     //shared_ptr<State>
@@ -22,29 +62,23 @@ int main() {
     NFA b = f.intervalOP('0' , '9' , token) ;
 
 
-    shared_ptr<State> AstartS , AendState ;
-    AendState = a.getEndState() ;
-    AstartS = a.getStartState() ;
 
-
-    shared_ptr<State> BstartS , BendState ;
-    BendState = b.getEndState() ;
-    BstartS = b.getStartState() ;
-
-
-     NFA orr = f.oring(a , b , tokenor) ;
+    NFA orr = f.oring(a , b , tokenor) ;
     shared_ptr<State> oRstartS , oRendState ;
     oRendState = orr.getEndState() ;
     oRstartS = orr.getStartState() ;
 
-    set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
+     Dfs(oRstartS);
+
+    /*set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
     cout << ss2.size()  ;
     set<shared_ptr<State>> ss1 = oRstartS->getTransion('b');
     cout << ss1.size()  ;
-
     set<shared_ptr<State>> ss3 = oRstartS->getTransion('2');
     cout << ss3.size();
     cout << endl;
+
+
 
 
 
@@ -65,6 +99,8 @@ int main() {
 
     if (*it1 == AstartS || *it1 == BstartS) cout << "yes" << endl ;
     if (*it1 == oRendState) cout << "yesss" << endl ;
+
+*/
 
 /*    set<shared_ptr<State>> ss2 = startS->getTransion('g');
     cout << ss2.size()  ;
@@ -178,3 +214,4 @@ shared_ptr<Token> token (new Token("ahmed"));
 */
     return 0;
 }
+

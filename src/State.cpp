@@ -20,6 +20,10 @@ bool State::isEndState() {
     return endState;
 }
 
+ unordered_map<char, set<shared_ptr<State>>> State::getAllT() {
+
+    return trans ;
+ }
 
 void State::setTransion(char input, shared_ptr<State> e) {
     if (trans[input].find(e) == trans[input].end()) {
