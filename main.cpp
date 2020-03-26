@@ -39,18 +39,32 @@ int main() {
 
     set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
     cout << ss2.size()  ;
+    set<shared_ptr<State>> ss1 = oRstartS->getTransion('b');
+    cout << ss1.size()  ;
+
+    set<shared_ptr<State>> ss3 = oRstartS->getTransion('2');
+    cout << ss3.size();
+    cout << endl;
+
+
 
 
     set<shared_ptr<State>>::iterator it1;
-     it1 = ss2.begin() ;
+    it1 = ss2.begin() ;
     if (*it1 == AstartS || *it1 == BstartS) cout << "yes" << endl ;
 
     cout << BendState->isEndState() ;
     cout << AendState->isEndState() ;
     cout << oRendState->isEndState() ;
+    cout << endl ;
 
 
+    ss2 = AendState->getTransion(0);
+    cout << ss2.size() << endl ;
+    it1 = ss2.begin();
 
+    if (*it1 == AstartS || *it1 == BstartS) cout << "yes" << endl ;
+    if (*it1 == oRendState) cout << "yesss" << endl ;
 
 /*    set<shared_ptr<State>> ss2 = startS->getTransion('g');
     cout << ss2.size()  ;
