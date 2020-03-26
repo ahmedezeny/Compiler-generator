@@ -13,6 +13,7 @@ int main() {
 
 
     shared_ptr<Token> token (new Token("ahmed"));
+    shared_ptr<Token> tokenor (new Token("or"));
     token->setPattern("a-z") ;
     token->setPriority(10) ;
     NFA f ;
@@ -27,17 +28,37 @@ int main() {
 
 
     shared_ptr<State> BstartS , BendState ;
-    BendState = a.getEndState() ;
-    BstartS = a.getStartState() ;
+    BendState = b.getEndState() ;
+    BstartS = b.getStartState() ;
 
 
-    set<shared_ptr<State>> ss2 = startS->getTransion('g');
+     NFA orr = f.oring(a , b , tokenor) ;
+    shared_ptr<State> oRstartS , oRendState ;
+    oRendState = orr.getEndState() ;
+    oRstartS = orr.getStartState() ;
+
+    set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
+    cout << ss2.size()  ;
+
+
+    set<shared_ptr<State>>::iterator it1;
+     it1 = ss2.begin() ;
+    if (*it1 == AstartS || *it1 == BstartS) cout << "yes" << endl ;
+
+    cout << BendState->isEndState() ;
+    cout << AendState->isEndState() ;
+    cout << oRendState->isEndState() ;
+
+
+
+
+/*    set<shared_ptr<State>> ss2 = startS->getTransion('g');
     cout << ss2.size()  ;
 
     set<shared_ptr<State>>::iterator it1;
     it1 = ss2.begin() ;
     if (*it1 == endState) cout << "yes" << endl ;
-    cout << (*it1)->getToken()->getName() ;
+    cout << (*it1)->getToken()->getName() ;*/
    // it1 = startS->getTransion('f') ;
 
     //cout << a.getStartState()->getToken()->getName() ;
