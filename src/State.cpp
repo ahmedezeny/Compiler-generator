@@ -85,7 +85,7 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
 }
  void State:: clone(shared_ptr<State> oldS,shared_ptr<State> newS,unordered_map<shared_ptr<State>, shared_ptr<State>> &mapS)
  {
-     //cout << "yesss" << endl;
+     cout << "yesss" << endl;
      unordered_map<char, set<shared_ptr<State>>> umap = oldS->getAllT() ;
      
      if(umap.empty())
@@ -103,6 +103,7 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
      for(itr = umap.begin(); itr != umap.end(); itr++)
      {
           char c=itr->first;
+           cout << c << endl;
           set<shared_ptr<State>> setS;
           setS=itr->second;
           
