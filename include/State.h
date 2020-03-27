@@ -29,7 +29,7 @@ public:
     void setToken(shared_ptr<Token> t);
 
     shared_ptr<Token> getToken();
-
+    void clone(shared_ptr<State> oldS,shared_ptr<State> newS,unordered_map<shared_ptr<State>, shared_ptr<State>> &map) ;
 
     unordered_map<char, set<shared_ptr<State>>> getAllT() ;
 

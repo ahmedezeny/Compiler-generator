@@ -34,7 +34,10 @@ public:
     NFA concat(NFA a1,NFA a2 , shared_ptr<Token> t );
     NFA oring(NFA a1,NFA a2 , shared_ptr<Token> t);
     NFA intervalOP(char b,char e, shared_ptr<Token> token);
-
+    NFA parcingPattern (std::set<shared_ptr<Token>> tokens) ;
+    NFA parcingOne (std::string str,shared_ptr<Token> token) ;
+    NFA charOP(std::string str,shared_ptr<Token>  token);
+    NFA& operator= (const NFA &nfA);
 
     protected:
 
@@ -47,9 +50,7 @@ public:
         std::map<std::string ,NFA>  prevNFA;
 
 
-        NFA parcingPattern (std::set<shared_ptr<Token>> tokens) ;
-        NFA parcingOne (std::string str,shared_ptr<Token> token) ;
-        NFA charOP(std::string str,shared_ptr<Token>  token);
+
 
 };
 
