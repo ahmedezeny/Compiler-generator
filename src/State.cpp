@@ -110,7 +110,7 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
           for(itS = setS.begin(); itS != setS.end(); itS++)
           {
              shared_ptr<State> oS =*itS;
-             cout<< c<<endl;   
+              
              if(mapS.find(oS)==mapS.end())
              {
                  

@@ -6,12 +6,11 @@ using namespace std;
 
 NFA::NFA()
 {
-    //ctor
+    cout << "yesss" << endl;
 }
 
 NFA::~NFA()
 {
-    //dtor
 }
 
 NFA::NFA(int number, shared_ptr<Token> token) : number(number), token(token)
@@ -95,8 +94,6 @@ NFA NFA::plusNFA(NFA a1, shared_ptr<Token> token)
 NFA NFA::concat(NFA a1, NFA a2, shared_ptr<Token> token)
 {
 
-   
-
     shared_ptr<State> strt(new State(token));
     shared_ptr<State> endSS(new State(token));
 
@@ -104,16 +101,17 @@ NFA NFA::concat(NFA a1, NFA a2, shared_ptr<Token> token)
     nfa.setStartState(strt);
     nfa.setEndState(endSS);
     endSS->setEndState(true);
-    
-    strt->setTransion(0,a1.getStartState());
-    a1.getStartState()->setTransion(0,a2.getStartState());
-    a2.getEndState()->setTransion(0,endSS);
+
+    strt->setTransion(0, a1.getStartState());
+    a1.getStartState()->setTransion(0, a2.getStartState());
+    a2.getEndState()->setTransion(0, endSS);
     a2.getEndState()->setEndState(false);
     return nfa;
 }
 
 NFA NFA::oring(NFA a1, NFA a2, shared_ptr<Token> token)
 {
+    cout << "yesss" << endl;
     NFA nfa = NFA(0, token);
 
     shared_ptr<Token> t1(token);
@@ -147,21 +145,21 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
     endss->setEndState(true);
     nfa.setStartState(strt);
     nfa.setEndState(endss);
-    int i=0;
+    int i = 0;
     for (it = tokens.begin(); it != tokens.end(); ++it)
     {
         shared_ptr<Token> token = *it;
         prevNFA[token->getName()] = parcingOne(token->getPattern(), token);
-        if(i==0)
+        if (i == 0)
         {
-            nfa=concat(nfa,prevNFA[token->getName()],token);
+            nfa = concat(nfa, prevNFA[token->getName()], token);
         }
         else
         {
-            nfa=oring(nfa,prevNFA[token->getName()],token);
+            nfa = oring(nfa, prevNFA[token->getName()], token);
         }
-        
-        i=1;
+
+        i = 1;
     }
     //parse all
     return nfa;
@@ -179,14 +177,26 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
     char c;
     int check = 0;
     std::string temp("");
+    
     while (i < str.length())
     {
         c = str.at(i);
+        
         if (c == '(')
         {
             if (temp.length() > 0)
             {
-                nfa = charOP(temp, token);
+                std::map<std::string, NFA>::iterator it;
+                it = prevNFA.find(temp);
+                if (it != prevNFA.end())
+                {
+                    nfa = concat(nfa,clone( it->second), token);
+                }
+                else
+                {
+                    nfa = charOP(temp, token);
+                }
+                
                 temp = string("");
             }
             i++;
@@ -248,7 +258,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             it = prevNFA.find(temp);
             if (it != prevNFA.end())
             {
-                nfa = concat(nfa, ast(it->second, token), token);
+                nfa = concat(nfa, ast(clone( it->second), token), token);
             }
             else
             {
@@ -273,7 +283,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             it = prevNFA.find(temp);
             if (it != prevNFA.end())
             {
-                nfa = concat(nfa, plusNFA(it->second, token), token);
+                nfa = concat(nfa, plusNFA(clone( it->second), token), token);
             }
             else
             {
@@ -292,7 +302,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             }
             temp = string("");
         }
-        else if (i > 0 && (i+1 < str.length()) && (str.at(i - 1) != 92) && c != '-')
+        else if (i > 0 && (i + 1 < str.length()) && (str.at(i - 1) != 92) && c == '-')
         {
             char b = str.at(i - 1);
             char e = str.at(i + 1);
@@ -313,7 +323,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                 it = prevNFA.find(temp);
                 if (it != prevNFA.end())
                 {
-                    nfa = concat(nfa, it->second, token);
+                    nfa = concat(nfa, clone( it->second), token);
                 }
                 else
                 {
@@ -324,8 +334,11 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         }
         else
         {
+           
             temp.push_back(c);
         }
+         
+         
         i++;
     }
 
@@ -335,11 +348,11 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         it = prevNFA.find(temp);
         if (it != prevNFA.end())
         {
-            nfa = concat(nfa, it->second, token);
+            nfa = concat(nfa, clone( it->second), token);
         }
         else
         {
-            nfa = concat(nfa, parcingOne(temp, token), token);
+            nfa = concat(nfa, charOP(temp, token), token);
         }
     }
     return nfa;
@@ -374,7 +387,7 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token)
     int i = 0;
     while (i < str.length())
     {
-        c=str.at(i);
+        c = str.at(i);
         if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'))
         {
             next = shared_ptr<State>(new State(token));
@@ -385,12 +398,11 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token)
         else if (c == 92 && i + 1 < str.length())
         {
             i++;
-             c=str.at(i);
-             
+            c = str.at(i);
+
             if ((c >= 40 && c <= 43) || (c >= 91 && c <= 94) || c == 46 || c == 63 || c == 124)
-            {   
-                 
-               
+            {
+
                 next = shared_ptr<State>(new State(token));
                 strt->setTransion(c, next);
                 strt = next;
@@ -398,9 +410,8 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token)
             }
             else
             {
-              i++;
+                i++;
             }
-            
         }
         else
         {
@@ -412,15 +423,12 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token)
 
     return nfa;
 }
- NFA& NFA::operator= (const NFA &nfa)
- {
-      cout << "yesss" << endl;
-    unordered_map<shared_ptr<State>, shared_ptr<State>> mapS;
-    shared_ptr<State> oldS=nfa.startState;
-    shared_ptr<State> newS(new State());
-    State s=State();
-    cout << "yesss" << endl;
-    s.clone(oldS,newS,mapS);
-    startState=newS;
-    return *this;
- }
+NFA NFA::clone(NFA &nfa)
+{
+    NFA nfaNew = NFA();
+    State s = State();
+    unordered_map<shared_ptr<State>, shared_ptr<State>> map;
+    s.clone(nfa.getStartState(), nfaNew.getStartState(), map);
+    nfaNew.setEndState(map[nfa.getEndState()]);
+    return nfaNew;
+}

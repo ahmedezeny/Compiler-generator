@@ -13,6 +13,8 @@ public:
 
     NFA(int number, shared_ptr<Token> token);
 
+    
+
     int getNumber();
 
     void setNumber(int number);
@@ -37,7 +39,7 @@ public:
     NFA parcingPattern (std::set<shared_ptr<Token>> tokens) ;
     NFA parcingOne (std::string str,shared_ptr<Token> token) ;
     NFA charOP(std::string str,shared_ptr<Token>  token);
-    NFA& operator= (const NFA &nfA);
+    NFA clone (NFA & nfa);
 
     protected:
 

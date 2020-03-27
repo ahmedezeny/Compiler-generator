@@ -93,7 +93,7 @@
 
 1585086911 source:/home/mostafa/myDisk/compilerP/Compiler-generator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
 
-1585326916 source:/home/ziad/compilers/Compiler-generator/main.cpp
+1585336746 source:/home/ziad/compilers/Compiler-generator/main.cpp
 	<iostream>
 	"include/Token.h"
 	"include/State.h"
@@ -120,17 +120,17 @@
 1585254701 /home/ziad/compilers/Compiler-generator/include/DFA.h
 	"State.h"
 
-1585323034 source:/home/ziad/compilers/Compiler-generator/src/NFA.cpp
+1585336937 source:/home/ziad/compilers/Compiler-generator/src/NFA.cpp
 	"../include/NFA.h"
 	<string.h>
 	<iostream>
 
-1585322523 /home/ziad/compilers/Compiler-generator/include/NFA.h
+1585334808 /home/ziad/compilers/Compiler-generator/include/NFA.h
 	"State.h"
 	"Token.h"
 	<memory>
 
-1585325925 source:/home/ziad/compilers/Compiler-generator/src/State.cpp
+1585336374 source:/home/ziad/compilers/Compiler-generator/src/State.cpp
 	"../include/State.h"
 	"../include/Token.h"
 	<memory>

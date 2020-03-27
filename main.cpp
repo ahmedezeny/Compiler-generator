@@ -56,28 +56,29 @@ int main() {
     shared_ptr<Token> tokenor (new Token("or"));
     token->setPattern("a-z") ;
     token->setPriority(10) ;
-    NFA f ;
+    NFA f (0, token);;
     string s = token->getPattern() ;
     NFA a(0, token);
 
     shared_ptr<State> strt(new State(token));
     a.setStartState(strt);
+    a= f.intervalOP('a' , 'z' , token);
     NFA b = f.intervalOP('0' , '9' , token) ;
-    NFA c = f.charOP("AHME\\+",token);
+    NFA c = f.parcingOne("AHMEAD|BC",token);
 
 
-    /*NFA orr = f.oring(a , b , tokenor) ;
+    NFA orr = f.oring(a , b , tokenor) ;
     shared_ptr<State> oRstartS , oRendState ;
     oRendState = orr.getEndState() ;
-    oRstartS = orr.getStartState() ;*/
+    oRstartS = orr.getStartState() ;
 
      //a=b;
      Dfs(c.getStartState());
-     cout << "\n\n\n\n"<<endl;
+    /* cout << "\n\n\n\n"<<endl;
      State st =State();
      unordered_map<shared_ptr<State>, shared_ptr<State>> map;
     st.clone(b.getStartState(),strt,map);
-    Dfs(strt);
+    Dfs(oRendState);
     /*set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
     cout << ss2.size()  ;
     set<shared_ptr<State>> ss1 = oRstartS->getTransion('b');
