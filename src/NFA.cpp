@@ -88,7 +88,7 @@ NFA NFA::ast(NFA a1, shared_ptr<Token> token)
 
 NFA NFA::plusNFA(NFA a1, shared_ptr<Token> token)
 {
-    return concat(a1, ast(a1, token), token);
+    return concat(a1, ast(a1.clone(a1), token), token);
 }
 
 NFA NFA::concat(NFA a1, NFA a2, shared_ptr<Token> token)
@@ -179,7 +179,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
     char c;
     int check = 0;
     std::string temp("");
-    
+    //cout<<str<<endl;
     while (i < str.length())
     {
         c = str.at(i);
@@ -188,6 +188,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         {
             if (temp.length() > 0)
             {
+                cout<<temp<<endl;
                 std::map<std::string, NFA>::iterator it;
                 it = prevNFA.find(temp);
                 if (it != prevNFA.end())
@@ -196,7 +197,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                 }
                 else
                 {
-                    nfa = charOP(temp, token);
+                    nfa = concat(nfa,charOP(temp, token),token);
                 }
                 
                 temp = string("");
@@ -207,11 +208,12 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             c = str.at(i);
             while (stackN > 0 && i < str.length())
             {
+               
                 if (c == ')')
                 {
                     stackN--;
                 }
-                else if (i == '(')
+                else if (c == '(')
                 {
                     stackN++;
                 }
@@ -224,6 +226,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                 {
                     c = str.at(i);
                 }
+                
             }
             if (s.length() > 0)
             {
@@ -246,7 +249,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         {
             if (i + 1 < str.length())
             {
-                if (temp=="")
+                if (temp!="")
                 {
                      std::map<std::string, NFA>::iterator it;
                 it = prevNFA.find(temp);
@@ -280,18 +283,20 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             }
             else
             {
-                if (temp.substr(temp.length() - 2) != "")
+                char cc=str.at(i-1);
+                if(temp.length()==1)
                 {
-                    string ss = string("");
-                    ss.push_back(c);
-                    nfa = concat(ast(parcingOne(ss, token), token), parcingOne(temp, token), token);
+                     nfa = concat( nfa,ast(charOP(temp, token), token), token);
                 }
                 else
                 {
-                    string ss = string("");
-                    ss.push_back(c);
-                    nfa = ast(parcingOne(ss, token), token);
+                    string ss("");
+                    ss.push_back(cc);
+                    nfa = concat( nfa,concat(charOP(temp, token),ast(charOP(ss, token), token),token), token);
                 }
+                
+               
+              
             }
             temp = string("");
         }
@@ -305,18 +310,20 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
             }
             else
             {
-                if (temp.substr(temp.length() - 2) != "")
+                char cc=str.at(i-1);
+                if(temp.length()==1)
                 {
-                    string ss = string("");
-                    ss.push_back(c);
-                    nfa = concat(plusNFA(parcingOne(ss, token), token), parcingOne(temp, token), token);
+                     nfa = concat( nfa,plusNFA(charOP(temp, token), token), token);
                 }
                 else
                 {
-                    string ss = string("");
-                    ss.push_back(c);
-                    nfa = plusNFA(parcingOne(ss, token), token);
+                    string ss("");
+                    ss.push_back(cc);
+                    nfa = concat( nfa,concat(charOP(temp, token),plusNFA(charOP(ss, token), token),token), token);
                 }
+                
+               
+              
             }
             temp = string("");
         }

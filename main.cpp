@@ -58,9 +58,13 @@ int main() {
     token->setPriority(10) ;
 
     NFA f (0, token);
-    string    s = "0-9|A-D" ;
+    NFA c=f.charOP("a",token);
+    NFA b=f.plusNFA(c,token);
+    string    s = "a+" ;
     NFA a = f.parcingOne(s ,  token);
-    Dfs(a.getStartState()) ;
+    done.insert(a.getStartState());
+    Dfs(b.getStartState()) ;
+    cout << "num of states " << done.size() ;
   //  Dfs(b.getStartState()) ;
     /*set<shared_ptr<State>> ss2 = oRstartS->getTransion(0);
     cout << ss2.size()  ;
