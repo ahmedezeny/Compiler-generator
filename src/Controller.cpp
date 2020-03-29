@@ -2,31 +2,129 @@
 // Created by zeny on 3/24/20.
 //
 
+
+
 #include "../include/Controller.h"
+#include "../include/Token.h"
+#include "../include/DFA.h"
 #include <fstream>
 #include <sstream>
 #include <string>
 
 
-shared_ptr<Token> Controller::readToken(string path) {
+
+
+Controller::Controller() {}
+
+
+Controller::~Controller() {}
+
+shared_ptr<Token> Controller::preProcess(vector<shared_ptr<Token>> tokens, int tokenNum) {
+    return shared_ptr<Token>();
+}
+
+
+
+
+set<shared_ptr<Token>> Controller::readToken(string path)
+{
 
     std::ifstream infile(path);
 
     std::string line;
+    int counter = 0 ;
+    set <string> allname ;
+    set < shared_ptr<Token> > allToken ;
     while (std::getline(infile, line))
     {
-        std::istringstream iss(line);
-        int a, b;
-        if (!(iss >> a >> b)) { break; } // error
+     //   cout << counter << endl ;
+        counter ++ ;
+        /**     std::istringstream iss(line);
+                string s ;
+        */
+        if (line[0] == '[' && line[line.size() -1 ] == ']')
+        {
 
-    // process pair (a,b)
+            string newline = line.substr(1, line.size() - 2  ) ;
+            std::istringstream iss(newline);
+            string s ;
+            while (iss >> s)
+            {
+                shared_ptr<Token> t (new Token()) ;
+                string name = "panc_[" + s + "]" ;
+                t->setName(name) ;
+                t->setPriority(counter);
+                t->setPattern(s);
+                if (allname.find(name) == allname.end()){
+                    allname.insert(name);
+                    allToken.insert(t);
+                }
+            }
+
+
+        }
+        else if (line[0] == '{' && line[line.size() -1 ] == '}')
+        {
+
+            string newline = line.substr(1, line.size() - 2  ) ;
+            std::istringstream iss(newline);
+            string s ;
+            while (iss >> s)
+            {
+                shared_ptr<Token> t (new Token()) ;
+                t->setName(s) ;
+                t->setPriority(counter);
+                t->setPattern(s);
+               if (allname.find(s) == allname.end()){
+                    allname.insert(s);
+                    allToken.insert(t);
+                }
+            }
+
+
+        }
+        else if (line[0] != '{' && line[0] != ']')
+        {
+           // cout << line << endl ;
+            int index = 0 ;
+            for (int i = 0 ; i <  line.size() ; i++)
+            {
+                if (line[i] == '=' || line[i] == ':')
+                {
+                    index = i ;
+                    break;
+                }
+            }
+
+            if (index == 0 )
+            {
+                cout << "eeeeeNow" << endl ;
+            }
+            string sname = line.substr(0 , index) ;
+            shared_ptr<Token> t (new Token()) ;
+            t->setName(sname) ;
+            string s = line.substr(index+1 , line.size() - index+1) ;
+            t->setPriority(counter);
+            t->setPattern(s);
+            if (allname.find(sname) == allname.end()){
+                    allname.insert(sname);
+                    allToken.insert(t);
+            }
+
+
+
+        }
+        else
+        {
+            cout << "error" << endl  ;
+            break ;
+        }
+
+
+        // process pair (a,b)
     }
 
-    return shared_ptr<Token>();
-}
-
-shared_ptr<Token> Controller::preProcess(vector<shared_ptr<Token>> tokens, int tokenNum) {
-    return shared_ptr<Token>();
+    return allToken;
 }
 /*
 DFA Controller::nfaToDfa(NFA A) {

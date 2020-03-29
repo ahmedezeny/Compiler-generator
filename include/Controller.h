@@ -27,16 +27,11 @@ public:
 
     virtual ~Controller();
 
-    shared_ptr<Token> readToken(string path);
-
+    set<shared_ptr<Token>> readToken(string path);
     shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
-
-    NFA oringAll(vector<NFA> A);
-
+   // NFA oringAll(vector<NFA> A);
     DFA minDfa(DFA A);
-
     DFA nfaToDfa(NFA A);
-
 
     bool checkD(set<shared_ptr<State>> set);
 };

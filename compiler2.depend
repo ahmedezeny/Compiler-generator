@@ -44,23 +44,26 @@
 	<Token.h>
 	<State.h>
 
-1585250015 source:/home/mostafa/myDisk/compilerP/Compiler-generator/main.cpp
+1585439579 source:/home/mostafa/myDisk/compilerP/Compiler-generator/main.cpp
 	<iostream>
 	"include/Token.h"
 	"include/State.h"
 	"include/NFA.h"
+	"include/Controller.h"
 	<memory>
 
 1585224233 /home/mostafa/myDisk/compilerP/Compiler-generator/include/Token.h
 	<bits/stdc++.h>
 
-1585248432 /home/mostafa/myDisk/compilerP/Compiler-generator/include/State.h
+1585348789 /home/mostafa/myDisk/compilerP/Compiler-generator/include/State.h
 	<bits/stdc++.h>
 	"Token.h"
 	<memory>
 
-1585224233 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/Controller.cpp
+1585431334 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/Controller.cpp
 	"../include/Controller.h"
+	"../include/Token.h"
+	"../include/DFA.h"
 	<fstream>
 	<sstream>
 	<string>
@@ -71,17 +74,17 @@
 1585224233 /home/mostafa/myDisk/compilerP/Compiler-generator/include/DFA.h
 	"State.h"
 
-1585235736 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/NFA.cpp
+1585439737 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/NFA.cpp
 	"../include/NFA.h"
 	<string.h>
 	<iostream>
 
-1585237421 /home/mostafa/myDisk/compilerP/Compiler-generator/include/NFA.h
+1585348789 /home/mostafa/myDisk/compilerP/Compiler-generator/include/NFA.h
 	"State.h"
 	"Token.h"
 	<memory>
 
-1585248490 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/State.cpp
+1585434400 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/State.cpp
 	"../include/State.h"
 	"../include/Token.h"
 	<memory>
@@ -145,7 +148,7 @@
 	"State.h"
 	"Token.h"
 
-1585224233 /home/mostafa/myDisk/compilerP/Compiler-generator/include/Controller.h
+1585430081 /home/mostafa/myDisk/compilerP/Compiler-generator/include/Controller.h
 	"NFA.h"
 	"Token.h"
 	"DFA.h"
