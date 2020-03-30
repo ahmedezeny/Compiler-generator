@@ -122,21 +122,29 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
 
              if(mapS.find(oS)==mapS.end())
              {
-
+         //        if (oS->getToken() == nullptr ) {
+                // cout <<  oS->getToken()->getName() << endl ;
+            //     }
                  shared_ptr<State> nS(new State(oS->getToken()));
                  clone(oS,nS,mapS);
+              //   cout << "Sdfaaaaaaaaaaaa" << endl;
                  mapS[oS]=nS;
                  newS->setTransion(c,nS);
 
              }
              else
              {
+               // cout << "Sdfaaaaaaaaaaaa" << endl;
                  newS->setTransion(c,mapS[oS]);
 
              }
           }
+
+          //cout << "errorrrrrrrrrrrrrrr!!!" << endl ;
+
+
      }
-     //  cout << "Sdfaaaaaaaaaaaa" << endl;
+
 
      newS->setToken(oldS->getToken());
      newS->setEndState(oldS->isEndState());

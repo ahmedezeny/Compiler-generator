@@ -74,7 +74,7 @@
 1585588586 /home/mostafa/myDisk/compilerP/Compiler-generator/include/DFA.h
 	"State.h"
 
-1585600602 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/NFA.cpp
+1585604666 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/NFA.cpp
 	"../include/NFA.h"
 	<string.h>
 	<iostream>
@@ -84,7 +84,7 @@
 	"Token.h"
 	<memory>
 
-1585600997 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/State.cpp
+1585602844 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/State.cpp
 	"../include/State.h"
 	"../include/Token.h"
 	<memory>

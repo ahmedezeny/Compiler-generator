@@ -88,6 +88,7 @@ NFA NFA::ast(NFA a1, shared_ptr<Token> token)
 
 NFA NFA::plusNFA(NFA a1, shared_ptr<Token> token)
 {
+
     return concat(a1, ast(a1.clone(a1), token), token);
 }
 
@@ -145,16 +146,30 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
     shared_ptr<State> endss(new State(token));
     endss->setEndState(true);
     nfa.setStartState(strt);
-    //  strt->setTransion(0,endss);
+   // strt->setTransion(0,endss);
     nfa.setEndState(endss);
     for (it = tokens.begin(); it != tokens.end(); ++it) {
         shared_ptr<Token> token = *it;
         prevNFA[token->getName()] = parcingOne(token->getPattern(), token);
+       // NFA b = prevNFA[token->getName()]  ;
+       // strt->setTransion(0, b.getStartState()) ;
+       // b.getEndState()->setTransion(0, endss) ;
+       /* if(token->getName() == "digits"){
+             return prevNFA["digits"] ;
+        }*/
+         cout << "finish : " << token->getName() << endl ;
+    }
+
+    cout << "sdfasafdfdfasafsdfsafds" << endl ;
+    for (it = tokens.begin(); it != tokens.end(); ++it) {
         NFA b = prevNFA[token->getName()]  ;
         strt->setTransion(0, b.getStartState()) ;
         b.getEndState()->setTransion(0, endss) ;
-
     }
+
+   // return prevNFA["digits"] ;
+
+
     //cout << strt->getTrans().size() << endl;
     //parse all
     return nfa;
@@ -401,9 +416,6 @@ NFA NFA::clone(NFA &nfa)
 {
     NFA nfaNew;
     //cout << "sfad " ;
-    shared_ptr<Token> token (new Token("or"));
-    token->setPattern("a-z") ;
-    token->setPriority(10) ;
     State s = State();
     shared_ptr<State> nStart(new State(token)) ;
     nfaNew.setStartState(nStart) ;
