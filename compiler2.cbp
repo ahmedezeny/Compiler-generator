@@ -32,7 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Controller.h" />
+		<Unit filename="include/DFA.h" />
+		<Unit filename="include/DFAState.h" />
+		<Unit filename="include/NFA.h" />
+		<Unit filename="include/State.h" />
+		<Unit filename="include/Token.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Controller.cpp" />
+		<Unit filename="src/DFA.cpp" />
+		<Unit filename="src/DFAState.cpp" />
+		<Unit filename="src/NFA.cpp" />
+		<Unit filename="src/State.cpp" />
+		<Unit filename="src/Token.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

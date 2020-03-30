@@ -87,20 +87,25 @@ set<shared_ptr<Token>> Controller::readToken(string path)
         {
            // cout << line << endl ;
             int index = 0 ;
+             string sname = "" ;
             for (int i = 0 ; i <  line.size() ; i++)
             {
+                if (line[i] == ' ') continue ;
+
                 if (line[i] == '=' || line[i] == ':')
                 {
                     index = i ;
                     break;
                 }
+
+                 sname = sname + line[i] ;
             }
 
-            if (index == 0 )
+            if (index == 0 || sname == "")
             {
                 cout << "eeeeeNow" << endl ;
             }
-            string sname = line.substr(0 , index) ;
+
             shared_ptr<Token> t (new Token()) ;
             t->setName(sname) ;
             string s = line.substr(index+1 , line.size() - index+1) ;

@@ -147,7 +147,6 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
     nfa.setStartState(strt);
   //  strt->setTransion(0,endss);
     nfa.setEndState(endss);
-    int i = 0;
     for (it = tokens.begin(); it != tokens.end(); ++it)
     {
         shared_ptr<Token> token = *it;
@@ -370,9 +369,19 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
     if (temp.length() > 0)
     {
         std::map<std::string, NFA>::iterator it;
+        for (it = prevNFA.begin() ; it != prevNFA.end() ; it++){
+                cout << it->first << endl ;
+                cout << it->first.size() << endl ;
+
+        }
+
+        //temp.push_back(' ');
+
         it = prevNFA.find(temp);
+        cout <<  "                    " << temp.size() << endl ;
         if (it != prevNFA.end())
         {
+            cout << "sssssssssssssss"  << endl ;
             nfa = concat(nfa, clone( it->second), token);
         }
         else
