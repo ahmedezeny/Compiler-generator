@@ -37,10 +37,29 @@ private:
 
     bool containSamePartitions(vector<vector<State>> v1, vector<vector<State>> v2);
 
+    void reflectMinimizedDfa(const vector<vector<State>>& partitions);
+
+    void mushTwoStates(vector<State>s, State state, State state1);
+
 public:
   //  Controller();
 
  //   virtual ~Controller();
+    const vector<shared_ptr<Token>> &getTokens() const;
+
+    void setTokens(const vector<shared_ptr<Token>> &tokens);
+
+    const vector<NFA> &getA() const;
+
+    void setA(const vector<NFA> &a);
+
+    const NFA &getN() const;
+
+    void setN(const NFA &n);
+
+    const DFA &getD() const;
+
+    void setD(const DFA &d);
 
     shared_ptr<Token> readToken(string path);
 
@@ -48,7 +67,7 @@ public:
 
     NFA oringAll(vector<NFA> A);
 
-    DFA minDfa(DFA A);
+    void minDfa();
 
  //   DFA nfaToDfa(NFA A);
 
@@ -56,7 +75,6 @@ public:
 
 
  //   bool checkD(set<shared_ptr<State>> set);
-
 
 };
 

@@ -13,7 +13,7 @@
 //int main() {
 //    cout << "Hello world!" << endl;
 //    string tokenName1="abcde";
-//    Token dummyToken1(tokenName1);
+//    Token dummyToken1(tokenName1,"abcde",5);
 //    shared_ptr<Token>t1(make_shared<Token>(dummyToken1));
 //    vector<State> states(5);
 //    for(int i=0;i<states.size()-1;i++){
@@ -25,7 +25,11 @@
 //    endState.setEndState(true);
 //    states[4]=(endState);
 //
-//    State s2,s1;
+//    string tokenName2="abcxe";
+//    Token dummyToken2(tokenName1,"abcxe",2);
+//    shared_ptr<Token>t2(make_shared<Token>(dummyToken2));
+//
+//    State s2(t2),s1(t2);
 //    s2.setEndState(true);
 //    s1.setTransion('e',make_shared<State>(s2));
 //    states[2].setTransion('x',make_shared<State>(s1));
@@ -45,9 +49,22 @@
 //    list<State> statesList(states.begin(),states.end());
 //    d.setStates(statesList);
 //    Controller controller;
+//    controller.setD(d);
 //    controller.getAllInputs(d);
-//    controller.minDfa(d);
 //
+//    int counter=0;
 //
+//    for(auto i:controller.getD().getStates())
+//        counter++;
+//
+//    cout<<counter<<endl;
+//
+//    controller.minDfa();
+//    counter=0;
+//
+//    for(auto i:controller.getD().getStates())
+//        counter++;
+//
+//    cout<<counter<<endl;
 //    return 0;
 //};
