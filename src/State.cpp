@@ -65,6 +65,11 @@ bool operator<(const State &left, const State &right) {
     return l.getToken()->getName() < r.getToken()->getName();
 }
 
+bool State::same(State s) {
+    bool st=this->getTrans()==s.getTrans();
+    bool ses=this->isEndState()==s.isEndState();
+    return  st&&ses;
+}
 
 /*
 bool operator< (const State &left, const State &right)
@@ -88,8 +93,10 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
     // cout << "yesss" << endl;
      unordered_map<char, set<shared_ptr<State>>> umap = oldS->getAllT() ;
 
+
      if(umap.empty())
      {
+
 
          if(mapS.find(oldS)!=mapS.end())
          {
@@ -102,6 +109,7 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
 
      for(itr = umap.begin(); itr != umap.end(); itr++)
      {
+
           char c=itr->first;
           // cout << c << endl;
           set<shared_ptr<State>> setS;
@@ -124,14 +132,15 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
              else
              {
                  newS->setTransion(c,mapS[oS]);
+
              }
-
-
-
           }
      }
+     //  cout << "Sdfaaaaaaaaaaaa" << endl;
+
      newS->setToken(oldS->getToken());
      newS->setEndState(oldS->isEndState());
+
 
  }
 /*bool operator< ( State &left,  State &right)

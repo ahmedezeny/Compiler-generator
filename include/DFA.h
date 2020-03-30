@@ -16,6 +16,22 @@ class DFA {
         list <State> states;
     public:
     DFA();
+
+    int getNumber() const;
+
+    void setNumber(int number);
+
+    const State &getStartState() const;
+
+    void setStartState(const State &startState);
+
+    const State &getEndState() const;
+
+    void setEndState(const State &endState);
+
+    const list<State> &getStates() const;
+
+    void setStates(const list<State> &states);
 };
 
 

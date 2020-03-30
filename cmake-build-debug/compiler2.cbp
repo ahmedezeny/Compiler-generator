@@ -8,120 +8,124 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug"/>
+				<Option working_dir="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="compiler2">
-				<Option output="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/compiler2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/Ahmed/Desktop/Compiler-generator/include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/mingw32"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/../../../../include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler2"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="compiler2/fast">
-				<Option output="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/compiler2.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="C:/Users/Ahmed/Desktop/Compiler-generator/include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/mingw32"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include/c++/backward"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/../../../../include"/>
-					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/bin/../lib/gcc/mingw32/5.1.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler2/fast"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug"/>
+				<Option working_dir="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compiler2">
+				<Option output="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/compiler2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/zeny/Documents/projects/Compiler-generator/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler2"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="compiler2/fast">
+				<Option output="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/compiler2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/zeny/Documents/projects/Compiler-generator/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 compiler2/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/Controller.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/Controller.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/DFA.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/DFA.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/DFAState.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/NFA.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/NFA.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/State.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/include/Token.h">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/main.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/main.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/Controller.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/Controller.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/DFA.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/DFA.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/DFAState.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/DFAState.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/NFA.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/NFA.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/State.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/State.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/src/Token.cpp">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/src/Token.cpp">
 			<Option target="compiler2"/>
 		</Unit>
-		<Unit filename="C:/Users/Ahmed/Desktop/Compiler-generator/CMakeLists.txt">
+		<Unit filename="/home/zeny/Documents/projects/Compiler-generator/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

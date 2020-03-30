@@ -1,2 +1,2 @@
-letter = a-d | A-G
-digit = letter
+digit = 0-9
+digits = digit+

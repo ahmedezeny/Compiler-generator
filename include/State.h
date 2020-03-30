@@ -37,12 +37,15 @@ public:
 
     friend bool operator==(const State &left, const State &right);
 
+    bool same(State s);
+
 protected:
 
 private:
     unordered_map<char, set<shared_ptr<State>>> trans;
     bool endState;
     shared_ptr<Token> stateToken;
+
 
 };
 
