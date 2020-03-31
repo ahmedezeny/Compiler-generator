@@ -91,53 +91,58 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
 }
  void State:: clone(shared_ptr<State> oldS,shared_ptr<State> newS,unordered_map<shared_ptr<State>, shared_ptr<State>> &mapS)
  {
-     cout << "yesss" << endl;
+    // cout << "yesss" << endl;
      unordered_map<char, set<shared_ptr<State>>> umap = oldS->getAllT() ;
-     
-     if(umap.empty())
-     {
-         
-         if(mapS.find(oldS)!=mapS.end())
+     if(mapS.find(oldS)==mapS.end())
          {
             mapS[oldS]=newS;
          }
-         
-     }
-     
+   
      unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
-     
+
      for(itr = umap.begin(); itr != umap.end(); itr++)
      {
+
           char c=itr->first;
-           cout << c << endl;
+          
           set<shared_ptr<State>> setS;
           setS=itr->second;
-          
+
           set<shared_ptr<State>>::iterator itS;
           for(itS = setS.begin(); itS != setS.end(); itS++)
           {
              shared_ptr<State> oS =*itS;
-              
+              cout << c << endl;
              if(mapS.find(oS)==mapS.end())
              {
-                 
+         //        if (oS->getToken() == nullptr ) {
+                // cout <<  oS->getToken()->getName() << endl ;n
+
+            //     }
                  shared_ptr<State> nS(new State(oS->getToken()));
                  clone(oS,nS,mapS);
-                 mapS[oS]=nS;
-                 newS->setTransion(c,nS);
+              //  \ cout << "Sdfaaaaaaaaaaaa" << endl;
                  
+                 newS->setTransion(c,nS);
+
              }
              else
              {
+               // cout << "Sdfaaaaaaaaaaaa" << endl;
                  newS->setTransion(c,mapS[oS]);
+
              }
-             
-             
-             
           }
+
+          //cout << "errorrrrrrrrrrrrrrr!!!" << endl ;
+
+
      }
+
+
      newS->setToken(oldS->getToken());
      newS->setEndState(oldS->isEndState());
+
 
  }
 

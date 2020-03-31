@@ -44,9 +44,9 @@ private:
     void setNewStates(const vector<vector<shared_ptr<State>>>& partitions);
 
 public:
-  //  Controller();
+    Controller();
 
- //   virtual ~Controller();
+    virtual ~Controller();
     const vector<shared_ptr<Token>> &getTokens() const;
 
     void setTokens(const vector<shared_ptr<Token>> &tokens);
@@ -63,18 +63,21 @@ public:
 
     void setD(const DFA &d);
 
-    shared_ptr<Token> readToken(string path);
-
+    set<shared_ptr<Token>> readToken(string path);
     shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
+   // NFA oringAll(vector<NFA> A);
+    DFA minDfa(DFA A);
+    DFA nfaToDfa(NFA A);
+
+    bool checkD(set<shared_ptr<State>> set);
+
 
     NFA oringAll(vector<NFA> A);
 
     void minDfa();
 
  //   DFA nfaToDfa(NFA A);
-
     void getAllInputs(DFA A);
-
 
  //   bool checkD(set<shared_ptr<State>> set);
 
