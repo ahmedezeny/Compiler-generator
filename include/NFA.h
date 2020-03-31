@@ -39,6 +39,13 @@ public:
 
     NFA intervalOP(char b, char e, shared_ptr<Token> token);
 
+    NFA parcingPattern(std::set<shared_ptr<Token>> tokens);
+
+    NFA parcingOne(std::string str, shared_ptr<Token> token);
+
+    NFA charOP(std::string str, shared_ptr<Token> token);
+
+    NFA clone(NFA &nfa);
 
 protected:
 
@@ -49,13 +56,6 @@ private:
     list<shared_ptr<State>> states;
     shared_ptr<Token> token;
     std::map<std::string, NFA> prevNFA;
-
-
-    NFA parcingPattern(std::set<shared_ptr<Token>> tokens);
-
-    NFA parcingOne(std::string str, shared_ptr<Token> token);
-
-    NFA charOP(std::string str, shared_ptr<Token> token);
 
 };
 

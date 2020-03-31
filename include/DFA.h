@@ -14,20 +14,27 @@ class DFA {
 public:
     DFA();
 
-    list<shared_ptr<State>> getStates();
+    int getNumber() const;
+
+    void setNumber(int number);
+
+    shared_ptr<State> getStartState() const;
+
+    void setStartState(shared_ptr<State> startState);
+
+    shared_ptr<State> getEndState() const;
+
+    void setEndState(shared_ptr<State> endState);
+
+    list<shared_ptr<State>> getStates() const;
 
     void setStates(list<shared_ptr<State>> states);
-
-    void setEndState(shared_ptr<State> endstate);
-
-    shared_ptr<State> getEndState();
-
+    
 private:
     int number; // we may remove that
     shared_ptr<State> startState;
     shared_ptr<State> endState;
     list<shared_ptr<State>> states;
-
 };
 
 

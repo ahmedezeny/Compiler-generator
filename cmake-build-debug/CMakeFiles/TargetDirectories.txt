@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir
 C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Ahmed/Desktop/Compiler-generator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+=======
+/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/compiler2.dir
+/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/edit_cache.dir
+>>>>>>> 71b7b646e5059cf97d15bf64d89837d394248c5e

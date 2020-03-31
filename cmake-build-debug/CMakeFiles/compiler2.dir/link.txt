@@ -1,3 +1,1 @@
-"C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\compiler2.dir/objects.a
-C:\PROGRA~2\CODEBL~1\MinGW\bin\ar.exe cr CMakeFiles\compiler2.dir/objects.a @CMakeFiles\compiler2.dir\objects1.rsp
-C:\PROGRA~2\CODEBL~1\MinGW\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\compiler2.dir/objects.a -Wl,--no-whole-archive  -o compiler2.exe -Wl,--out-implib,libcompiler2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\compiler2.dir\linklibs.rsp
+/usr/bin/c++  -g   CMakeFiles/compiler2.dir/src/Controller.cpp.o CMakeFiles/compiler2.dir/src/DFA.cpp.o CMakeFiles/compiler2.dir/src/NFA.cpp.o CMakeFiles/compiler2.dir/src/State.cpp.o CMakeFiles/compiler2.dir/src/Token.cpp.o CMakeFiles/compiler2.dir/src/DFAState.cpp.o CMakeFiles/compiler2.dir/main.cpp.o  -o compiler2 

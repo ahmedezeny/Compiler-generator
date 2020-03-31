@@ -1,0 +1,172 @@
+# depslib dependency file v1.0
+1585080645 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/main.cpp
+	<iostream>
+	<Token.h>
+	<State.h>
+
+1585072477 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/Token.cpp
+	"Token.h"
+
+1585070067 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/Token.h
+	<bits/stdc++.h>
+
+1585080784 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/State.cpp
+	"State.h"
+	"Token.h"
+
+1585080743 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/State.h
+	<bits/stdc++.h>
+	"Token.h"
+
+1585078438 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/NFA.cpp
+	"NFA.h"
+
+1585078396 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/NFA.h
+	"State.h"
+	"Token.h"
+
+1585079043 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/Controller.cpp
+	"Controller.h"
+
+1585079019 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/Controller.h
+	"NFA.h"
+	"Token.h"
+	"DFA.h"
+
+1585079156 /home/mostafa/myDisk/codeblocks_workspace/compiler2/include/DFA.h
+	"State.h"
+
+1585078993 source:/home/mostafa/myDisk/codeblocks_workspace/compiler2/src/DFA.cpp
+	"DFA.h"
+
+1585081056 source:c:\users\ahmed\desktop\compiler2\main.cpp
+	<iostream>
+	<Token.h>
+	<State.h>
+
+1585439579 source:/home/mostafa/myDisk/compilerP/Compiler-generator/main.cpp
+	<iostream>
+	"include/Token.h"
+	"include/State.h"
+	"include/NFA.h"
+	"include/Controller.h"
+	<memory>
+
+1585224233 /home/mostafa/myDisk/compilerP/Compiler-generator/include/Token.h
+	<bits/stdc++.h>
+
+1585588586 /home/mostafa/myDisk/compilerP/Compiler-generator/include/State.h
+	<bits/stdc++.h>
+	"Token.h"
+	<memory>
+
+1585588838 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/Controller.cpp
+	"../include/Controller.h"
+	"../include/Token.h"
+	"../include/DFA.h"
+	<fstream>
+	<sstream>
+	<string>
+
+1585588586 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/DFA.cpp
+	"../include/DFA.h"
+
+1585588586 /home/mostafa/myDisk/compilerP/Compiler-generator/include/DFA.h
+	"State.h"
+
+1585604666 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/NFA.cpp
+	"../include/NFA.h"
+	<string.h>
+	<iostream>
+
+1585348789 /home/mostafa/myDisk/compilerP/Compiler-generator/include/NFA.h
+	"State.h"
+	"Token.h"
+	<memory>
+
+1585602844 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/State.cpp
+	"../include/State.h"
+	"../include/Token.h"
+	<memory>
+
+1585224233 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/Token.cpp
+	"../include/Token.h"
+
+1585086911 source:/home/mostafa/myDisk/compilerP/Compiler-generator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c
+
+1585086911 source:/home/mostafa/myDisk/compilerP/Compiler-generator/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp
+
+1585659032 source:/home/ziad/compilers/Compiler-generator/main.cpp
+	<iostream>
+	"include/Token.h"
+	"include/State.h"
+	"include/NFA.h"
+	"include/Controller.h"
+	<memory>
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/Token.h
+	<bits/stdc++.h>
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/State.h
+	<bits/stdc++.h>
+	"Token.h"
+	<memory>
+
+1585659409 source:/home/ziad/compilers/Compiler-generator/src/Controller.cpp
+	"../include/Controller.h"
+	"../include/Token.h"
+	"../include/DFA.h"
+	<fstream>
+	<sstream>
+	<string>
+
+1585609163 source:/home/ziad/compilers/Compiler-generator/src/DFA.cpp
+	"../include/DFA.h"
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/DFA.h
+	"State.h"
+
+1585659274 source:/home/ziad/compilers/Compiler-generator/src/NFA.cpp
+	"../include/NFA.h"
+	<string.h>
+	<iostream>
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/NFA.h
+	"State.h"
+	"Token.h"
+	<memory>
+
+1585658995 source:/home/ziad/compilers/Compiler-generator/src/State.cpp
+	"../include/State.h"
+	"../include/Token.h"
+	<memory>
+
+1585609163 source:/home/ziad/compilers/Compiler-generator/src/Token.cpp
+	"../include/Token.h"
+
+1585166063 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/DFAState.cpp
+	"../include/DFAState.h"
+
+1585174455 /home/mostafa/myDisk/compilerP/Compiler-generator/include/DFAState.h
+	"State.h"
+	"Token.h"
+
+1585588693 /home/mostafa/myDisk/compilerP/Compiler-generator/include/Controller.h
+	"NFA.h"
+	"Token.h"
+	"DFA.h"
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/Controller.h
+	"NFA.h"
+	"Token.h"
+	"DFA.h"
+
+1585609163 source:/home/ziad/compilers/Compiler-generator/src/DFAState.cpp
+	"../include/DFAState.h"
+
+1585609163 /home/ziad/compilers/Compiler-generator/include/DFAState.h
+	"State.h"
+	"Token.h"
+
+1585588586 source:/home/mostafa/myDisk/compilerP/Compiler-generator/src/zenyTest.cpp
+
