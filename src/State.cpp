@@ -20,8 +20,21 @@ bool State::isEndState() {
     return endState;
 }
 
+unordered_map<char, set<shared_ptr<State>>> State::getAllT() {
+
+    return trans ;
+}
 
 void State::setTransion(char input, shared_ptr<State> e) {
+    if (trans[input].find(e) == trans[input].end()) {
+        trans[input].insert(e);
+    } else {
+        cout << "error" << endl;
+    }
+}
+
+void State::resetTransion(char input, shared_ptr<State> e) {
+    trans.erase(input);
     if (trans[input].find(e) == trans[input].end()) {
         trans[input].insert(e);
     } else {
@@ -65,19 +78,24 @@ bool operator<(const State &left, const State &right) {
 /*
 bool operator< (const State &left, const State &right)
 {
-
     return reinterpret_cast<const char*>( std::addressof(left) ) < reinterpret_cast<const char*>( std::addressof(right) ) ;
 }
-
 bool operator== (const State &left, const State &right)
 {
-
     return reinterpret_cast<const char*>( std::addressof(left) ) == reinterpret_cast<const char*>( std::addressof(right) );
 }
 */
 
 unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
     return trans;
+}
+
+void State::setEqStates(set<shared_ptr<State>> states) {
+    State::EqStates = states;
+}
+
+set<shared_ptr<State>> State::getEqStates() {
+    return EqStates;
 }
 
 /*bool operator< ( State &left,  State &right)

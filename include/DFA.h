@@ -7,15 +7,27 @@
 
 
 #include "State.h"
+#include "DFAState.h"
+#include <bits/stdc++.h>
 
 class DFA {
-    private:
-        int number; // we may remove that
-        State startState;
-        State endState;
-        list <State> states;
-    public:
+public:
     DFA();
+
+    list<shared_ptr<State>> getStates();
+
+    void setStates(list<shared_ptr<State>> states);
+
+    void setEndState(shared_ptr<State> endstate);
+
+    shared_ptr<State> getEndState();
+
+private:
+    int number; // we may remove that
+    shared_ptr<State> startState;
+    shared_ptr<State> endState;
+    list<shared_ptr<State>> states;
+
 };
 
 

@@ -2,60 +2,52 @@
 #include "include/Token.h"
 #include "include/State.h"
 #include <memory>
+#include <Controller.h>
 
 using namespace std;
 
 int main() {
     cout << "Hello world!" << endl;
-    //shared_ptr<State>
+    Controller controller;
+    NFA nfa;
+    DFA dfa;
 
+    shared_ptr<State> one(new State(shared_ptr<Token>(new Token("1")))),
+            two(new State(shared_ptr<Token>(new Token("2")))),
+            three(new State(shared_ptr<Token>(new Token("3")))),
+            four(new State(shared_ptr<Token>(new Token("4"))));
+    list<shared_ptr<State>> list;
+    list.push_back(one);
+    list.push_back(two);
+    list.push_back(three);
+    list.push_back(four);
 
-    Token tf ;
-    tf.setName("ahemd") ;
+    one->setTransion('a', two);
+    one->setTransion('c', four);
+    one->setTransion('0', one);
 
-   // shared_ptr<Token> tt = make_shared<Token>(tf);
-    shared_ptr<Token> tt ( make_shared<Token>(tf) );
-    State s(tt) ;
-    State ss = s ;
-    cout << s.getToken()->getName() << endl ;
-    cout << ss.getToken()->getName() << endl ;
-    s.getToken()->setName("asf") ;
-    cout << s.getToken()->getName() << endl ;
-    cout << ss.getToken()->getName() << endl ;
-  //  cout << tt->getName() << endl ;
-    tt->setName("ss") ;
+    two->setTransion('b', three);
+    two->setTransion('0', one);
+    two->setTransion('0', two);
 
-    cout << s.getToken()->getName() << endl ;
-    cout << ss.getToken()->getName() << endl ;
-   // cout << tt->getName() << endl  ;
+    three->setTransion('a', two);
+    three->setTransion('0', three);
 
+    four->setTransion('c', three);
+    four->setTransion('0', four);
+    four->setTransion('0', three);
 
-    //Token *t2 = tf ;
+    nfa.setStartState(one);
+    nfa.setStates(list);
+    nfa.setEndState(three);
 
-   // Token *t3 = tt.get() ;
-/*
-    shared_ptr<State> s1(new State(tt));
-    shared_ptr<State> s2(new State(tt));
+    controller.setInput('a');
+    controller.setInput('b');
+    controller.setInput('c');
+//    controller.setInput('0');
 
-    s1->setTransion('a', s2);
-    s1->setTransion('a', s2);
-    s1->setTransion('a', s2);
-    s2->getToken()->setName("aa");
-    tt->setName("aa") ;
-
-    //cout << tf.getName() << endl ;
-    //cout << t2->getName() << endl;
-
-    set<shared_ptr<State>>::iterator it1;
-
-    set<shared_ptr<State>> ss = s1->getTransion('a');
-
-    for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
-        shared_ptr<State> kk = *it1;
-        cout << kk->getToken()->getName() << endl;
-    }
-
-*/
+    dfa = controller.nfaToDfa(nfa);
+    cout << "finito" << endl;
 
     return 0;
 }

@@ -8,19 +8,22 @@
 #include "NFA.h"
 #include "Token.h"
 #include "DFA.h"
+#include "DFAState.h"
+#include <bits/stdc++.h>
 
 class Controller {
 private:
     vector<shared_ptr<Token>> tokens;
     vector<NFA> A;
+    vector<char> inputs;
     NFA N;
     DFA D;
 
-    set<struct shared_ptr<State>> epsClosure(shared_ptr<State> s, char input);
+//    set<struct shared_ptr<State>> epsClosure(shared_ptr<State> s, char input);
+//
+//    set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> s, char input);
 
-    set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> s, char input);
-
-    shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
+//    shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
 
 public:
     Controller();
@@ -37,8 +40,21 @@ public:
 
     DFA nfaToDfa(NFA A);
 
+    set<shared_ptr<State>> epsClosure(shared_ptr<State> state);
 
-    bool checkD(set<shared_ptr<State>> set);
+    shared_ptr<State> setup(set<shared_ptr<State>> states);
+
+    set<shared_ptr<State>> moveTo(set<shared_ptr<State>> states, char input);
+
+    set<shared_ptr<State>> moveTo(shared_ptr<State> state, char input);
+
+    set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> states);
+
+    bool checkD(list<shared_ptr<State>> list/*, std::list<set<shared_ptr<State>>> EqStates*/, shared_ptr<State> state, shared_ptr<State> *clone);
+
+    vector<char> getInputs();
+
+    void setInput(char input);
 };
 
 
