@@ -57,7 +57,7 @@ int main() {
 
     Controller c ;
 
-   set<shared_ptr<Token>> all =  c.readToken("input.txt");
+   set<shared_ptr<Token>> all =  c.readToken("input2.txt");
    set <shared_ptr<Token>> :: iterator itr;
    for (itr = all.begin(); itr != all.end(); ++itr)
     {

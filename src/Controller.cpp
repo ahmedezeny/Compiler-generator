@@ -100,6 +100,7 @@ set<shared_ptr<Token>> Controller::readToken(string path)
 
             shared_ptr<Token> t (new Token()) ;
             t->setName(sname) ;
+             cout << line << endl ;
             string s = line.substr(index+1, line.size() - index+1) ;
             t->setPriority(counter);
             t->setPattern(s);

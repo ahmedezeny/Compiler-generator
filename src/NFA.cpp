@@ -151,6 +151,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
     for (it = tokens.begin(); it != tokens.end(); ++it) {
         shared_ptr<Token> token = *it;
         prevNFA[token->getName()] = parcingOne(token->getPattern(), token);
+        //cout<<token->getName()<<"    "<<token->getPattern()<<endl;
        // NFA b = prevNFA[token->getName()]  ;
        // strt->setTransion(0, b.getStartState()) ;
        // b.getEndState()->setTransion(0, endss) ;
@@ -160,9 +161,10 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens)
          cout << "finish : " << token->getName() << endl ;
     }
 
-    cout << "sdfasafdfdfasafsdfsafds" << endl ;
+    
     for (it = tokens.begin(); it != tokens.end(); ++it) {
-        NFA b = prevNFA[token->getName()]  ;
+        shared_ptr<Token> t=*it;
+        NFA b = prevNFA[t->getName()]  ;
         strt->setTransion(0, b.getStartState()) ;
         b.getEndState()->setTransion(0, endss) ;
     }
@@ -243,6 +245,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                     std::map<std::string, NFA>::iterator it;
                     it = prevNFA.find(temp);
                     if (it != prevNFA.end()) {
+                        cout<<temp<<endl;
                         return oring(concat(nfa,clone( it->second), token), parcingOne(str.substr(i + 1, str.length() - 1), token), token);
                     } else {
                         return oring(concat(nfa, charOP(temp, token), token), parcingOne(str.substr(i + 1, str.length() - 1), token), token);
@@ -315,7 +318,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
                 } else {
                     //cout << "  aaa   " << temp << "    " ;
                     nfa = concat(nfa, parcingOne(temp, token), token);
-                    cout << "ffffffffff" << endl ;
+                  
                 }
             }
             temp = string("");
@@ -340,13 +343,13 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token)
         //cout <<  temp << "                    " << temp.size() << endl ;
         if (it != prevNFA.end()) {
            // cout << "Token name " << token->getName()  << endl ;
-            cout << "mapppp" << endl ;
+           
             nfa = concat(nfa, clone( it->second), token);
 
         } else {
-            cout << "  " << temp  << "  " << endl ;
+            
             nfa = concat(nfa, charOP(temp, token), token);
-            cout << "hhhhhh"  << endl ;
+            
         }
     }
 
