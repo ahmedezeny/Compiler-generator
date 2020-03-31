@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named compiler2
+# Target rules for targets named Compiler_generator
 
 # Build rule for target.
-compiler2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 compiler2
-.PHONY : compiler2
+Compiler_generator: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Compiler_generator
+.PHONY : Compiler_generator
 
 # fast build rule for target.
-compiler2/fast:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/build
-.PHONY : compiler2/fast
+Compiler_generator/fast:
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/build
+.PHONY : Compiler_generator/fast
 
 main.o: main.cpp.o
 
@@ -129,7 +129,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -138,7 +138,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -147,7 +147,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 src/Controller.o: src/Controller.cpp.o
@@ -156,7 +156,7 @@ src/Controller.o: src/Controller.cpp.o
 
 # target to build an object file
 src/Controller.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Controller.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Controller.cpp.o
 .PHONY : src/Controller.cpp.o
 
 src/Controller.i: src/Controller.cpp.i
@@ -165,7 +165,7 @@ src/Controller.i: src/Controller.cpp.i
 
 # target to preprocess a source file
 src/Controller.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Controller.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Controller.cpp.i
 .PHONY : src/Controller.cpp.i
 
 src/Controller.s: src/Controller.cpp.s
@@ -174,7 +174,7 @@ src/Controller.s: src/Controller.cpp.s
 
 # target to generate assembly for a file
 src/Controller.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Controller.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Controller.cpp.s
 .PHONY : src/Controller.cpp.s
 
 src/DFA.o: src/DFA.cpp.o
@@ -183,7 +183,7 @@ src/DFA.o: src/DFA.cpp.o
 
 # target to build an object file
 src/DFA.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFA.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFA.cpp.o
 .PHONY : src/DFA.cpp.o
 
 src/DFA.i: src/DFA.cpp.i
@@ -192,7 +192,7 @@ src/DFA.i: src/DFA.cpp.i
 
 # target to preprocess a source file
 src/DFA.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFA.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFA.cpp.i
 .PHONY : src/DFA.cpp.i
 
 src/DFA.s: src/DFA.cpp.s
@@ -201,7 +201,7 @@ src/DFA.s: src/DFA.cpp.s
 
 # target to generate assembly for a file
 src/DFA.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFA.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFA.cpp.s
 .PHONY : src/DFA.cpp.s
 
 src/DFAState.o: src/DFAState.cpp.o
@@ -210,7 +210,7 @@ src/DFAState.o: src/DFAState.cpp.o
 
 # target to build an object file
 src/DFAState.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFAState.cpp.o
 .PHONY : src/DFAState.cpp.o
 
 src/DFAState.i: src/DFAState.cpp.i
@@ -219,7 +219,7 @@ src/DFAState.i: src/DFAState.cpp.i
 
 # target to preprocess a source file
 src/DFAState.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFAState.cpp.i
 .PHONY : src/DFAState.cpp.i
 
 src/DFAState.s: src/DFAState.cpp.s
@@ -228,7 +228,7 @@ src/DFAState.s: src/DFAState.cpp.s
 
 # target to generate assembly for a file
 src/DFAState.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/DFAState.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/DFAState.cpp.s
 .PHONY : src/DFAState.cpp.s
 
 src/NFA.o: src/NFA.cpp.o
@@ -237,7 +237,7 @@ src/NFA.o: src/NFA.cpp.o
 
 # target to build an object file
 src/NFA.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/NFA.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/NFA.cpp.o
 .PHONY : src/NFA.cpp.o
 
 src/NFA.i: src/NFA.cpp.i
@@ -246,7 +246,7 @@ src/NFA.i: src/NFA.cpp.i
 
 # target to preprocess a source file
 src/NFA.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/NFA.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/NFA.cpp.i
 .PHONY : src/NFA.cpp.i
 
 src/NFA.s: src/NFA.cpp.s
@@ -255,7 +255,7 @@ src/NFA.s: src/NFA.cpp.s
 
 # target to generate assembly for a file
 src/NFA.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/NFA.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/NFA.cpp.s
 .PHONY : src/NFA.cpp.s
 
 src/State.o: src/State.cpp.o
@@ -264,7 +264,7 @@ src/State.o: src/State.cpp.o
 
 # target to build an object file
 src/State.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/State.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/State.cpp.o
 .PHONY : src/State.cpp.o
 
 src/State.i: src/State.cpp.i
@@ -273,7 +273,7 @@ src/State.i: src/State.cpp.i
 
 # target to preprocess a source file
 src/State.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/State.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/State.cpp.i
 .PHONY : src/State.cpp.i
 
 src/State.s: src/State.cpp.s
@@ -282,7 +282,7 @@ src/State.s: src/State.cpp.s
 
 # target to generate assembly for a file
 src/State.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/State.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/State.cpp.s
 .PHONY : src/State.cpp.s
 
 src/Token.o: src/Token.cpp.o
@@ -291,7 +291,7 @@ src/Token.o: src/Token.cpp.o
 
 # target to build an object file
 src/Token.cpp.o:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Token.cpp.o
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Token.cpp.o
 .PHONY : src/Token.cpp.o
 
 src/Token.i: src/Token.cpp.i
@@ -300,7 +300,7 @@ src/Token.i: src/Token.cpp.i
 
 # target to preprocess a source file
 src/Token.cpp.i:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Token.cpp.i
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Token.cpp.i
 .PHONY : src/Token.cpp.i
 
 src/Token.s: src/Token.cpp.s
@@ -309,8 +309,35 @@ src/Token.s: src/Token.cpp.s
 
 # target to generate assembly for a file
 src/Token.cpp.s:
-	$(MAKE) -f CMakeFiles/compiler2.dir/build.make CMakeFiles/compiler2.dir/src/Token.cpp.s
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/Token.cpp.s
 .PHONY : src/Token.cpp.s
+
+src/zenyTest.o: src/zenyTest.cpp.o
+
+.PHONY : src/zenyTest.o
+
+# target to build an object file
+src/zenyTest.cpp.o:
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/zenyTest.cpp.o
+.PHONY : src/zenyTest.cpp.o
+
+src/zenyTest.i: src/zenyTest.cpp.i
+
+.PHONY : src/zenyTest.i
+
+# target to preprocess a source file
+src/zenyTest.cpp.i:
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/zenyTest.cpp.i
+.PHONY : src/zenyTest.cpp.i
+
+src/zenyTest.s: src/zenyTest.cpp.s
+
+.PHONY : src/zenyTest.s
+
+# target to generate assembly for a file
+src/zenyTest.cpp.s:
+	$(MAKE) -f CMakeFiles/Compiler_generator.dir/build.make CMakeFiles/Compiler_generator.dir/src/zenyTest.cpp.s
+.PHONY : src/zenyTest.cpp.s
 
 # Help Target
 help:
@@ -319,7 +346,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... compiler2"
+	@echo "... Compiler_generator"
 	@echo "... edit_cache"
 	@echo "... main.o"
 	@echo "... main.i"
@@ -342,6 +369,9 @@ help:
 	@echo "... src/Token.o"
 	@echo "... src/Token.i"
 	@echo "... src/Token.s"
+	@echo "... src/zenyTest.o"
+	@echo "... src/zenyTest.i"
+	@echo "... src/zenyTest.s"
 .PHONY : help
 
 

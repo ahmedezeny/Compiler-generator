@@ -23,23 +23,25 @@ private:
 
   //  shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
 
-    bool equalStates(vector<vector<State>> p, State s1, State s2);
+    bool equalStates(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2);
 
-    vector<vector<State>> smash(vector<vector<State>> p);
+    vector<vector<shared_ptr<State>>> smash(vector<vector<shared_ptr<State>>> p);
 
-    vector<vector<State>> split(vector<State> s);
+    vector<vector<shared_ptr<State>>> split(vector<shared_ptr<State>> s);
 
-    bool areEqual(vector<vector<State>> p, State s1, State s2, char in);
+    bool areEqual(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2, char in);
 
-    bool inSameVector(vector<vector<State>> p, shared_ptr<State> t1, shared_ptr<State> t2);
+    bool inSameVector(vector<vector<shared_ptr<State>>> p, shared_ptr<State> t1, shared_ptr<State> t2);
 
-    bool statesExistInVector(vector<State> p, shared_ptr<State> t1, shared_ptr<State> t2);
+    bool statesExistInVector(vector<shared_ptr<State>> p, shared_ptr<State> t1, shared_ptr<State> t2);
 
-    bool containSamePartitions(vector<vector<State>> v1, vector<vector<State>> v2);
+    bool containSamePartitions(vector<vector<shared_ptr<State>>> v1, vector<vector<shared_ptr<State>>> v2);
 
-    void reflectMinimizedDfa(const vector<vector<State>>& partitions);
+    void reflectMinimizedDfa(vector<vector<shared_ptr<State>>> partitions);
 
-    void mushTwoStates(vector<State>s, State state, State state1);
+    void mushTwoStates(shared_ptr<State> state, shared_ptr<State> state1);
+
+    void setNewStates(const vector<vector<shared_ptr<State>>>& partitions);
 
 public:
   //  Controller();

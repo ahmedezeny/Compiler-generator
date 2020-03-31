@@ -30,20 +30,22 @@ shared_ptr<Token> Controller::preProcess(vector<shared_ptr<Token>> tokens, int t
 }
 
 void Controller::minDfa() {
-    vector<vector<State>> partitions;
-    vector<State>s(this->D.getStates().begin(),this->D.getStates().end());
+    vector<vector<shared_ptr<State>>> partitions;
+    vector<shared_ptr<State>>s(this->getD().getStates().begin(),this->getD().getStates().end());
+
     for(int i=0;i<2;i++)
         partitions.push_back(split(s)[i]);
 
-    vector<vector<State>> dummyPartitions=partitions;
+    vector<vector<shared_ptr<State>>> dummyPartitions=partitions;
     do{
         partitions=dummyPartitions;
         dummyPartitions=smash(partitions);
     }while(!containSamePartitions(partitions,dummyPartitions));
+    setNewStates(partitions);
     reflectMinimizedDfa(partitions);
 }
 
-bool Controller::equalStates(vector<vector<State>> p, State s1, State s2){
+bool Controller::equalStates(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2){
     for(auto in:this->inputs) {
         if(areEqual(p,s1,s2,in)){
             continue;
@@ -55,11 +57,11 @@ bool Controller::equalStates(vector<vector<State>> p, State s1, State s2){
     return true;
 }
 
-vector<vector<State>> Controller::smash(vector<vector<State>> p) {
+vector<vector<shared_ptr<State>>> Controller::smash(vector<vector<shared_ptr<State>>> p) {
     int newPartitionPointer=-1;
-    vector<vector<State>> result;
+    vector<vector<shared_ptr<State>>> result;
     for (int i = 0; i < p.size(); i++) {
-        vector<State>v1;
+        vector<shared_ptr<State>>v1;
         v1.push_back(p[i][0]);
         result.push_back(v1);
         newPartitionPointer++;
@@ -73,7 +75,7 @@ vector<vector<State>> Controller::smash(vector<vector<State>> p) {
                 }
             }
             if(!luck){
-                vector<State>v1;
+                vector<shared_ptr<State>>v1;
                 v1.push_back(p[i][j]);
                 result.push_back(v1);
             }
@@ -83,26 +85,26 @@ vector<vector<State>> Controller::smash(vector<vector<State>> p) {
 }
 
 
-vector<vector<State>> Controller::split(vector<State> s){
-    vector<vector<State>> p;
-    vector<State>endStates;
-    vector<State>nonEndStates;
-    for(int i=0;i<s.size();i++){
-        if(s[i].isEndState()){
-            endStates.push_back(s[i]);
+vector<vector<shared_ptr<State>>> Controller::split(vector<shared_ptr<State>> s){
+    vector<vector<shared_ptr<State>>> p;
+    vector<shared_ptr<State>>endStates;
+    vector<shared_ptr<State>>nonEndStates;
+    for(auto & i : s){
+        if(i->isEndState()){
+            endStates.push_back(i);
         } else
-            nonEndStates.push_back(s[i]);
+            nonEndStates.push_back(i);
     }
-    p.push_back(endStates);
     p.push_back(nonEndStates);
+    p.push_back(endStates);
     return p;
 }
 
 void Controller::getAllInputs(DFA A) {
-    list<State>s=A.getStates();
+    list<shared_ptr<State>>s=A.getStates();
     vector<char> result;
     for(auto i:s){
-        for(auto j:i.getTrans()){
+        for(auto j:i->getTrans()){
             result.push_back(j.first);
         }
     }
@@ -128,26 +130,26 @@ NFA Controller::oringAll(vector<NFA> A) {
     return *nfa;
 }
 
-bool Controller::areEqual(vector<vector<State>>p,State s1, State s2, char in) {
+bool Controller::areEqual(vector<vector<shared_ptr<State>>>p,shared_ptr<State> s1, shared_ptr<State> s2, char in) {
     shared_ptr<State> t1;
     shared_ptr<State> t2;
 
-    for(const auto& ss:s1.getTransion(in))
+    for(auto ss:s1->getTransion(in))
         t1=ss;  //that should be once
 
-    for(const auto& ss:s2.getTransion(in))
+    for(auto ss:s2->getTransion(in))
         t2=ss;  //that should be once
 
-    if(t1==nullptr&&t2==nullptr)
+    if(t1==NULL&&t2==NULL)
         return true;
-    if(t1==nullptr||t2==nullptr)
+    if(t1==NULL||t2==NULL)
         return false;
 
-    return !(!t1->same(*t2) || !inSameVector(p, t1, t2));
+    return !(!t1->same(t2) || !inSameVector(p, t1, t2));
 
 }
 
-bool Controller::inSameVector(vector<vector<State>>p,shared_ptr< State>t1,shared_ptr< State>t2){
+bool Controller::inSameVector(vector<vector<shared_ptr<State>>>p,shared_ptr< State>t1,shared_ptr< State>t2){
     for(const auto & i : p){
         if(statesExistInVector(i,t1,t2))
             return true;
@@ -155,26 +157,26 @@ bool Controller::inSameVector(vector<vector<State>>p,shared_ptr< State>t1,shared
     return false;
 }
 
-bool Controller::statesExistInVector(vector<State>p,shared_ptr<State>t1,shared_ptr<State>t2){
+bool Controller::statesExistInVector(vector<shared_ptr<State>>p,shared_ptr<State>t1,shared_ptr<State>t2){
     bool bingo1=false;
     bool bingo2=false;
     for(auto i:p){
-        if(i.same(*t1))
+        if(i->same(t1))
             bingo1=true;
-        if(i.same(*t2))
+        if(i->same(t2))
             bingo2=true;
     }
     return bingo1 && bingo2;
 }
 
-bool Controller::containSamePartitions(vector<vector<State>> v1, vector<vector<State>> v2) {
+bool Controller::containSamePartitions(vector<vector<shared_ptr<State>>> v1, vector<vector<shared_ptr<State>>> v2) {
     if(v1.size()!=v2.size())
         return false;
     for(int i=0;i<v1.size();i++){
         if(v1[i].size()!=v2[i].size())
             return false;
         for(int j=0;j<v1[i].size();j++){
-            if(!v1[i][j].same(v2[i][j]))
+            if(!v1[i][j]->same(v2[i][j]))
                 return false;
         }
     }
@@ -182,38 +184,39 @@ bool Controller::containSamePartitions(vector<vector<State>> v1, vector<vector<S
     return true;
 }
 
-void Controller::reflectMinimizedDfa(const vector<vector<State>>& partitions) {
-    vector<State>s(this->D.getStates().begin(),this->D.getStates().end());
-    list<State> result;
+void Controller::reflectMinimizedDfa(vector<vector<shared_ptr<State>>> partitions) {
+    vector<shared_ptr<State>>sl(this->D.getStates().begin(),this->D.getStates().end());
+
+    list<shared_ptr<State>> result;
     for(auto & partition : partitions){
         for(int j=1;j<partition.size()&&partition.size()>1;j++){
-            mushTwoStates(s, (State)partition[0], (State)partition[j]);
+            mushTwoStates(partition[0], partition[j]);
         }
         result.push_back(partition[0]);
     }
     this->D.setStates(result);
 }
 
-void Controller::mushTwoStates(vector<State> s, State state, State state1) {
+void Controller::mushTwoStates( shared_ptr<State> state, shared_ptr<State>state1) {
     //iterate the vector of states
-    for(auto i:s){
+    for(auto i:this->D.getStates()){
         //for each state each state transfares to
-        for(auto t:i.getTrans()){
+        for(auto t:i->getTrans()){
             shared_ptr<State> t1;
             //get the only state it transfares to
             for(auto ss:t.second)
                 t1=ss;  //that should be once
 
-            if(state1.same(*t1)){                                    //if this state is state1
-                i.setTransion(t.first,make_shared<State>(state));    //let it point to state
+            if(state1==t1){                       //if this state is state1
+                i->setTransion(t.first,state);    //let it point to state
             }
         }
     }
-    if(state.isEndState()
-        &&state1.isEndState()
-        &&state1.getToken()->getPriority()>
-        state.getToken()->getPriority())
-        state.setToken(state1.getToken());
+    if(state->isEndState()
+        &&state1->isEndState()
+        &&state1->getToken()->getPriority()<
+        state->getToken()->getPriority())
+        state->setToken(state1->getToken());
 
 }
 
@@ -247,6 +250,20 @@ const DFA &Controller::getD() const {
 
 void Controller::setD(const DFA &d) {
     D = d;
+}
+
+void Controller::setNewStates(const vector<vector<shared_ptr<State>>>& partitions) {
+    list<shared_ptr<State>>r;
+    for(auto & partition : partitions){
+        for(const auto & j : partition){
+            r.push_back(j);
+        }
+    }
+    DFA d;
+    d.setEndState(this->getD().getEndState());
+    d.setStartState(this->getD().getStartState());
+    d.setStates(r);
+    this->setD(d);
 }
 /*
 DFA Controller::nfaToDfa(NFA A) {

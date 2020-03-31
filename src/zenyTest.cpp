@@ -12,30 +12,29 @@
 //
 //int main() {
 //    cout << "Hello world!" << endl;
-//    string tokenName1="abcde";
-//    Token dummyToken1(tokenName1,"abcde",5);
-//    shared_ptr<Token>t1(make_shared<Token>(dummyToken1));
-//    vector<State> states(5);
-//    for(int i=0;i<states.size()-1;i++){
-//        State dummyState (t1);
-//        states[i]=(dummyState);
-//
+//    string tokenName1 = "abcde";
+//    Token dummyToken1(tokenName1, "abcde", 5);
+//    shared_ptr<Token> t1(make_shared<Token>(dummyToken1));
+//    vector<shared_ptr<State>> states(5);
+//    for (int i = 0; i < states.size() - 1; i++) {
+//        shared_ptr<State> dummyState(new State(t1));
+//        states[i] = (dummyState);
 //    }
-//    State endState (t1);
-//    endState.setEndState(true);
-//    states[4]=(endState);
+//    shared_ptr<State> endState(new State (t1));
+//    endState->setEndState(true);
+//    states[4] = endState;
 //
-//    string tokenName2="abcxe";
-//    Token dummyToken2(tokenName1,"abcxe",2);
-//    shared_ptr<Token>t2(make_shared<Token>(dummyToken2));
+//    string tokenName2 = "abcxe";
+//    Token dummyToken2(tokenName1, "abcxe", 2);
+//    shared_ptr<Token> t2(make_shared<Token>(dummyToken2));
 //
-//    State s2(t2),s1(t2);
-//    s2.setEndState(true);
-//    s1.setTransion('e',make_shared<State>(s2));
-//    states[2].setTransion('x',make_shared<State>(s1));
+//    shared_ptr<State> s2(new State (t2)), s1(new State(t2));
+//    s2->setEndState(true);
+//    s1->setTransion('e', (s2));
+//    states[2]->setTransion('x', (s1));
 //
-//    for(int i=states.size()-2;i>=0;i--){
-//        states[i].setTransion((char)i+'b',make_shared<State>(states[i+1]));
+//    for (int i = states.size() - 2; i >= 0; i--) {
+//        states[i]->setTransion(i + 'b', states[i + 1]);
 //    }
 //
 //
@@ -44,27 +43,30 @@
 //
 //    DFA d;
 //
-//    d.setEndState(states[states.size()-1]);
-//    d.setStartState(states[0]);
-//    list<State> statesList(states.begin(),states.end());
+//    d.setEndState((states[states.size() - 1]));
+//    d.setStartState((states[0]));
+//    list<shared_ptr<State>> sl(states.begin(), states.end());
+//    list<shared_ptr<State>> statesList;
+//    for (auto i:sl)
+//        statesList.push_back((i));
 //    d.setStates(statesList);
 //    Controller controller;
 //    controller.setD(d);
 //    controller.getAllInputs(d);
 //
-//    int counter=0;
+//    int counter = 0;
 //
-//    for(auto i:controller.getD().getStates())
+//    for (auto i:controller.getD().getStates())
 //        counter++;
 //
-//    cout<<counter<<endl;
+//    cout << counter << endl;
 //
 //    controller.minDfa();
-//    counter=0;
+//    counter = 0;
 //
-//    for(auto i:controller.getD().getStates())
+//    for (auto i:controller.getD().getStates())
 //        counter++;
 //
-//    cout<<counter<<endl;
+//    cout << counter << endl;
 //    return 0;
 //};

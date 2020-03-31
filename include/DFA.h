@@ -11,9 +11,9 @@
 class DFA {
     private:
         int number; // we may remove that
-        State startState;
-        State endState;
-        list <State> states;
+        shared_ptr<State> startState;
+        shared_ptr<State> endState;
+        list <shared_ptr<State>> states;
     public:
     DFA();
 
@@ -21,17 +21,17 @@ class DFA {
 
     void setNumber(int number);
 
-    const State &getStartState() const;
+    const shared_ptr<State> &getStartState() const;
 
-    void setStartState(const State &startState);
+    void setStartState(const shared_ptr<State> &startState);
 
-    const State &getEndState() const;
+    const shared_ptr<State> &getEndState() const;
 
-    void setEndState(const State &endState);
+    void setEndState(const shared_ptr<State> &endState);
 
-    const list<State> &getStates() const;
+    const list<shared_ptr<State>> &getStates() const;
 
-    void setStates(const list<State> &states);
+    void setStates(const list<shared_ptr<State>> &states);
 };
 
 

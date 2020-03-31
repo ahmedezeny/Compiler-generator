@@ -12,6 +12,8 @@ class State {
 public:
     State();
 
+    State(const shared_ptr<State>&);
+
     virtual ~State();
 
     State(shared_ptr<Token> stateToken);
@@ -35,9 +37,9 @@ public:
 
     friend bool operator<(const State &left, const State &right);
 
-    friend bool operator==(const State &left, const State &right);
+   // friend bool operator==(const State &left, const State &right);
 
-    bool same(State s);
+    bool same(shared_ptr<State> s);
 
 protected:
 

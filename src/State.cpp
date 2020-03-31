@@ -26,6 +26,7 @@ bool State::isEndState() {
  }
 
 void State::setTransion(char input, shared_ptr<State> e) {
+
     if (trans[input].find(e) == trans[input].end()) {
         trans[input].insert(e);
     } else {
@@ -65,9 +66,9 @@ bool operator<(const State &left, const State &right) {
     return l.getToken()->getName() < r.getToken()->getName();
 }
 
-bool State::same(State s) {
-    bool st=this->getTrans()==s.getTrans();
-    bool ses=this->isEndState()==s.isEndState();
+bool State::same(shared_ptr<State> s ) {
+    bool st=this->getTrans()==s->getTrans();
+    bool ses=this->isEndState()==s->isEndState();
     return  st&&ses;
 }
 
@@ -139,6 +140,10 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
      newS->setEndState(oldS->isEndState());
 
  }
+
+State::State(const shared_ptr<State> &) {
+
+}
 /*bool operator< ( State &left,  State &right)
 {
     return left.getToken().getName() < right.getToken().getName();

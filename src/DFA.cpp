@@ -13,26 +13,33 @@ void DFA::setNumber(int number) {
     DFA::number = number;
 }
 
-const State &DFA::getStartState() const {
+const shared_ptr<State> &DFA::getStartState() const {
     return startState;
 }
 
-void DFA::setStartState(const State &startState) {
+void DFA::setStartState(const shared_ptr<State> &startState) {
     DFA::startState = startState;
 }
 
-const State &DFA::getEndState() const {
+const shared_ptr<State> &DFA::getEndState() const {
     return endState;
 }
 
-void DFA::setEndState(const State &endState) {
+void DFA::setEndState(const shared_ptr<State> &endState) {
     DFA::endState = endState;
 }
 
-const list<State> &DFA::getStates() const {
+const list<shared_ptr<State>> &DFA::getStates() const {
     return states;
 }
 
-void DFA::setStates(const list<State> &states) {
+void DFA::setStates(const list<shared_ptr<State>> &states) {
     DFA::states = states;
 }
+
+
+
+
+
+
+
