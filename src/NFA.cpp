@@ -146,7 +146,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens) {
         /* if(token->getName() == "digits"){
               return prevNFA["digits"] ;
          }*/
-        cout << "finish : " << token->getName() << endl;
+       // cout << "finish : " << token->getName() << endl;
     }
 
 
@@ -166,7 +166,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens) {
 }
 
 NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
-    cout << str << endl;
+    //cout << str << endl;
     // map prevNFA
     NFA nfa(0, token);
     shared_ptr<State> strt(new State(token));
@@ -234,7 +234,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
                     std::map<std::string, NFA>::iterator it;
                     it = prevNFA.find(temp);
                     if (it != prevNFA.end()) {
-                        cout << temp << endl;
+                        //cout << temp << endl;
                         return oring(concat(nfa, clone(it->second), token),
                                      parcingOne(str.substr(i + 1,
                                                            str.length() - 1),
@@ -335,10 +335,10 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
 
     if (temp.length() > 0) {
         std::map<std::string, NFA>::iterator it;
-        for (it = prevNFA.begin(); it != prevNFA.end(); it++) {
+        /*for (it = prevNFA.begin(); it != prevNFA.end(); it++) {
             cout << it->first << endl;
             cout << it->first.size() << endl;
-        }
+        }*/
 
         //temp.push_back(' ');
 
@@ -387,7 +387,7 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token) {
     char c;
     int i = 0;
 
-    cout << str << "  " << str.size() << endl;
+    //cout << str << "  " << str.size() << endl;
     while (i < str.length()) {
         c = str.at(i);
 
@@ -406,7 +406,7 @@ NFA NFA::charOP(std::string str, shared_ptr<Token> token) {
                 i++;
             }
         } else {
-            cout << "        " << c << "       " << endl;
+           // cout << "        " << c << "       " << endl;
             next = shared_ptr<State>(new State(token));
             strt->setTransion(c, next);
             strt = next;

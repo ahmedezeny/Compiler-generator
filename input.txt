@@ -1,4 +1,6 @@
 letter = a-z | A-Z
 digit = 0-9
-digits = digit*
-num: digit+ | digit+ . digits
+id: letter (letter|digit)*
+digits = digit+
+{boolean int float}
+num: digit+ | digit+ . digits ( \L | E digits)

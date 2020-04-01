@@ -1,4 +1,4 @@
-#include "DFA.h"
+#include "../include/DFA.h"
 #include <bits/stdc++.h>
 
 DFA::DFA()

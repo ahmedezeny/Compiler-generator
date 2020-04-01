@@ -2,9 +2,9 @@
 // Created by zeny on 3/24/20.
 //
 
-#include "Controller.h"
+#include "../include/Controller.h"
 #include <bits/stdc++.h>
-#include <DFAState.h>
+//#include <../include/DFAState.h>
 
 
 Controller::Controller() {}
@@ -370,7 +370,7 @@ DFA Controller::nfaToDfa(NFA A) {
             }
 
         }
-        t->getTrans().erase('0');
+        t->getTrans().erase(0);
     }
     D.setStates(DStates);
     return DFA();
@@ -392,7 +392,7 @@ set<shared_ptr<State>> Controller::epsClosure(shared_ptr<State> state) {
     set<shared_ptr<State>> states;
     set<shared_ptr<State>> target;
     states.insert(state);
-    auto temp = state->getTransion('0');
+    auto temp = state->getTransion(0);
     for (auto it : temp) {
         target.insert(it);
         states.insert(it);
@@ -403,7 +403,7 @@ set<shared_ptr<State>> Controller::epsClosure(shared_ptr<State> state) {
             target.erase(t);
             continue;
         }
-        auto temp2 = t->operator->()->getTransion('0');
+        auto temp2 = t->operator->()->getTransion(0);
         for (auto it : temp2) {
             target.insert(it);
             states.insert(it);
@@ -440,17 +440,19 @@ Controller::moveTo(shared_ptr<State> state, char input) {
     set<shared_ptr<State>> res = state->getTransion(input);
     return res;
 }
-
 // creates a DFA state out of a set of states
 shared_ptr<State> Controller::setup(set<shared_ptr<State>> states) {
-    shared_ptr<State> dfaState(new State(shared_ptr<Token>(new Token())));
+    shared_ptr<State> dfaState(new State(shared_ptr<Token>(new Token("0","0",INT_MAX))));
+    cout << dfaState->getToken()->getName() << endl;
+    cout << "fffffffffff" << endl ;
     for (auto state : states) {
         for (auto transition : state->getTrans())
             for (auto destination : transition.second)
                 dfaState->setTransion(transition.first, destination);
         if (state->isEndState()) {
             dfaState->setEndState(true);
-            dfaState->setToken(state->getToken());
+            if(state->getToken()->getPriority() < dfaState->getToken()->getPriority())
+                dfaState->setToken(state->getToken());
         }
     }
 //    unordered_map<char, set<shared_ptr<State>>> trans;
@@ -479,7 +481,6 @@ shared_ptr<State> Controller::setup(set<shared_ptr<State>> states) {
     dfaState->setEqStates(states);
     return dfaState;
 }
-
 bool Controller::checkD(list<shared_ptr<State>> list,
 //                        std::list<set<shared_ptr<State>>> EqStates,
                         shared_ptr<State> state,

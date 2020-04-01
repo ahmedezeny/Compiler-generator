@@ -113,14 +113,14 @@ set<shared_ptr<State>> State::getEqStates() {
          {
             mapS[oldS]=newS;
          }
-   
+
      unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
 
      for(itr = umap.begin(); itr != umap.end(); itr++)
      {
 
           char c=itr->first;
-          
+
           set<shared_ptr<State>> setS;
           setS=itr->second;
 
@@ -128,7 +128,7 @@ set<shared_ptr<State>> State::getEqStates() {
           for(itS = setS.begin(); itS != setS.end(); itS++)
           {
              shared_ptr<State> oS =*itS;
-              cout << c << endl;
+              //cout << c << endl;
              if(mapS.find(oS)==mapS.end())
              {
          //        if (oS->getToken() == nullptr ) {
@@ -138,7 +138,7 @@ set<shared_ptr<State>> State::getEqStates() {
                  shared_ptr<State> nS(new State(oS->getToken()));
                  clone(oS,nS,mapS);
               //  \ cout << "Sdfaaaaaaaaaaaa" << endl;
-                 
+
                  newS->setTransion(c,nS);
 
              }
