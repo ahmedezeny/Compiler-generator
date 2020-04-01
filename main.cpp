@@ -15,32 +15,31 @@ Controller c;
 
 void Dfs(shared_ptr<State> s) {
 
-   // cout << "Sfaaaaaaaaaaaaaaaaaaaa" << endl ;
-  if (s->isEndState())
-    cout << "new state : " << s->getToken()->getName() << "  "
-         << s->isEndState() << endl;
-   // cout << "ffffffffffffffffffffffff" << endl ;
+    // cout << "Sfaaaaaaaaaaaaaaaaaaaa" << endl ;
+    if (s->isEndState())
+        cout << "new state : " << s->getToken()->getName() << "  "
+             << s->isEndState() << endl;
+    // cout << "ffffffffffffffffffffffff" << endl ;
     unordered_map<char, set<shared_ptr<State>>> umap = s->getAllT();
     unordered_map<char, set<shared_ptr<State>>>::iterator itr;
     // cout << "\nAll Elements : \n";
     for (itr = umap.begin(); itr != umap.end(); itr++) {
-        if (){
-
-
+        if (itr->first == 0){
+            cout << "null" << endl ;
         }
         if (allinputs.find(itr->first) == allinputs.end()){
-                allinputs.insert (itr->first) ;
-                c.setInput(itr->first);
+            allinputs.insert (itr->first) ;
+            c.setInput(itr->first);
         }
-       // cout << ">>  input  " << itr->first << endl;
+        // cout << ">>  input  " << itr->first << endl;
         set<shared_ptr<State>> ss = itr->second;
         set<shared_ptr<State>>::iterator it1;
         for (it1 = ss.begin(); it1 != ss.end(); ++it1) {
             shared_ptr<State> kk = *it1;
-      /*  if (kk->isEndState()){
-            cout << kk->getToken()->getName() << " " << kk->isEndState()
-                 << endl;
-            }*/
+            /*  if (kk->isEndState()){
+                  cout << kk->getToken()->getName() << " " << kk->isEndState()
+                       << endl;
+                  }*/
         }
     }
 
@@ -84,7 +83,7 @@ int main() {
     done.insert(a.getStartState());
 
 //
-  //  NFA a = b.intervalOP('0' , '9' , token) ;
+    //  NFA a = b.intervalOP('0' , '9' , token) ;
 
     done.insert(a.getStartState());
     Dfs(a.getStartState());
@@ -92,40 +91,18 @@ int main() {
 
     cout << "num of inputs " << allinputs.size() << endl;
 
-  //  for (auto a: allinputs){
-  //      cout << (int) a << endl ;
-  //  }
+    //  for (auto a: allinputs){
+    //      cout << (int) a << endl ;
+    //  }
 
 
     DFA d = c.nfaToDfa(a) ;
+    c.minDfa();
     cout << "sssssssssssssssss" << endl ;
     done.clear();
     done.insert(d.getStartState());
     Dfs(d.getStartState());
     cout << "num of states " << done.size();
-    c.minDfa();
-    cout << "wwwwwwwwwwwwwwwwwwwwwww" << endl ;
-    d = c.getD() ;
-    done.clear();
-    done.insert(d.getStartState());
-    Dfs(d.getStartState());
-    cout << "num of states " << done.size();
-    cout << "ffffffffffffffff" << endl ;
-    cout << d.getStates().size();
-/*
-   shared_ptr<Token> token (new Token("ahmed"));
-//    shared_ptr<Token> tokenor (new Token("or"));
-    token->setPattern("a-z") ;
-    token->setPriority(10) ;
 
-    NFA f (0, token);
-    NFA c=f.charOP("a",token);
-    NFA b=f.plusNFA(c,token);
-    string    s = "a+" ;
-    NFA a = f.parcingOne(s ,  token);
-    done.insert(a.getStartState());
-    Dfs(b.getStartState()) ;
-    cout << "num of states " << done.size() ;
-*/
     return 0;
 }
