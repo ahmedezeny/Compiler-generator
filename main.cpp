@@ -24,6 +24,10 @@ void Dfs(shared_ptr<State> s) {
     unordered_map<char, set<shared_ptr<State>>>::iterator itr;
     // cout << "\nAll Elements : \n";
     for (itr = umap.begin(); itr != umap.end(); itr++) {
+        if (){
+
+
+        }
         if (allinputs.find(itr->first) == allinputs.end()){
                 allinputs.insert (itr->first) ;
                 c.setInput(itr->first);
@@ -95,7 +99,7 @@ int main() {
 
     DFA d = c.nfaToDfa(a) ;
     cout << "sssssssssssssssss" << endl ;
-     done.clear();
+    done.clear();
     done.insert(d.getStartState());
     Dfs(d.getStartState());
     cout << "num of states " << done.size();

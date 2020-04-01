@@ -339,7 +339,7 @@ void Controller::mushTwoStates( shared_ptr<State> state, shared_ptr<State>state1
 
             if(state1==t1)                        //if this state is state1
             {
-                i->setTransion(t.first,state);    //let it point to state
+                i->resetTransion(t.first,state);    //let it point to state
             }
         }
     }
