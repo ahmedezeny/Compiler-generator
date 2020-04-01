@@ -1,3 +1,0 @@
-/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir
-/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/edit_cache.dir

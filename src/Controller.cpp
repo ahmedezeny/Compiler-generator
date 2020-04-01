@@ -341,41 +341,40 @@ void Controller::setNewStates(const vector<vector<shared_ptr<State>>>& partition
     d.setStates(r);
     this->setD(d);
 }
-///*
-//DFA Controller::nfaToDfa(NFA A) {
-//    list<shared_ptr<State>> states = A.getStates();
-//    list<shared_ptr<State>> DStates;
-////    list<set<shared_ptr<State>>> EqStates;
-//    queue<shared_ptr<State>> DQ;
-//    shared_ptr<State> s0 = setup(epsClosure(A.getStartState()));
-//    DStates.push_back(s0);
-//    DQ.push(s0);
-////    EqStates.push_back(epsClosure(A.getStartState()));
-//    while (!DQ.empty()) {
-//        shared_ptr<State> t = DQ.front();
-//        DQ.pop();
-//        for (auto input = inputs.begin(); input != inputs.end(); ++input) {
-//            set<shared_ptr<State>> u = epsClosure(moveTo(t, *input));
-//            shared_ptr<State> s = setup(u);
-//            if (u.size() == 0) {
-//                continue;
-//            }
-//            shared_ptr<State> clone(new State(shared_ptr<Token>(new Token())));
-//            if (!checkD(DStates/*, EqStates*/, s, &clone)) {
-//                DStates.push_back(s);
-//                DQ.push(s);
-////                EqStates.push_back(u);
-//                t->resetTransion(*input, s);
-//            } else {
-//                t->resetTransion(*input, clone);
-//            }
-//
-//        }
-//        t->getTrans().erase('0');
-//    }
-//    D.setStates(DStates);
-//    return DFA();
-//}
+DFA Controller::nfaToDfa(NFA A) {
+    list<shared_ptr<State>> states = A.getStates();
+    list<shared_ptr<State>> DStates;
+//    list<set<shared_ptr<State>>> EqStates;
+    queue<shared_ptr<State>> DQ;
+    shared_ptr<State> s0 = setup(epsClosure(A.getStartState()));
+    DStates.push_back(s0);
+    DQ.push(s0);
+//    EqStates.push_back(epsClosure(A.getStartState()));
+    while (!DQ.empty()) {
+        shared_ptr<State> t = DQ.front();
+        DQ.pop();
+        for (auto input = inputs.begin(); input != inputs.end(); ++input) {
+            set<shared_ptr<State>> u = epsClosure(moveTo(t, *input));
+            shared_ptr<State> s = setup(u);
+            if (u.size() == 0) {
+                continue;
+            }
+            shared_ptr<State> clone(new State(shared_ptr<Token>(new Token())));
+            if (!checkD(DStates, s, &clone)) {
+                DStates.push_back(s);
+                DQ.push(s);
+//                EqStates.push_back(u);
+                t->resetTransion(*input, s);
+            } else {
+                t->resetTransion(*input, clone);
+            }
+
+        }
+        t->getTrans().erase('0');
+    }
+    D.setStates(DStates);
+    return DFA();
+}
 
 NFA Controller::oringAll(vector<NFA> A) {
     NFA *nfa;
