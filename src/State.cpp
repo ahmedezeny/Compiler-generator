@@ -27,10 +27,11 @@ bool State::isEndState() {
 
 void State::setTransion(char input, shared_ptr<State> e) {
 
-    if (trans[input].find(e) == trans[input].end()) {
+   if (trans[input].find(e) == trans[input].end()) {
         trans[input].insert(e);
     } else {
-        cout << "error" << endl;
+       // cout << "ssssssssssssssssssssssssssssssssssssssssssssssssssss" ;
+       // cout << "error" << endl;
     }
 }
 

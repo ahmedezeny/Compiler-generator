@@ -132,7 +132,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens) {
     NFA nfa(0, token);
     shared_ptr<State> strt(new State(token));
     shared_ptr<State> endss(new State(token));
-    endss->setEndState(true);
+    endss->setEndState(false);
     nfa.setStartState(strt);
     // strt->setTransion(0,endss);
     nfa.setEndState(endss);
@@ -152,6 +152,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens) {
 
     for (it = tokens.begin(); it != tokens.end(); ++it) {
         shared_ptr<Token> t = *it;
+        cout << t->getName() << endl ;
         NFA b = prevNFA[t->getName()];
         strt->setTransion(0, b.getStartState());
         b.getEndState()->setTransion(0, endss);
