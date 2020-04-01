@@ -1,4 +1,4 @@
-# Install script for directory: /home/zeny/Documents/projects/Compiler-generator
+# Install script for directory: /home/zeny/Documents/projects/Compiler/Compiler-generator
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

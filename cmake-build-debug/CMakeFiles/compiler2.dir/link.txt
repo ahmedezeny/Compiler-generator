@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/compiler2.dir/src/Controller.cpp.o CMakeFiles/compiler2.dir/src/DFA.cpp.o CMakeFiles/compiler2.dir/src/NFA.cpp.o CMakeFiles/compiler2.dir/src/State.cpp.o CMakeFiles/compiler2.dir/src/Token.cpp.o CMakeFiles/compiler2.dir/src/DFAState.cpp.o CMakeFiles/compiler2.dir/main.cpp.o  -o compiler2 

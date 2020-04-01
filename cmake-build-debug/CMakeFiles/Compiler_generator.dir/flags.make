@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zeny/Documents/projects/Compiler-generator/include 
+CXX_INCLUDES = -I/home/zeny/Documents/projects/Compiler/Compiler-generator/include 
 

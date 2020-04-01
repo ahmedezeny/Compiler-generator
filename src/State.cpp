@@ -34,6 +34,15 @@ void State::setTransion(char input, shared_ptr<State> e) {
     }
 }
 
+void State::resetTransion(char input, shared_ptr<State> e) {
+    trans.erase(input);
+    if (trans[input].find(e) == trans[input].end()) {
+        trans[input].insert(e);
+    } else {
+        cout << "error" << endl;
+    }
+}
+
 
 set<shared_ptr<State>> State::getTransion(char input) {
 
@@ -75,13 +84,10 @@ bool State::same(shared_ptr<State> s ) {
 /*
 bool operator< (const State &left, const State &right)
 {
-
     return reinterpret_cast<const char*>( std::addressof(left) ) < reinterpret_cast<const char*>( std::addressof(right) ) ;
 }
-
 bool operator== (const State &left, const State &right)
 {
-
     return reinterpret_cast<const char*>( std::addressof(left) ) == reinterpret_cast<const char*>( std::addressof(right) );
 }
 */
@@ -89,6 +95,16 @@ bool operator== (const State &left, const State &right)
 unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
     return trans;
 }
+
+
+void State::setEqStates(set<shared_ptr<State>> states) {
+    State::EqStates = states;
+}
+
+set<shared_ptr<State>> State::getEqStates() {
+    return EqStates;
+}
+
  void State:: clone(shared_ptr<State> oldS,shared_ptr<State> newS,unordered_map<shared_ptr<State>, shared_ptr<State>> &mapS)
  {
     // cout << "yesss" << endl;
@@ -149,6 +165,7 @@ unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
 State::State(const shared_ptr<State> &) {
 
 }
+
 /*bool operator< ( State &left,  State &right)
 {
     return left.getToken().getName() < right.getToken().getName();

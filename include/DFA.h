@@ -7,6 +7,8 @@
 
 
 #include "State.h"
+#include "DFAState.h"
+#include <bits/stdc++.h>
 
 class DFA {
     private:
@@ -14,7 +16,7 @@ class DFA {
         shared_ptr<State> startState;
         shared_ptr<State> endState;
         list <shared_ptr<State>> states;
-    public:
+public:
     DFA();
 
     int getNumber() const;
@@ -32,6 +34,7 @@ class DFA {
     const list<shared_ptr<State>> &getStates() const;
 
     void setStates(const list<shared_ptr<State>> &states);
+
 };
 
 

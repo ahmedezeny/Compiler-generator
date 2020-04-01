@@ -4,14 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/zeny/Documents/projects/Compiler-generator/main.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/main.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/Controller.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/Controller.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/DFA.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/DFA.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/DFAState.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/DFAState.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/NFA.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/NFA.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/State.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/State.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/Token.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/Token.cpp.o"
-  "/home/zeny/Documents/projects/Compiler-generator/src/zenyTest.cpp" "/home/zeny/Documents/projects/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/zenyTest.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/main.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/main.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/Controller.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/Controller.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/DFA.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/DFA.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/DFAState.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/DFAState.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/NFA.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/NFA.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/State.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/State.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/Token.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/Token.cpp.o"
+  "/home/zeny/Documents/projects/Compiler/Compiler-generator/src/zenyTest.cpp" "/home/zeny/Documents/projects/Compiler/Compiler-generator/cmake-build-debug/CMakeFiles/Compiler_generator.dir/src/zenyTest.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -8,20 +8,22 @@
 #include "NFA.h"
 #include "Token.h"
 #include "DFA.h"
+#include "DFAState.h"
+#include <bits/stdc++.h>
 
 class Controller {
 private:
     vector<shared_ptr<Token>> tokens;
     vector<NFA> A;
+    vector<char> inputs;
     NFA N;
     DFA D;
-    vector<char >inputs;
 
-  //  set<struct shared_ptr<State>> epsClosure(shared_ptr<State> s, char input);
+    //  set<struct shared_ptr<State>> epsClosure(shared_ptr<State> s, char input);
 
-  //  set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> s, char input);
+    //  set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> s, char input);
 
-  //  shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
+    //  shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
 
     bool equalStates(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2);
 
@@ -43,10 +45,12 @@ private:
 
     void setNewStates(const vector<vector<shared_ptr<State>>>& partitions);
 
+
 public:
     Controller();
 
     virtual ~Controller();
+
     const vector<shared_ptr<Token>> &getTokens() const;
 
     void setTokens(const vector<shared_ptr<Token>> &tokens);
@@ -64,22 +68,35 @@ public:
     void setD(const DFA &d);
 
     set<shared_ptr<Token>> readToken(string path);
+
     shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
-   // NFA oringAll(vector<NFA> A);
-    DFA minDfa(DFA A);
+
     DFA nfaToDfa(NFA A);
 
     bool checkD(set<shared_ptr<State>> set);
-
 
     NFA oringAll(vector<NFA> A);
 
     void minDfa();
 
- //   DFA nfaToDfa(NFA A);
     void getAllInputs(DFA A);
 
- //   bool checkD(set<shared_ptr<State>> set);
+    set<shared_ptr<State>> epsClosure(shared_ptr<State> state);
+
+    shared_ptr<State> setup(set<shared_ptr<State>> states);
+
+    set<shared_ptr<State>> moveTo(set<shared_ptr<State>> states, char input);
+
+    set<shared_ptr<State>> moveTo(shared_ptr<State> state, char input);
+
+    set<shared_ptr<State>> epsClosure(set<shared_ptr<State>> states);
+
+    bool checkD(list<shared_ptr<State>> list, shared_ptr<State> state,
+                shared_ptr<State> *clone);
+
+    vector<char> getInputs();
+
+    void setInput(char input);
 
 };
 
