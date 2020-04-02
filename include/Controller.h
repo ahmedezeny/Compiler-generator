@@ -99,6 +99,8 @@ public:
     void setInput(char input);
 
     static bool ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &sharedPtr, shared_ptr<State> &sharedPtr1);
+    std::string inputToken(std::string input,DFA dfa);
+    void readInput(std::string path,DFA dfa);
 };
 
 

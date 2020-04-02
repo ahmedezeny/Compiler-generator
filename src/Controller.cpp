@@ -568,3 +568,102 @@ void Controller::setInput(char input) {
 bool Controller::ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &s1, shared_ptr<State> &s2) {
     return !(s1->isEndState()&&s2->isEndState()&&(s1->getToken()->getName().compare(s2->getToken()->getName()))!=0);
 }
+std::string Controller::inputToken(std::string input ,DFA dfa)
+{
+   int i=0;
+   std::stack<pair<shared_ptr<State>,int>> st;
+   std::string output;
+   shared_ptr<State> bottom;
+   cout<<input<<endl;
+   while(1)
+   {
+      shared_ptr<State> current =dfa.getStartState();
+      st.push(make_pair(bottom,i));
+      unordered_map<char, set<shared_ptr<State>>> umap = current->getAllT() ;
+       char c= input[i];
+       if(i==0&&c!='(')
+      cout<<input<<"    "<<current->getToken()->getName()<<endl;
+      
+      //unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
+     
+      /*itr =umap.find(c);
+         if(itr!=umap.end())
+         {
+             cout<<"yes"<<endl;
+         }*/
+
+      //cout<<"coco "<<current->getToken()->getName()<<endl;
+      while(i<input.length()&&umap.find(c)!=umap.end())
+      {
+          c=input[i];
+          if(current->isEndState())
+          {
+             st.empty();
+          } 
+          st.push(make_pair(current,i));
+          set<shared_ptr<State>> setC=umap[c];
+          set<shared_ptr<State>>::iterator iter ;
+          for(iter = setC.begin(); iter != setC.end(); iter++)
+          {
+                   current = *iter;
+          }
+          i++;
+         
+          
+          
+      }
+      
+      while(!current->isEndState())
+      {
+          
+          pair<shared_ptr<State>,int> p=st.top();
+          st.pop();
+          current=p.first;
+          i=p.second;
+          if (current==bottom)
+          {
+              return "no match";
+          } 
+      }
+      if(i>=input.length())
+      {
+        cout<<input<<"    "<<current->getToken()->getName()<<endl;
+        return current->getToken()->getName();
+      }
+   }
+   return output;
+}
+void Controller::readInput(std::string path,DFA dfa)
+{
+    std::ifstream infile;
+    infile.open(path);
+    if(!infile.is_open()) return;
+    std::vector<std::string> inputs ;
+    std::vector<std::string> outputs ;
+    std::string word;
+    cout <<"in"<<endl;
+    while(infile>>word)
+    {
+
+          cout << word<<endl;
+          inputs.push_back(word);
+    }
+    infile.close();
+    cout <<"sasasa"<<endl;
+    for(string& input:inputs)
+    {
+       std::string output;
+       output=inputToken(input,dfa);
+       outputs.push_back(output);
+    }
+     std::ofstream ofile;
+    ofile.open("output.txt");
+    if(!ofile.is_open()) return;
+    for(string& output:outputs)
+    {
+        
+       ofile<<output<<endl;
+    }
+    ofile.close();
+
+}

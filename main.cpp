@@ -108,6 +108,7 @@ int main() {
     done.insert(d.getStartState());
     Dfs(d.getStartState());
     cout << "num of states " << done.size()<< endl ;
+    c.readInput("codeInput.txt",d);
 
     return 0;
 }

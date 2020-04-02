@@ -185,10 +185,13 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
         c = str.at(i);
 
         if (c == '(') {
-           /* if (i - 1 >= 0 && str[i-1]== '\\' ){
+           if (i - 1 >= 0 && str[i-1]== '\\' ){
+                temp.push_back(c);
 
-            }*/
-            if (temp.length() > 0) {
+            }
+            else
+            {
+                if (temp.length() > 0) {
                 //  cout<<temp<<endl;
                 std::map<std::string, NFA>::iterator it;
                 it = prevNFA.find(temp);
@@ -232,6 +235,7 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
                     nfa = concat(nfa, parcingOne(s, token), token);
                 }
             }
+            }   
         } else if (c == '|') {
             if (i + 1 < str.length()) {
                 if (temp != "") {
