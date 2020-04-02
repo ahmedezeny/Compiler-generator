@@ -97,12 +97,18 @@ int main() {
 
 
     DFA d = c.nfaToDfa(a) ;
+     cout << "wwwwwwwwwwwwwwwwwww" << endl ;
+    done.clear();
+    done.insert(d.getStartState());
+    Dfs(d.getStartState());
+    cout << "num of states " << done.size() << endl ;
+
     c.minDfa();
     cout << "sssssssssssssssss" << endl ;
     done.clear();
     done.insert(d.getStartState());
     Dfs(d.getStartState());
-    cout << "num of states " << done.size();
+    cout << "num of states " << done.size()<< endl ;
 
     return 0;
 }

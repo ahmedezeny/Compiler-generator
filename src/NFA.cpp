@@ -146,7 +146,7 @@ NFA NFA::parcingPattern(set<shared_ptr<Token>> tokens) {
         /* if(token->getName() == "digits"){
               return prevNFA["digits"] ;
          }*/
-       // cout << "finish : " << token->getName() << endl;
+         cout << "finish : " << token->getName() << endl;
     }
 
 
@@ -185,6 +185,9 @@ NFA NFA::parcingOne(std::string str, shared_ptr<Token> token) {
         c = str.at(i);
 
         if (c == '(') {
+           /* if (i - 1 >= 0 && str[i-1]== '\\' ){
+
+            }*/
             if (temp.length() > 0) {
                 //  cout<<temp<<endl;
                 std::map<std::string, NFA>::iterator it;
