@@ -54,11 +54,37 @@ C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 bits/stdc++.h
 -
 
+C:/Users/Ahmed/Desktop/Compiler-generator/main.cpp
+iostream
+-
+include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
+include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
+include/NFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/NFA.h
+include/Controller.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Controller.h
+memory
+-
+
 C:/Users/Ahmed/Desktop/Compiler-generator/src/Controller.cpp
 ../include/Controller.h
 C:/Users/Ahmed/Desktop/Compiler-generator/include/Controller.h
 bits/stdc++.h
 -
+
+C:/Users/Ahmed/Desktop/Compiler-generator/src/DFA.cpp
+../include/DFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFA.h
+bits/stdc++.h
+-
+
+C:/Users/Ahmed/Desktop/Compiler-generator/src/DFAState.cpp
+bits/stdc++.h
+-
+../include/DFAState.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFAState.h
 
 C:/Users/Ahmed/Desktop/Compiler-generator/src/NFA.cpp
 ../include/NFA.h

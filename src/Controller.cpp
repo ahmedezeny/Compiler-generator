@@ -20,9 +20,7 @@ Controller::preProcess(vector<shared_ptr<Token>> tokens, int tokenNum) {
 
 
 set<shared_ptr<Token>> Controller::readToken(string path) {
-
     std::ifstream infile(path);
-
     std::string line;
     int counter = 0;
     set<string> allname;
@@ -30,7 +28,6 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
     while (std::getline(infile, line)) {
         counter++;
         if (line[0] == '[' && line[line.size() - 1] == ']') {
-
             string newline = line.substr(1, line.size() - 2);
             std::istringstream iss(newline);
             string s;
@@ -45,10 +42,7 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
                     allToken.insert(t);
                 }
             }
-
-
         } else if (line[0] == '{' && line[line.size() - 1] == '}') {
-
             string newline = line.substr(1, line.size() - 2);
             std::istringstream iss(newline);
             string s;
@@ -65,6 +59,7 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
 
 
         } else if (line[0] != '{' && line[0] != ']') {
+            bool flag = false;
             int index = 0;
             string sname = "";
             for (int i = 0; i < line.size(); i++) {
@@ -73,28 +68,31 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
                 }
 
                 if (line[i] == '=' || line[i] == ':') {
+                    if (line[i] == '=') flag = true;
                     index = i;
+
                     break;
                 }
 
                 sname = sname + line[i];
             }
+
+
             shared_ptr<Token> t(new Token());
             t->setName(sname);
             string s = line.substr(index + 1, line.size() - index + 1);
             t->setPriority(counter);
+            if (flag) t->setPriority(20);
+
             t->setPattern(s);
             if (allname.find(sname) == allname.end()) {
                 allname.insert(sname);
                 allToken.insert(t);
             }
-
-
         } else {
             break;
         }
     }
-
     return allToken;
 }
 
