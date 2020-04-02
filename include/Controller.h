@@ -98,6 +98,7 @@ public:
 
     void setInput(char input);
 
+    static bool ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &sharedPtr, shared_ptr<State> &sharedPtr1);
 };
 
 

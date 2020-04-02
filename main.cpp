@@ -102,7 +102,6 @@ int main() {
     done.insert(d.getStartState());
     Dfs(d.getStartState());
     cout << "num of states " << done.size() << endl ;
-
     c.minDfa();
     cout << "sssssssssssssssss" << endl ;
     done.clear();

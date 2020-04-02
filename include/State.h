@@ -47,7 +47,7 @@ public:
 
    // friend bool operator==(const State &left, const State &right);
 
-    bool same(shared_ptr<State> s);
+    //bool same(shared_ptr<State> s);
 
 protected:
 

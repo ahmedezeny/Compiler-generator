@@ -124,8 +124,17 @@ void Controller::minDfa() {
 
     vector<vector<shared_ptr<State>>> dummyPartitions = partitions;
     do {
+
+
         partitions = dummyPartitions;
         dummyPartitions = smash(partitions);
+        for(auto i:partitions){
+            for(auto j: i){
+                cout<<endl<<j->getToken()->getName();
+            }
+            cout<<endl<<"---------------"<<endl;
+        }
+        cout<<endl<<"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"<<endl;
     } while (!containSamePartitions(partitions, dummyPartitions));
     setNewStates(partitions);
     reflectMinimizedDfa(partitions);
@@ -156,7 +165,8 @@ Controller::smash(vector<vector<shared_ptr<State>>> p) {
         for (int j = 1; j < p[i].size(); j++) {
             bool luck = false;
             for (int r = newPartitionPointer; r < result.size(); r++) {
-                if (equalStates(p, result[r][0], p[i][j])) {
+                if (equalStates(p, result[r][0], p[i][j])&&
+                ifEndStatesTheyDontHaveSameToken(result[r][0], p[i][j])) {
                     result[r].push_back(p[i][j]);
                     luck = true;
                     break;
@@ -225,7 +235,7 @@ Controller::areEqual(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1,
     if (t1 == NULL || t2 == NULL)
         return false;
 
-    return !(!t1->same(t2) || !inSameVector(p, t1, t2));
+    return !(!(t1==t2) || !inSameVector(p, t1, t2));
 
 }
 
@@ -244,9 +254,9 @@ bool Controller::statesExistInVector(vector<shared_ptr<State>> p,
     bool bingo1 = false;
     bool bingo2 = false;
     for (auto i:p) {
-        if (i->same(t1))
+        if (i==t1)
             bingo1 = true;
-        if (i->same(t2))
+        if (i==t2)
             bingo2 = true;
     }
     return bingo1 && bingo2;
@@ -260,7 +270,7 @@ bool Controller::containSamePartitions(vector<vector<shared_ptr<State>>> v1,
         if (v1[i].size() != v2[i].size())
             return false;
         for (int j = 0; j < v1[i].size(); j++) {
-            if (!v1[i][j]->same(v2[i][j]))
+            if (!(v1[i][j]==v2[i][j]))
                 return false;
         }
     }
@@ -270,6 +280,13 @@ bool Controller::containSamePartitions(vector<vector<shared_ptr<State>>> v1,
 
 void
 Controller::reflectMinimizedDfa(vector<vector<shared_ptr<State>>> partitions) {
+//    for(auto i:partitions){
+//        for(auto j: i){
+//            cout<<endl<<j->getToken()->getName();
+//        }
+//        cout<<"---------------"<<endl;
+//    }
+
     vector<shared_ptr<State>> sl(this->D.getStates().begin(),
                                  this->D.getStates().end());
 
@@ -304,8 +321,14 @@ Controller::mushTwoStates(shared_ptr<State> state, shared_ptr<State> state1) {
         && state1->isEndState()
         && state1->getToken()->getPriority() <
            state->getToken()->getPriority())
+    {
         state->setToken(state1->getToken());
-
+//        cout<< state->getToken()->getPattern()<<"   ";
+//        cout<< state->getToken()->getName()<<endl;
+//        cout<< state1->getToken()->getPattern()<<"   ";
+//        cout<< state1->getToken()->getName()<<endl;
+//        cout<<"---------------------------"<<endl;
+    }
 }
 
 const vector<shared_ptr<Token>> &Controller::getTokens() const {
@@ -540,4 +563,8 @@ vector<char> Controller::getInputs() {
 
 void Controller::setInput(char input) {
     inputs.push_back(input);
+}
+
+bool Controller::ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &s1, shared_ptr<State> &s2) {
+    return !(s1->isEndState()&&s2->isEndState()&&(s1->getToken()->getName().compare(s2->getToken()->getName()))!=0);
 }

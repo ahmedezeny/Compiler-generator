@@ -6,59 +6,57 @@
 
 #IncludeRegexTransform: 
 
-../include/Controller.h
+/home/zeny/Documents/projects/Compiler-generator/include/Controller.h
 NFA.h
-../include/NFA.h
+/home/zeny/Documents/projects/Compiler-generator/include/NFA.h
 Token.h
-../include/Token.h
+/home/zeny/Documents/projects/Compiler-generator/include/Token.h
 DFA.h
-../include/DFA.h
+/home/zeny/Documents/projects/Compiler-generator/include/DFA.h
 DFAState.h
-../include/DFAState.h
+/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
 bits/stdc++.h
 -
 
-../include/DFA.h
+/home/zeny/Documents/projects/Compiler-generator/include/DFA.h
 State.h
-../include/State.h
+/home/zeny/Documents/projects/Compiler-generator/include/State.h
 DFAState.h
-../include/DFAState.h
+/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
 bits/stdc++.h
 -
 
-../include/DFAState.h
+/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
 State.h
-../include/State.h
+/home/zeny/Documents/projects/Compiler-generator/include/State.h
 Token.h
-../include/Token.h
+/home/zeny/Documents/projects/Compiler-generator/include/Token.h
 bits/stdc++.h
 -
 
-../include/NFA.h
+/home/zeny/Documents/projects/Compiler-generator/include/NFA.h
 State.h
-../include/State.h
+/home/zeny/Documents/projects/Compiler-generator/include/State.h
 Token.h
-../include/Token.h
+/home/zeny/Documents/projects/Compiler-generator/include/Token.h
 memory
 -
 
-../include/State.h
+/home/zeny/Documents/projects/Compiler-generator/include/State.h
 bits/stdc++.h
 -
 Token.h
-../include/Token.h
+/home/zeny/Documents/projects/Compiler-generator/include/Token.h
 memory
 -
 
-../include/Token.h
+/home/zeny/Documents/projects/Compiler-generator/include/Token.h
 bits/stdc++.h
 -
 
 /home/zeny/Documents/projects/Compiler-generator/src/Controller.cpp
-Controller.h
-/home/zeny/Documents/projects/Compiler-generator/src/Controller.h
+../include/Controller.h
+/home/zeny/Documents/projects/Compiler-generator/include/Controller.h
 bits/stdc++.h
--
-DFAState.h
 -
 

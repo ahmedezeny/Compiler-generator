@@ -75,12 +75,12 @@ bool operator<(const State &left, const State &right) {
 
     return l.getToken()->getName() < r.getToken()->getName();
 }
-
-bool State::same(shared_ptr<State> s ) {
-    bool st=this->getTrans()==s->getTrans();
-    bool ses=this->isEndState()==s->isEndState();
-    return  st&&ses;
-}
+//
+//bool State::same(shared_ptr<State> s ) {
+//    bool st=this->getTrans()==s->getTrans();
+//    bool ses=this->isEndState()==s->isEndState();
+//    return  st&&ses;
+//}
 
 /*
 bool operator< (const State &left, const State &right)
