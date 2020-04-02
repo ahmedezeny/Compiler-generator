@@ -11,11 +11,11 @@
 #include <bits/stdc++.h>
 
 class DFA {
-    private:
-        int number; // we may remove that
-        shared_ptr<State> startState;
-        shared_ptr<State> endState;
-        list <shared_ptr<State>> states;
+private:
+    int number; // we may remove that
+    shared_ptr<State> startState;
+    shared_ptr<State> endState;
+    list<shared_ptr<State>> states;
 public:
     DFA();
 

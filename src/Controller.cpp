@@ -28,11 +28,7 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
     set<string> allname;
     set<shared_ptr<Token> > allToken;
     while (std::getline(infile, line)) {
-        //   cout << counter << endl ;
         counter++;
-        /**     std::istringstream iss(line);
-                string s ;
-        */
         if (line[0] == '[' && line[line.size() - 1] == ']') {
 
             string newline = line.substr(1, line.size() - 2);
@@ -69,7 +65,6 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
 
 
         } else if (line[0] != '{' && line[0] != ']') {
-            // cout << line << endl ;
             int index = 0;
             string sname = "";
             for (int i = 0; i < line.size(); i++) {
@@ -84,14 +79,8 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
 
                 sname = sname + line[i];
             }
-
-            if (index == 0 || sname == "") {
-                cout << "eeeeeNow" << endl;
-            }
-
             shared_ptr<Token> t(new Token());
             t->setName(sname);
-            cout << line << endl;
             string s = line.substr(index + 1, line.size() - index + 1);
             t->setPriority(counter);
             t->setPattern(s);
@@ -102,12 +91,8 @@ set<shared_ptr<Token>> Controller::readToken(string path) {
 
 
         } else {
-            // cout << "error" << endl  ;
             break;
         }
-
-
-        // process pair (a,b)
     }
 
     return allToken;
@@ -128,13 +113,6 @@ void Controller::minDfa() {
 
         partitions = dummyPartitions;
         dummyPartitions = smash(partitions);
-        for(auto i:partitions){
-            for(auto j: i){
-                cout<<endl<<j->getToken()->getName();
-            }
-            cout<<endl<<"---------------"<<endl;
-        }
-        cout<<endl<<"-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-"<<endl;
     } while (!containSamePartitions(partitions, dummyPartitions));
     setNewStates(partitions);
     reflectMinimizedDfa(partitions);
@@ -165,8 +143,8 @@ Controller::smash(vector<vector<shared_ptr<State>>> p) {
         for (int j = 1; j < p[i].size(); j++) {
             bool luck = false;
             for (int r = newPartitionPointer; r < result.size(); r++) {
-                if (equalStates(p, result[r][0], p[i][j])&&
-                ifEndStatesTheyDontHaveSameToken(result[r][0], p[i][j])) {
+                if (equalStates(p, result[r][0], p[i][j]) &&
+                    ifEndStatesTheyDontHaveSameToken(result[r][0], p[i][j])) {
                     result[r].push_back(p[i][j]);
                     luck = true;
                     break;
@@ -235,7 +213,7 @@ Controller::areEqual(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1,
     if (t1 == NULL || t2 == NULL)
         return false;
 
-    return !(!(t1==t2) || !inSameVector(p, t1, t2));
+    return !(!(t1 == t2) || !inSameVector(p, t1, t2));
 
 }
 
@@ -254,9 +232,9 @@ bool Controller::statesExistInVector(vector<shared_ptr<State>> p,
     bool bingo1 = false;
     bool bingo2 = false;
     for (auto i:p) {
-        if (i==t1)
+        if (i == t1)
             bingo1 = true;
-        if (i==t2)
+        if (i == t2)
             bingo2 = true;
     }
     return bingo1 && bingo2;
@@ -270,7 +248,7 @@ bool Controller::containSamePartitions(vector<vector<shared_ptr<State>>> v1,
         if (v1[i].size() != v2[i].size())
             return false;
         for (int j = 0; j < v1[i].size(); j++) {
-            if (!(v1[i][j]==v2[i][j]))
+            if (!(v1[i][j] == v2[i][j]))
                 return false;
         }
     }
@@ -280,13 +258,6 @@ bool Controller::containSamePartitions(vector<vector<shared_ptr<State>>> v1,
 
 void
 Controller::reflectMinimizedDfa(vector<vector<shared_ptr<State>>> partitions) {
-//    for(auto i:partitions){
-//        for(auto j: i){
-//            cout<<endl<<j->getToken()->getName();
-//        }
-//        cout<<"---------------"<<endl;
-//    }
-
     vector<shared_ptr<State>> sl(this->D.getStates().begin(),
                                  this->D.getStates().end());
 
@@ -320,14 +291,8 @@ Controller::mushTwoStates(shared_ptr<State> state, shared_ptr<State> state1) {
     if (state->isEndState()
         && state1->isEndState()
         && state1->getToken()->getPriority() <
-           state->getToken()->getPriority())
-    {
+           state->getToken()->getPriority()) {
         state->setToken(state1->getToken());
-//        cout<< state->getToken()->getPattern()<<"   ";
-//        cout<< state->getToken()->getName()<<endl;
-//        cout<< state1->getToken()->getPattern()<<"   ";
-//        cout<< state1->getToken()->getName()<<endl;
-//        cout<<"---------------------------"<<endl;
     }
 }
 
@@ -379,14 +344,11 @@ Controller::setNewStates(const vector<vector<shared_ptr<State>>> &partitions) {
 }
 
 DFA Controller::nfaToDfa(NFA A) {
-//    list<shared_ptr<State>> states = A.getStates();
     list<shared_ptr<State>> DStates;
-//    list<set<shared_ptr<State>>> EqStates;
     queue<shared_ptr<State>> DQ;
     shared_ptr<State> s0 = setup(epsClosure(A.getStartState()));
     DStates.push_back(s0);
     DQ.push(s0);
-//    EqStates.push_back(epsClosure(A.getStartState()));
     while (!DQ.empty()) {
         shared_ptr<State> t = DQ.front();
         DQ.pop();
@@ -400,7 +362,6 @@ DFA Controller::nfaToDfa(NFA A) {
             if (!checkD(DStates, s, &clone)) {
                 DStates.push_back(s);
                 DQ.push(s);
-//                EqStates.push_back(u);
                 t->resetTransion(*input, s);
             } else {
                 t->resetTransion(*input, clone);
@@ -483,8 +444,6 @@ Controller::moveTo(shared_ptr<State> state, char input) {
 shared_ptr<State> Controller::setup(set<shared_ptr<State>> states) {
     shared_ptr<State> dfaState(
             new State(shared_ptr<Token>(new Token("0", "0", INT_MAX))));
-    //cout << dfaState->getToken()->getName() << endl;
-    // cout << "fffffffffff" << endl ;
     for (auto state : states) {
         for (auto transition : state->getTrans())
             if (transition.first != 0)
@@ -493,50 +452,19 @@ shared_ptr<State> Controller::setup(set<shared_ptr<State>> states) {
 
         if (state->isEndState()) {
             dfaState->setEndState(true);
-            /* if (state->getToken()->getName() == "while") {
-                cout << "wwwwwwwwwwwwwwwwwwwwwwwww" << endl ;
-                cout << "new  " << state->getToken()->getName() << "  " << state->getToken()->getPriority() << endl;
-                cout << "old  " << dfaState->getToken()->getName() << "  " << dfaState->getToken()->getPriority() << endl;
-            }*/
             if (state->getToken()->getPriority() <
                 dfaState->getToken()->getPriority()) {
                 dfaState->setToken(state->getToken());
             }
         }
     }
-//    unordered_map<char, set<shared_ptr<State>>> trans;
-//    unordered_map<char, DFAState> trans2;
-//    for (auto state : states) {
-//        for (auto transitions : state->getTrans()) {
-//            if (trans.count(transitions.first) > 0) {
-//                auto temp = trans[transitions.first];
-//                temp.insert(transitions.second.begin(),
-//                            transitions.second.end());
-//                trans.insert({transitions.first, temp});
-//            } else {
-//                set<shared_ptr<State>> temp;
-//                temp.insert(transitions.second.begin(),
-//                            transitions.second.end());
-//                trans.insert({transitions.first, temp});
-//            }
-//        }
-//    }
-////    for (auto transition: trans) {
-////        if (transition.first != '0') {
-////            trans2.insert({transition.first, setup(transition.second)});
-////        }
-////    }
-//    dfaState->setTrans(trans);
     dfaState->setEqStates(states);
     return dfaState;
 }
 
 bool Controller::checkD(list<shared_ptr<State>> list,
-//                        std::list<set<shared_ptr<State>>> EqStates,
                         shared_ptr<State> state,
                         shared_ptr<State> *clone) {
-//    if (state->getTrans().size() == 0)
-//        return true;
     for (auto iter : list) {
         if (iter->getEqStates().size() != state->getEqStates().size())
             continue;
@@ -565,130 +493,105 @@ void Controller::setInput(char input) {
     inputs.push_back(input);
 }
 
-bool Controller::ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &s1, shared_ptr<State> &s2) {
-    return !(s1->isEndState()&&s2->isEndState()&&(s1->getToken()->getName().compare(s2->getToken()->getName()))!=0);
+bool Controller::ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &s1,
+                                                  shared_ptr<State> &s2) {
+    return !(s1->isEndState() && s2->isEndState() &&
+             (s1->getToken()->getName().compare(s2->getToken()->getName())) !=
+             0);
 }
-std::string Controller::inputToken(std::string input ,DFA dfa)
-{
-   int i=0;
-   std::stack<pair<shared_ptr<State>,int>> st;
-   std::string output;
-   shared_ptr<State> bottom;
-   cout<<input<<endl;
-   //dfa.getStartState()->setEndState(false);
-   while(1)
-   {
-      shared_ptr<State> current =dfa.getStartState();
-      st.push(make_pair(bottom,i));
-      unordered_map<char, set<shared_ptr<State>>> umap = current->getAllT() ;
-      unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
 
-      char c= input[i];
-      while(i<input.length()&&umap.find(c)!=umap.end())
-      {
+std::string Controller::inputToken(std::string input, DFA dfa) {
+    int i = 0;
+    std::stack<pair<shared_ptr<State>, int>> st;
+    std::string output;
+    shared_ptr<State> bottom;
+    while (1) {
+        shared_ptr<State> current = dfa.getStartState();
+        st.push(make_pair(bottom, i));
+        unordered_map<char, set<shared_ptr<State>>> umap = current->getAllT();
+        unordered_map<char, set<shared_ptr<State>>>::iterator itr;
 
-          
-          if(current->isEndState())
-          {
-             st.empty();
-          }
-          st.push(make_pair(current,i));
-          set<shared_ptr<State>> setC=umap[c];
-          set<shared_ptr<State>>::iterator iter ;
-          for(iter = setC.begin(); iter != setC.end(); iter++)
-          {
-                   current = *iter;
-                   umap = current->getAllT() ;
-          }
-          i++;
-          if(i<input.length())
-          {
-              c= input[i];
-          }
-      }
-       //cout <<"sasasa"<<endl;
-      while(!current->isEndState())
-      {
-          //cout <<input<<endl;
-          pair<shared_ptr<State>,int> p=st.top();
-          //cout <<i<<endl;
-          st.pop();
-          current=p.first;
-          i=p.second;
-          if (current==bottom)
-          {
-              return "no match";
-          }
-      }
-      cout <<i<< c<<endl;
-      if(i==input.length())
-      {
-        cout<<input<<"    "<<current->getToken()->getName()<<endl;
-        return current->getToken()->getName();
-      }
+        char c = input[i];
+        while (i < input.length() && umap.find(c) != umap.end()) {
 
-   }
-   return output;
+
+            if (current->isEndState()) {
+                st.empty();
+            }
+            st.push(make_pair(current, i));
+            set<shared_ptr<State>> setC = umap[c];
+            set<shared_ptr<State>>::iterator iter;
+            for (iter = setC.begin(); iter != setC.end(); iter++) {
+                current = *iter;
+                umap = current->getAllT();
+            }
+            i++;
+            if (i < input.length()) {
+                c = input[i];
+            }
+        }
+        while (!current->isEndState()) {
+            pair<shared_ptr<State>, int> p = st.top();
+            st.pop();
+            current = p.first;
+            i = p.second;
+            if (current == bottom) {
+                return "no match";
+            }
+        }
+        if (i == input.length()) {
+            return current->getToken()->getName();
+        }
+
+    }
+    return output;
 }
-void Controller::readInput(std::string path,DFA dfa)
-{
+
+void Controller::readInput(std::string path, DFA dfa) {
     std::ifstream infile;
     infile.open(path);
-    if(!infile.is_open()) return;
-    std::vector<std::string> inputs ;
-    std::vector<std::string> outputs ;
+    if (!infile.is_open()) return;
+    std::vector<std::string> inputs;
+    std::vector<std::string> outputs;
     std::string word;
-    cout <<"in"<<endl;
-    while(infile>>word)
-    {
+    while (infile >> word) {
+        std::string temp = string("");
+        for (int i = 0; i < word.length(); i++) {
+            char c = word[i];
 
-          
-          std::string temp =string("");
-        for(int i =0;i<word.length();i++)
-          {
-              char c=word[i];
+            if (c == '(' || c == ')' || c == ';' || c == ',') {
+                if (temp.length() > 0) {
+                    inputs.push_back(temp);
+                    temp = string("");
+                }
 
-              if(c=='('||c==')'||c==';'||c==',')
-              {
-                  if(temp.length()>0)
-                  {
-                      inputs.push_back(temp);
-                      temp=string("");
-                  }
-                  
-                  temp.push_back(c);
-                  inputs.push_back(temp);
-                  temp =string("");
-              }
-              else
-              {
-                  temp.push_back(c);
-              }
-              
-          }
-          if(temp.length()>0)
-          {
-              inputs.push_back(temp);
-          }
-          
+                temp.push_back(c);
+                inputs.push_back(temp);
+                temp = string("");
+            } else {
+                temp.push_back(c);
+            }
+
+        }
+        if (temp.length() > 0) {
+            inputs.push_back(temp);
+        }
+
     }
     infile.close();
-    cout <<"sasasa"<<endl;
-    
-    for(string& input:inputs)
-    {
-       
-       std::string output;
-       output=inputToken(input,dfa);
-       outputs.push_back(output);
-    }
-     std::ofstream ofile;
-    ofile.open("output.txt");
-    if(!ofile.is_open()) return;
-    for(string& output:outputs)
-    {
 
-       ofile<<output<<endl;
+    for (string &input:inputs) {
+
+        std::string output;
+        output = inputToken(input, dfa);
+        outputs.push_back(output);
+    }
+    std::ofstream ofile;
+    ofile.open("output.txt");
+    if (!ofile.is_open()) return;
+    for (string &output:outputs) {
+
+        ofile << output << endl;
     }
     ofile.close();
 

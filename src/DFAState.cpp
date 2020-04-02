@@ -23,7 +23,7 @@ set<State> DFAState::getTransion(char input) {
 }
 
 void DFAState::setTransion(char input, shared_ptr<DFAState> e) {
-    if (trans.count(input)==0) {
+    if (trans.count(input) == 0) {
         trans[input] = e;
     } else {
         cout << "error" << endl;
@@ -46,10 +46,10 @@ unordered_map<char, shared_ptr<DFAState>> DFAState::getTrans() {
     return DFAState::trans;
 }
 
-void DFAState::setSubStates(set<shared_ptr<State>> subStates){
-    DFAState::subStates.insert(subStates.begin(),subStates.end());
+void DFAState::setSubStates(set<shared_ptr<State>> subStates) {
+    DFAState::subStates.insert(subStates.begin(), subStates.end());
 }
 
-set<shared_ptr<State>> DFAState::getSubStates(){
+set<shared_ptr<State>> DFAState::getSubStates() {
     return subStates;
 }

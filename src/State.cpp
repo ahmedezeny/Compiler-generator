@@ -11,7 +11,6 @@ State::~State() {
 }
 
 State::State(shared_ptr<Token> stateToken) : stateToken(stateToken) {
-    //cout << State::stateToken->getName() << "gg\n";
     endState = false;
 }
 
@@ -20,18 +19,15 @@ bool State::isEndState() {
     return endState;
 }
 
- unordered_map<char, set<shared_ptr<State>>> State::getAllT() {
+unordered_map<char, set<shared_ptr<State>>> State::getAllT() {
 
-    return trans ;
- }
+    return trans;
+}
 
 void State::setTransion(char input, shared_ptr<State> e) {
 
-   if (trans[input].find(e) == trans[input].end()) {
+    if (trans[input].find(e) == trans[input].end()) {
         trans[input].insert(e);
-    } else {
-       // cout << "ssssssssssssssssssssssssssssssssssssssssssssssssssss" ;
-       // cout << "error" << endl;
     }
 }
 
@@ -39,8 +35,6 @@ void State::resetTransion(char input, shared_ptr<State> e) {
     trans.erase(input);
     if (trans[input].find(e) == trans[input].end()) {
         trans[input].insert(e);
-    } else {
-        cout << "error" << endl;
     }
 }
 
@@ -75,23 +69,6 @@ bool operator<(const State &left, const State &right) {
 
     return l.getToken()->getName() < r.getToken()->getName();
 }
-//
-//bool State::same(shared_ptr<State> s ) {
-//    bool st=this->getTrans()==s->getTrans();
-//    bool ses=this->isEndState()==s->isEndState();
-//    return  st&&ses;
-//}
-
-/*
-bool operator< (const State &left, const State &right)
-{
-    return reinterpret_cast<const char*>( std::addressof(left) ) < reinterpret_cast<const char*>( std::addressof(right) ) ;
-}
-bool operator== (const State &left, const State &right)
-{
-    return reinterpret_cast<const char*>( std::addressof(left) ) == reinterpret_cast<const char*>( std::addressof(right) );
-}
-*/
 
 unordered_map<char, set<shared_ptr<State>>> State::getTrans() {
     return trans;
@@ -106,72 +83,47 @@ set<shared_ptr<State>> State::getEqStates() {
     return EqStates;
 }
 
- void State:: clone(shared_ptr<State> oldS,shared_ptr<State> newS,unordered_map<shared_ptr<State>, shared_ptr<State>> &mapS)
- {
-    // cout << "yesss" << endl;
-     unordered_map<char, set<shared_ptr<State>>> umap = oldS->getAllT() ;
-     if(mapS.find(oldS)==mapS.end())
-         {
-            mapS[oldS]=newS;
-         }
+void State::clone(shared_ptr<State> oldS, shared_ptr<State> newS,
+                  unordered_map<shared_ptr<State>, shared_ptr<State>> &mapS) {
+    unordered_map<char, set<shared_ptr<State>>> umap = oldS->getAllT();
+    if (mapS.find(oldS) == mapS.end()) {
+        mapS[oldS] = newS;
+    }
 
-     unordered_map<char, set<shared_ptr<State>>> :: iterator itr;
+    unordered_map<char, set<shared_ptr<State>>>::iterator itr;
 
-     for(itr = umap.begin(); itr != umap.end(); itr++)
-     {
+    for (itr = umap.begin(); itr != umap.end(); itr++) {
 
-          char c=itr->first;
+        char c = itr->first;
 
-          set<shared_ptr<State>> setS;
-          setS=itr->second;
+        set<shared_ptr<State>> setS;
+        setS = itr->second;
 
-          set<shared_ptr<State>>::iterator itS;
-          for(itS = setS.begin(); itS != setS.end(); itS++)
-          {
-             shared_ptr<State> oS =*itS;
-              //cout << c << endl;
-             if(mapS.find(oS)==mapS.end())
-             {
-         //        if (oS->getToken() == nullptr ) {
-                // cout <<  oS->getToken()->getName() << endl ;n
+        set<shared_ptr<State>>::iterator itS;
+        for (itS = setS.begin(); itS != setS.end(); itS++) {
+            shared_ptr<State> oS = *itS;
+            if (mapS.find(oS) == mapS.end()) {
+                shared_ptr<State> nS(new State(oS->getToken()));
+                clone(oS, nS, mapS);
+                newS->setTransion(c, nS);
 
-            //     }
-                 shared_ptr<State> nS(new State(oS->getToken()));
-                 clone(oS,nS,mapS);
-              //  \ cout << "Sdfaaaaaaaaaaaa" << endl;
+            } else {
 
-                 newS->setTransion(c,nS);
+                newS->setTransion(c, mapS[oS]);
 
-             }
-             else
-             {
-               // cout << "Sdfaaaaaaaaaaaa" << endl;
-                 newS->setTransion(c,mapS[oS]);
+            }
+        }
 
-             }
-          }
-
-          //cout << "errorrrrrrrrrrrrrrr!!!" << endl ;
+    }
 
 
-     }
+    newS->setToken(oldS->getToken());
+    newS->setEndState(oldS->isEndState());
 
 
-     newS->setToken(oldS->getToken());
-     newS->setEndState(oldS->isEndState());
-
-
- }
+}
 
 State::State(const shared_ptr<State> &) {
 
 }
 
-/*bool operator< ( State &left,  State &right)
-{
-    return left.getToken().getName() < right.getToken().getName();
-}*/
-/*bool operator< (const Point2D &right) const
-{
-    return etToken().getName() < right.getToken().getName();
-}*/

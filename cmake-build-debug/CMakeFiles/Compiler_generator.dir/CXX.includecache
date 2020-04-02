@@ -6,57 +6,77 @@
 
 #IncludeRegexTransform: 
 
-/home/zeny/Documents/projects/Compiler-generator/include/Controller.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Controller.h
 NFA.h
-/home/zeny/Documents/projects/Compiler-generator/include/NFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/NFA.h
 Token.h
-/home/zeny/Documents/projects/Compiler-generator/include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 DFA.h
-/home/zeny/Documents/projects/Compiler-generator/include/DFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFA.h
 DFAState.h
-/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFAState.h
 bits/stdc++.h
 -
 
-/home/zeny/Documents/projects/Compiler-generator/include/DFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFA.h
 State.h
-/home/zeny/Documents/projects/Compiler-generator/include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
 DFAState.h
-/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFAState.h
 bits/stdc++.h
 -
 
-/home/zeny/Documents/projects/Compiler-generator/include/DFAState.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/DFAState.h
 State.h
-/home/zeny/Documents/projects/Compiler-generator/include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
 Token.h
-/home/zeny/Documents/projects/Compiler-generator/include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 bits/stdc++.h
 -
 
-/home/zeny/Documents/projects/Compiler-generator/include/NFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/NFA.h
 State.h
-/home/zeny/Documents/projects/Compiler-generator/include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
 Token.h
-/home/zeny/Documents/projects/Compiler-generator/include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 memory
 -
 
-/home/zeny/Documents/projects/Compiler-generator/include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
 bits/stdc++.h
 -
 Token.h
-/home/zeny/Documents/projects/Compiler-generator/include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 memory
 -
 
-/home/zeny/Documents/projects/Compiler-generator/include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 bits/stdc++.h
 -
 
-/home/zeny/Documents/projects/Compiler-generator/src/Controller.cpp
+C:/Users/Ahmed/Desktop/Compiler-generator/src/Controller.cpp
 ../include/Controller.h
-/home/zeny/Documents/projects/Compiler-generator/include/Controller.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Controller.h
 bits/stdc++.h
 -
+
+C:/Users/Ahmed/Desktop/Compiler-generator/src/NFA.cpp
+../include/NFA.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/NFA.h
+string.h
+-
+iostream
+-
+
+C:/Users/Ahmed/Desktop/Compiler-generator/src/State.cpp
+../include/State.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/State.h
+../include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
+memory
+-
+
+C:/Users/Ahmed/Desktop/Compiler-generator/src/Token.cpp
+../include/Token.h
+C:/Users/Ahmed/Desktop/Compiler-generator/include/Token.h
 

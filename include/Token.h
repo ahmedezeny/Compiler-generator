@@ -3,25 +3,34 @@
 
 
 #include <bits/stdc++.h>
+
 using namespace std;
 
-class Token
-{
-    public:
-        Token();
-        virtual ~Token();
-        Token(string name);
-        Token(string name, string pattern, int priority);
-        string getName() ;
-        void setName(string name);
-        string getPattern() ;
-        void setPattern(string pattern);
-        int getPriority() ;
-        void setPriority(int priority);
+class Token {
+public:
+    Token();
 
-    protected:
+    virtual ~Token();
 
-    private:
+    Token(string name);
+
+    Token(string name, string pattern, int priority);
+
+    string getName();
+
+    void setName(string name);
+
+    string getPattern();
+
+    void setPattern(string pattern);
+
+    int getPriority();
+
+    void setPriority(int priority);
+
+protected:
+
+private:
     string name;
     string pattern;
     int priority;

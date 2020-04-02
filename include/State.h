@@ -12,7 +12,7 @@ class State {
 public:
     State();
 
-    State(const shared_ptr<State>&);
+    State(const shared_ptr<State> &);
 
     virtual ~State();
 
@@ -45,7 +45,7 @@ public:
 
     friend bool operator<(const State &left, const State &right);
 
-   // friend bool operator==(const State &left, const State &right);
+    // friend bool operator==(const State &left, const State &right);
 
     //bool same(shared_ptr<State> s);
 

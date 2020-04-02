@@ -25,25 +25,31 @@ private:
 
     //  shared_ptr<State> getUnMarked(unordered_map<set<shared_ptr<State>>, bool> &DStates);
 
-    bool equalStates(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2);
+    bool equalStates(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1,
+                     shared_ptr<State> s2);
 
-    vector<vector<shared_ptr<State>>> smash(vector<vector<shared_ptr<State>>> p);
+    vector<vector<shared_ptr<State>>>
+    smash(vector<vector<shared_ptr<State>>> p);
 
     vector<vector<shared_ptr<State>>> split(vector<shared_ptr<State>> s);
 
-    bool areEqual(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1, shared_ptr<State> s2, char in);
+    bool areEqual(vector<vector<shared_ptr<State>>> p, shared_ptr<State> s1,
+                  shared_ptr<State> s2, char in);
 
-    bool inSameVector(vector<vector<shared_ptr<State>>> p, shared_ptr<State> t1, shared_ptr<State> t2);
+    bool inSameVector(vector<vector<shared_ptr<State>>> p, shared_ptr<State> t1,
+                      shared_ptr<State> t2);
 
-    bool statesExistInVector(vector<shared_ptr<State>> p, shared_ptr<State> t1, shared_ptr<State> t2);
+    bool statesExistInVector(vector<shared_ptr<State>> p, shared_ptr<State> t1,
+                             shared_ptr<State> t2);
 
-    bool containSamePartitions(vector<vector<shared_ptr<State>>> v1, vector<vector<shared_ptr<State>>> v2);
+    bool containSamePartitions(vector<vector<shared_ptr<State>>> v1,
+                               vector<vector<shared_ptr<State>>> v2);
 
     void reflectMinimizedDfa(vector<vector<shared_ptr<State>>> partitions);
 
     void mushTwoStates(shared_ptr<State> state, shared_ptr<State> state1);
 
-    void setNewStates(const vector<vector<shared_ptr<State>>>& partitions);
+    void setNewStates(const vector<vector<shared_ptr<State>>> &partitions);
 
 
 public:
@@ -69,7 +75,8 @@ public:
 
     set<shared_ptr<Token>> readToken(string path);
 
-    shared_ptr<Token> preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
+    shared_ptr<Token>
+    preProcess(vector<shared_ptr<Token>> tokens, int tokenNum);
 
     DFA nfaToDfa(NFA A);
 
@@ -98,9 +105,12 @@ public:
 
     void setInput(char input);
 
-    static bool ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &sharedPtr, shared_ptr<State> &sharedPtr1);
-    std::string inputToken(std::string input,DFA dfa);
-    void readInput(std::string path,DFA dfa);
+    static bool ifEndStatesTheyDontHaveSameToken(shared_ptr<State> &sharedPtr,
+                                                 shared_ptr<State> &sharedPtr1);
+
+    std::string inputToken(std::string input, DFA dfa);
+
+    void readInput(std::string path, DFA dfa);
 };
 
 

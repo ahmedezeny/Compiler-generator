@@ -1,24 +1,22 @@
 #include "../include/Token.h"
 
-Token::Token()
-{
+Token::Token() {
     //ctor
 }
 
-Token::~Token()
-{
+Token::~Token() {
     //dtor
 }
 
 
 Token::Token(string name) : name(name) {}
 
-Token::Token(string name, string pattern, int priority) : name(name), pattern(pattern), priority(priority) {}
+Token::Token(string name, string pattern, int priority) : name(name),
+                                                          pattern(pattern),
+                                                          priority(priority) {}
 
 
-
-
-string Token::getName()  {
+string Token::getName() {
     return name;
 }
 
@@ -26,7 +24,7 @@ void Token::setName(string name) {
     Token::name = name;
 }
 
-string Token::getPattern()  {
+string Token::getPattern() {
     return pattern;
 }
 

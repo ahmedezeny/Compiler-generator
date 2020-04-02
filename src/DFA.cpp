@@ -1,8 +1,7 @@
 #include "../include/DFA.h"
 #include <bits/stdc++.h>
 
-DFA::DFA()
-{
+DFA::DFA() {
     //ctor
 }
 
